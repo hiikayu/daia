@@ -7,13 +7,17 @@
 <meta name="description" content="daia world ✿ the little corner of the internet of hiikayu — games, portfolio & visual thingies lol">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+One&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+One&family=M+PLUS+Rounded+1c:wght@400;700&family=Yomogi&display=swap" rel="stylesheet">
+<script>
+/* if a picture isn't uploaded yet, show a cute placeholder with its file name */
+function miss(img){ const box = img.parentNode; box.classList.add('missing'); box.dataset.file = img.getAttribute('src'); img.remove(); }
+</script>
 <style>
 :root{
   --pink:#ffc4dd; --pink2:#ff8fbf; --hot:#ff4f9a;
   --blue:#cde9ff; --blue2:#8cc8ff; --deep:#4f8fe0;
   --cream:#fffaf6; --mint:#c9f5e5; --lemon:#fff2a8;
-  --ink:#5b4a6e; --muted:#9a8aa8;
+  --cocoa:#7a5a4e; --ink:#5b4a6e; --muted:#9a8aa8;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -27,7 +31,13 @@ body{
 a{color:var(--deep)}
 a:hover{color:var(--hot)}
 ::selection{background:var(--pink)}
-.pix{font-family:'DotGothic16',monospace}
+img{max-width:100%}
+.px{image-rendering:pixelated;image-rendering:crisp-edges}
+
+/* ---------- picture placeholders ---------- */
+.ph{position:relative}
+.ph.missing{display:grid;place-items:center;min-height:110px;background:repeating-linear-gradient(45deg,#fff 0 8px,#fff0f6 8px 16px)}
+.ph.missing::after{content:"✿ upload: " attr(data-file);font-family:'DotGothic16';font-size:11px;color:var(--hot);background:#fff;border:1.5px dashed var(--pink2);border-radius:99px;padding:2px 10px;text-align:center}
 
 /* ---------- windows ---------- */
 .site{max-width:1100px;margin:26px auto 40px;padding:0 16px;position:relative}
@@ -42,9 +52,9 @@ a:hover{color:var(--hot)}
 .btns i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink);background:var(--mint)}
 .btns i:nth-child(2){background:var(--lemon)}.btns i:nth-child(3){background:var(--pink)}
 .pad{padding:10px 12px}
-.dots{background-color:var(--cream);background-image:radial-gradient(var(--blue) 1.6px,transparent 1.7px);background-size:16px 16px}
+.dots{background-color:#fff;background-image:radial-gradient(#3b2f35 1.4px,transparent 1.6px);background-size:14px 14px}
+.softdots{background-color:var(--cream);background-image:radial-gradient(var(--pink) 1.8px,transparent 2px);background-size:16px 16px}
 
-/* ---------- top bar ---------- */
 .titlebar{display:flex;justify-content:space-between;align-items:center;font-family:'DotGothic16';font-size:13px;padding:2px 6px 10px}
 .titlebar .btns i{width:12px;height:12px}
 
@@ -59,6 +69,7 @@ a:hover{color:var(--hot)}
 .banner h1{position:absolute;left:28px;top:40px;font-family:'Mochiy Pop One',sans-serif;font-weight:400;font-size:clamp(46px,8vw,92px);line-height:1;color:#fff;letter-spacing:.02em;
   text-shadow:3px 0 0 var(--hot),-3px 0 0 var(--hot),0 3px 0 var(--hot),0 -3px 0 var(--hot),3px 3px 0 var(--hot),-3px -3px 0 var(--hot),3px -3px 0 var(--hot),-3px 3px 0 var(--hot),8px 8px 0 var(--blue2)}
 .banner .sub{position:absolute;left:34px;bottom:22px;font-family:'DotGothic16';font-size:14px;color:var(--hot);background:#fff;border:1.5px dashed var(--pink2);border-radius:99px;padding:2px 14px}
+.banner .me{position:absolute;right:250px;bottom:-4px;width:150px;animation:bob 2.6s ease-in-out infinite}
 .tw{position:absolute;color:#fff;font-size:22px;text-shadow:0 0 6px var(--pink2);animation:tw 2.4s ease-in-out infinite}
 @keyframes tw{50%{transform:scale(.5) rotate(45deg);opacity:.5}}
 .ticket{position:absolute;right:18px;top:18px;bottom:18px;width:210px;background:rgba(255,255,255,.75);border:2px dashed var(--blue2);border-radius:10px;
@@ -77,24 +88,27 @@ a:hover{color:var(--hot)}
 .grid{display:grid;grid-template-columns:236px 1fr 46px;gap:14px;align-items:start}
 .side{display:flex;flex-direction:column;gap:14px}
 
-.avatar{width:96px;height:96px;margin:4px auto 6px;border-radius:50%;border:2px solid var(--pink2);background:radial-gradient(circle at 50% 60%,#fff,var(--blue));display:grid;place-items:center;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--blue2)}
-.avatar svg{width:78px;height:78px;animation:bob 2.6s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-4px)}}
+.avatar{width:104px;height:104px;margin:4px auto 6px;border-radius:50%;border:2px solid var(--pink2);background:#fff;overflow:hidden;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--blue2)}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.35) translateY(8%);animation:bob 2.6s ease-in-out infinite}
+.avatar.missing::after{content:"♡";font-size:30px;color:var(--pink2);border:none;background:none}
+@keyframes bob{50%{translate:0 -4px}}
 .name{text-align:center;font-family:'Mochiy Pop One';font-size:18px;color:var(--hot)}
-.mood{text-align:center;font-size:12px;color:var(--muted)}
+.handle{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--muted)}
+.mood{text-align:center;font-size:12px;color:var(--muted);margin-top:2px}
 .mood b{color:var(--ink);font-weight:700}
 
 .player{display:flex;flex-direction:column;gap:6px}
 .track{font-family:'DotGothic16';font-size:12px;white-space:nowrap;overflow:hidden}
-.track span{display:inline-block;animation:slide 9s linear infinite}
+.track span{display:inline-block;animation:slide 11s linear infinite}
 @keyframes slide{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 .ctrl{display:flex;align-items:center;gap:8px}
 .pbtn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);background:var(--pink);color:var(--ink);font-size:12px;cursor:pointer;box-shadow:2px 2px 0 var(--blue2)}
 .pbtn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--blue2)}
 .prog{flex:1;height:8px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
-.prog i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--pink2) 0 4px,var(--pink) 4px 8px)}
+.prog i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--pink2) 0 4px,var(--pink) 4px 8px);transition:width .3s linear}
 .eq{display:flex;gap:2px;height:16px;align-items:flex-end}
-.eq i{width:3px;background:var(--blue2);height:3px;transition:height .1s}
+.eq i{width:3px;background:var(--blue2);height:3px;transition:height .25s}
+.hint{font-family:'DotGothic16';font-size:10px;color:var(--muted)}
 
 .addme{display:grid;place-items:center;gap:8px}
 .btn88{width:88px;height:31px;border:1.5px solid var(--ink);display:grid;place-items:center;font-family:'DotGothic16';font-size:11px;color:#fff;text-shadow:1px 1px 0 var(--hot);
@@ -102,22 +116,24 @@ a:hover{color:var(--hot)}
 .addme textarea{width:100%;height:46px;font-family:'DotGothic16';font-size:10px;border:1.5px solid var(--blue2);border-radius:6px;padding:4px;resize:none;color:var(--ink);background:#fff}
 
 /* main window */
-.main{position:relative;min-height:520px}
-.main .content{height:520px;overflow-y:auto;padding:14px 18px;border:2px dotted var(--pink2);margin:10px;border-radius:12px;background:#fff;scrollbar-color:var(--pink2) var(--cream)}
+.main{position:relative;min-height:540px}
+.main .content{height:540px;overflow-y:auto;padding:14px 18px;border:2px dotted var(--pink2);margin:10px;border-radius:12px;background:#fff;scrollbar-color:var(--pink2) var(--cream)}
 .panel{display:none;animation:pop .35s ease}
 .panel.on{display:block}
 @keyframes pop{from{opacity:0;transform:translateY(6px)}}
 .content h2{font-family:'Mochiy Pop One';font-weight:400;font-size:20px;color:var(--hot);margin:4px 0 10px}
 .content h2::after{content:" ♡";color:var(--blue2)}
+.content h4{font-family:'DotGothic16';font-weight:400;font-size:13px;color:var(--deep);margin:16px 0 10px;border-bottom:1.5px dashed var(--blue2);padding-bottom:2px}
 .content p{margin-bottom:10px}
 .hearts{list-style:none;margin:6px 0 14px}
 .hearts li{padding-left:22px;position:relative;margin:3px 0}
 .hearts li::before{content:"♡";position:absolute;left:4px;color:var(--hot)}
 .hearts b{color:var(--deep);font-weight:700}
 .intro{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start}
-.intro .pic{height:120px;border-radius:10px;border:2px solid var(--blue2);background:linear-gradient(#cfe9ff,#fff);display:grid;place-items:center;position:relative;overflow:hidden}
+.intro .pic{height:140px;border-radius:10px;border:2px solid var(--blue2);background:linear-gradient(#ffe3ef,#fff);display:grid;place-items:end center;position:relative;overflow:hidden}
 .intro .pic::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 2px);background-size:18px 18px;animation:snow 6s linear infinite}
-.intro .pic svg{width:90px;height:90px;position:relative}
+@keyframes snow{to{background-position:0 180px}}
+.intro .pic img{position:relative;width:130%;max-width:none;margin-bottom:-10px}
 .updates{border:1.5px solid var(--blue2);border-radius:8px;background:var(--cream);font-family:'DotGothic16';font-size:12px}
 .updates div{padding:6px 10px;border-top:1px dashed var(--blue2)}
 .updates div:first-child{border:none}
@@ -128,39 +144,35 @@ a:hover{color:var(--hot)}
 .work{border:2px solid var(--blue2);border-radius:12px;background:var(--cream);overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:3px 3px 0 var(--pink)}
 .work:hover{transform:translateY(-3px) rotate(-.6deg);box-shadow:6px 6px 0 var(--pink)}
 .work .bar{font-size:11px}
-.thumb{height:130px;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:2px solid var(--blue2)}
+.thumb{height:140px;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:2px solid var(--blue2);background:#fff}
+.thumb > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb.zoom{cursor:zoom-in}
 .work .info{padding:8px 10px 10px}
 .work h3{font-family:'Mochiy Pop One';font-weight:400;font-size:16px;color:var(--ink)}
 .work .tag{font-family:'DotGothic16';font-size:11px;color:var(--muted)}
 .work p{font-size:12px;margin:4px 0 8px}
-.go{display:inline-block;font-family:'DotGothic16';font-size:12px;text-decoration:none;color:var(--ink);background:var(--pink);border:1.5px solid var(--ink);border-radius:99px;padding:1px 12px;box-shadow:2px 2px 0 var(--blue2)}
+.go{display:inline-block;font-family:'DotGothic16';font-size:12px;text-decoration:none;color:var(--ink);background:var(--pink);border:1.5px solid var(--ink);border-radius:99px;padding:1px 12px;box-shadow:2px 2px 0 var(--blue2);cursor:pointer}
 .go:hover{background:var(--lemon);color:var(--ink)}
-.go.soon{background:#eee;color:var(--muted);pointer-events:none;box-shadow:none}
 
 .t-cold{background:radial-gradient(ellipse at 50% 130%,#2c4185,#0e1530 70%)}
-.t-cold::before,.intro .pic::before{content:"";position:absolute;inset:0}
-.t-cold::before{opacity:.8;background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(#fff 1.6px,transparent 2.2px);background-size:30px 30px,53px 53px;background-position:0 0,15px 20px;animation:snow2 9s linear infinite}
+.t-cold::before{content:"";position:absolute;inset:0;opacity:.8;background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(#fff 1.6px,transparent 2.2px);background-size:30px 30px,53px 53px;background-position:0 0,15px 20px;animation:snow2 9s linear infinite}
 @keyframes snow2{to{background-position:0 300px,15px 338px}}
-@keyframes snow{to{background-position:0 180px}}
-.t-cold span{position:relative;font-family:'DotGothic16';color:#e3ecff;letter-spacing:.3em;font-size:13px;text-shadow:-2px 0 #ff4f9aaa,2px 0 #8cc8ffaa;animation:flick 5s steps(1) infinite}
+.t-cold span{position:relative;font-family:'DotGothic16';color:#e3ecff;letter-spacing:.3em;font-size:13px;text-shadow:-2px 0 #ff4f9aaa,2px 0 #8cc8ffaa;animation:flick 5s steps(1) infinite;text-align:center}
+.t-cold small{display:block;font-size:9px;letter-spacing:.2em;opacity:.6}
 @keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.2}95%{opacity:.9}96%{opacity:.1}}
-
-.t-taiga{background:linear-gradient(#10263d,#1d4f5c 62%,#eef8ff 62%)}
-.t-taiga::before{content:"";position:absolute;left:-20%;right:-20%;top:0;height:60%;filter:blur(10px);
-  background:linear-gradient(100deg,transparent 20%,#7dffc8b0 38%,#c49cffb0 55%,transparent 75%);animation:aur 5s ease-in-out infinite alternate}
-@keyframes aur{to{transform:translateX(15%) skewX(-12deg)}}
-.t-taiga svg{position:absolute;left:0;right:0;bottom:30%;width:100%;height:60px}
-
-.t-train{background:linear-gradient(#2a1b4d,#55307e)}
-.wnd{position:absolute;inset:24px 22px 30px;border-radius:12px;border:3px solid #1a0f33;background:linear-gradient(#3a2068,#1a0f33);overflow:hidden}
-.wnd::before,.wnd::after{content:"";position:absolute;left:0;right:0}
-.wnd::before{top:58%;height:6px;filter:blur(1px);background:repeating-linear-gradient(90deg,transparent 0 40px,#ffd36b 40px 46px,transparent 46px 90px,#ff8fc8 90px 93px,transparent 93px 140px);background-size:140px 100%;animation:pass 1.2s linear infinite}
-.wnd::after{top:30%;height:3px;opacity:.55;background:repeating-linear-gradient(90deg,transparent 0 30px,#9cc3ff 30px 32px,transparent 32px 70px);background-size:70px 100%;animation:pass2 4s linear infinite}
-@keyframes pass{to{background-position:-140px 0}}
-@keyframes pass2{to{background-position:-70px 0}}
 
 .t-art{background:radial-gradient(circle at 26% 40%,var(--pink2) 0 20%,transparent 21%),radial-gradient(circle at 70% 60%,var(--blue2) 0 26%,transparent 27%),radial-gradient(circle at 57% 24%,var(--lemon) 0 12%,transparent 13%),#fff6ec}
 .t-art svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* gallery polaroids */
+.gallery{columns:3 150px;column-gap:16px}
+.pola{break-inside:avoid;display:block;width:100%;background:#fff;padding:8px 8px 6px;margin:6px 0 18px;border:1.5px solid #f3dbe6;box-shadow:3px 4px 0 var(--blue);
+  transform:rotate(var(--r,0deg));cursor:zoom-in;position:relative;transition:transform .2s}
+.pola:hover{transform:rotate(0) scale(1.03);z-index:2}
+.pola::before{content:"";position:absolute;top:-9px;left:50%;width:56px;height:17px;margin-left:-28px;background:rgba(255,196,221,.8);transform:rotate(-4deg);border-left:2px dotted #fff;border-right:2px dotted #fff}
+.pola:nth-child(3n)::before{background:rgba(205,233,255,.85)}
+.pola .ph img{display:block;width:100%}
+.pola figcaption{font-family:'Yomogi',cursive;font-size:13px;line-height:1.3;color:var(--cocoa);padding-top:6px;text-align:center}
 
 /* about table */
 .stats{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:13px}
@@ -196,33 +208,48 @@ a:hover{color:var(--hot)}
 .todo input:checked::after{content:"✓";color:#fff;font-size:11px;line-height:1}
 .todo input:checked+span{text-decoration:line-through;color:var(--muted)}
 
-.pet{display:grid;grid-template-columns:1fr 92px;gap:10px}
-.room{position:relative;height:150px;border-radius:10px;border:1.5px solid var(--blue2);overflow:hidden;
-  background:linear-gradient(#ffe9f3 0 62%,#cfe9ff 62%);}
-.room::before{content:"";position:absolute;left:18%;right:18%;bottom:8px;height:34px;border-radius:50%;background:repeating-radial-gradient(#fff 0 4px,var(--mint) 4px 8px);border:1.5px solid var(--blue2)}
-.room .win2{position:absolute;left:12px;top:12px;width:44px;height:36px;border:2px solid var(--pink2);background:linear-gradient(#bfe2ff,#fff);border-radius:4px}
-.room .shelf{position:absolute;right:12px;top:22px;font-size:14px;letter-spacing:2px}
-#petsvg{position:absolute;left:50%;bottom:16px;width:72px;height:72px;margin-left:-36px;transition:transform .3s}
-#petsvg.hop{animation:hop .5s ease 2}
-@keyframes hop{50%{transform:translateY(-22px)}}
-.say{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:#fff;border:1.5px solid var(--ink);border-radius:10px;padding:1px 8px;font-family:'DotGothic16';font-size:11px;white-space:nowrap;opacity:0;transition:opacity .3s}
+/* daia's room */
+.pet{display:grid;grid-template-columns:1fr 96px;gap:10px}
+.room{position:relative;height:170px;border-radius:10px;border:1.5px solid var(--blue2);overflow:hidden;
+  background:radial-gradient(#ff8fbf55 1.6px,transparent 1.8px) 0 0/14px 14px,linear-gradient(#ffeef5 0 64%,#e9d9cf 64%)}
+.room::before{content:"";position:absolute;left:16%;right:16%;bottom:6px;height:34px;border-radius:50%;background:repeating-radial-gradient(#fff 0 4px,var(--pink) 4px 8px);border:1.5px solid var(--pink2)}
+.room .win2{position:absolute;left:12px;top:12px;width:46px;height:38px;border:2px solid var(--pink2);background:linear-gradient(#bfe2ff,#fff);border-radius:4px}
+.room .win2::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 47%,var(--pink2) 47% 53%,transparent 53%),linear-gradient(transparent 47%,var(--pink2) 47% 53%,transparent 53%)}
+.room .shelf{position:absolute;right:10px;top:16px;font-size:14px;letter-spacing:2px;border-bottom:3px solid #c9a998;padding:0 2px}
+.room .plush{position:absolute;right:14px;bottom:14px;font-size:20px}
+#chibi{position:absolute;left:50%;bottom:6px;height:118px;width:auto;translate:-50% 0;transition:filter .3s}
+#chibi.hop{animation:hop .5s ease 2}
+@keyframes hop{50%{transform:translateY(-18px)}}
+.room.missing #chibi{display:none}
+.say{position:absolute;left:50%;top:8px;transform:translateX(-50%);background:#fff;border:1.5px solid var(--ink);border-radius:10px;padding:1px 8px;font-family:'DotGothic16';font-size:11px;white-space:nowrap;opacity:0;transition:opacity .3s;z-index:2;max-width:94%;overflow:hidden;text-overflow:ellipsis}
 .say.on{opacity:1}
 .pstats{font-family:'DotGothic16';font-size:11px;display:flex;flex-direction:column;gap:3px}
 .pstats .meter{height:7px;border:1px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
 .pstats .meter i{display:block;height:100%;background:var(--pink2);transition:width .4s}
+.pstats .meter.c i{background:#b88a6e}
 .pstats button{font-family:'DotGothic16';font-size:11px;border:1.5px solid var(--ink);border-radius:6px;background:var(--blue);padding:2px;cursor:pointer;color:var(--ink)}
 .pstats button:hover{background:var(--lemon)}
 
 /* footer banner */
 .foot{margin-top:14px;display:flex;gap:14px;align-items:stretch}
-.loveyou{flex:1;height:64px;border:2px solid var(--pink2);border-radius:12px;position:relative;overflow:hidden;
+.loveyou{flex:1;height:68px;border:2px solid var(--pink2);border-radius:12px;position:relative;overflow:hidden;
   background:repeating-linear-gradient(90deg,#ffe2ef 0 12px,#e2f1ff 12px 24px)}
 .loveyou span{position:absolute;right:20px;top:50%;transform:translateY(-50%) skewX(-8deg);font-family:'Mochiy Pop One';font-size:28px;color:#fff;
   text-shadow:2px 0 var(--pink2),-2px 0 var(--pink2),0 2px var(--pink2),0 -2px var(--pink2),4px 4px 0 var(--blue2)}
-.loveyou svg{position:absolute;left:14px;bottom:-6px;width:70px;height:70px}
+.loveyou .ph{position:absolute;left:14px;top:0;bottom:0;width:80px;overflow:hidden}
+.loveyou .ph img{width:100%;margin-top:-2px}
+.loveyou .ph.missing{background:none;min-height:0}.loveyou .ph.missing::after{content:"♡";border:none;font-size:26px;background:none}
 .counter{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:6px 16px;border:2px solid var(--blue2);border-radius:12px;background:#fff;font-family:'DotGothic16';font-size:11px}
 .counter b{font-weight:400;font-size:18px;letter-spacing:3px;background:#222;color:#7dffc8;padding:0 8px;border-radius:4px}
 footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--muted);margin-top:12px}
+
+/* lightbox */
+dialog{margin:auto;max-width:min(860px,calc(100% - 24px));max-height:calc(100% - 24px);border:2px solid var(--pink2);border-radius:16px;padding:0;background:var(--cream);box-shadow:6px 6px 0 var(--blue2);overflow:hidden}
+dialog::backdrop{background:rgba(91,74,110,.45);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+dialog .lbody{max-height:calc(100vh - 110px);overflow:auto;background:#fff}
+dialog img{display:block;width:100%}
+dialog .lcap{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 12px;font-family:'Yomogi';font-size:15px;color:var(--cocoa)}
+dialog button{font-family:'DotGothic16';border:1.5px solid var(--ink);border-radius:99px;background:var(--pink);padding:1px 12px;cursor:pointer;color:var(--ink)}
 
 /* floating decor */
 .keychain{position:absolute;left:-34px;top:300px;width:70px;transform-origin:35px 0;animation:swing 3.2s ease-in-out infinite;z-index:5;pointer-events:none}
@@ -234,6 +261,7 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
 @keyframes fall{to{transform:translateY(24px) rotate(90deg) scale(.3);opacity:0}}
 
 /* ---------- small screens ---------- */
+@media (max-width:960px){ .banner .me{right:240px;width:120px} }
 @media (max-width:860px){
   .grid{grid-template-columns:1fr}
   .tabs{order:-1;flex-direction:row;flex-wrap:wrap;padding:0;gap:6px}
@@ -243,6 +271,7 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
   .side .profile{grid-column:1/-1}
   .widgets{grid-template-columns:1fr}
   .ticket{display:none}
+  .banner .me{right:10px;width:120px}
   .keychain,.deco{display:none}
   .main .content{height:auto;max-height:none}
 }
@@ -251,37 +280,19 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
   .frame{padding:10px}
   .side{grid-template-columns:1fr}
   .works{grid-template-columns:1fr}
+  .gallery{columns:2 120px}
   .intro{grid-template-columns:1fr}
-  .intro .pic{width:120px}
-  .banner{height:170px}
-  .banner h1{left:18px;top:34px}
-  .banner .sub{left:18px;font-size:12px}
+  .intro .pic{width:140px}
+  .banner{height:180px}
+  .banner h1{left:18px;top:30px;font-size:44px}
+  .banner .sub{left:14px;font-size:11px}
+  .banner .me{width:96px}
   .counter{display:none}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-
-<!-- mascot: "yuki", a little snow bunny (original) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="yuki" viewBox="0 0 100 100">
-    <g stroke="#5b4a6e" stroke-width="2.5" stroke-linejoin="round">
-      <ellipse cx="36" cy="26" rx="9" ry="20" fill="#fff" transform="rotate(-10 36 26)"/>
-      <ellipse cx="64" cy="26" rx="9" ry="20" fill="#fff" transform="rotate(10 64 26)"/>
-    </g>
-    <ellipse cx="36" cy="27" rx="3.5" ry="12" fill="#ffc4dd" transform="rotate(-10 36 27)"/>
-    <ellipse cx="64" cy="27" rx="3.5" ry="12" fill="#ffc4dd" transform="rotate(10 64 27)"/>
-    <ellipse cx="50" cy="63" rx="34" ry="29" fill="#fff" stroke="#5b4a6e" stroke-width="2.5"/>
-    <path d="M20 76q30 16 60 0v7q-30 16-60 0z" fill="#8cc8ff" stroke="#5b4a6e" stroke-width="2"/>
-    <path d="M70 80l8 14 6-4-6-12z" fill="#8cc8ff" stroke="#5b4a6e" stroke-width="2"/>
-    <circle cx="38" cy="60" r="4" fill="#5b4a6e"/><circle cx="62" cy="60" r="4" fill="#5b4a6e"/>
-    <circle cx="39.5" cy="58.5" r="1.3" fill="#fff"/><circle cx="63.5" cy="58.5" r="1.3" fill="#fff"/>
-    <ellipse cx="29" cy="68" rx="6" ry="3.5" fill="#ffc4dd"/><ellipse cx="71" cy="68" rx="6" ry="3.5" fill="#ffc4dd"/>
-    <path d="M45 67q5 5 10 0" fill="none" stroke="#5b4a6e" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="M50 36v10M45 41h10M46.5 37.5l7 7M53.5 37.5l-7 7" stroke="#8cc8ff" stroke-width="1.8" stroke-linecap="round"/>
-  </symbol>
-</svg>
 
 <div class="site">
 
@@ -320,6 +331,7 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
       <span class="tw" style="left:8%;top:150px;animation-delay:-1.6s;font-size:14px">✦</span>
       <h1>Daia World</h1>
       <span class="sub">だいあ わーるど へ ようこそ ☆ welcome!</span>
+      <img class="me px" src="me.png" alt="pixel chibi of daia" onerror="this.remove()">
       <div class="ticket">
         <small>✿ 入場券 ✿</small>
         <b>ADMIT 1</b>
@@ -332,10 +344,10 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
 
     <div class="blinkies">
       <span class="blinkie" style="--a:#ff8fbf;--b:#ffb3d3">i ♡ p5.js</span>
-      <span class="blinkie" style="--a:#8cc8ff;--b:#b5dcff">❄ yakutsk ❄</span>
-      <span class="blinkie" style="--a:#c49cff;--b:#dcc6ff">html kid ✿</span>
+      <span class="blinkie" style="--a:#8cc8ff;--b:#b5dcff">❄ yakutia ❄</span>
+      <span class="blinkie" style="--a:#c49cff;--b:#dcc6ff">film kid 🎬</span>
       <span class="blinkie" style="--a:#7fd6b0;--b:#a8ecce">game maker</span>
-      <span class="blinkie" style="--a:#ffb36b;--b:#ffd09e">made on ipad</span>
+      <span class="blinkie" style="--a:#b88a6e;--b:#d4ad94">coffee addict</span>
       <span class="blinkie" style="--a:#ff6f9f;--b:#8cc8ff">pink 4ever ♡</span>
     </div>
 
@@ -345,21 +357,23 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
         <div class="win profile">
           <div class="bar"><span>✿ the daiaspace</span><span class="btns"><i></i><i></i><i></i></span></div>
           <div class="pad dots">
-            <div class="avatar"><svg viewBox="0 0 100 100"><use href="#yuki"/></svg></div>
+            <div class="avatar ph"><img class="px" src="me.png" alt="daia" onerror="miss(this)"></div>
             <div class="name">Daiaana</div>
-            <div class="mood">current mood: <b>building worlds ♡</b></div>
+            <div class="handle">aka daia · @hiikayu</div>
+            <div class="mood">current mood: <b>running on coffee ☕</b></div>
           </div>
         </div>
 
         <div class="win blue">
           <div class="bar"><span>♪ now playing</span><span class="btns"><i></i><i></i><i></i></span></div>
           <div class="pad player">
-            <div class="track"><span>daia world theme ☆ 8-bit version ☆</span></div>
+            <div class="track"><span>sleepy room ☁ music box lullaby ☁ (original)</span></div>
             <div class="ctrl">
-              <button class="pbtn" id="play" aria-label="play music">▶</button>
+              <button class="pbtn" id="play" aria-label="play or pause music">▶</button>
               <div class="prog"><i id="prog"></i></div>
               <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
             </div>
+            <div class="hint">headphones recommended lol</div>
           </div>
         </div>
 
@@ -377,9 +391,10 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
         <div class="bar"><span id="where">♡ home.html</span><span class="btns"><i></i><i></i><i></i></span></div>
         <div class="content">
 
+          <!-- HOME -->
           <div class="panel on" data-panel="home">
             <div class="intro">
-              <div class="pic"><svg viewBox="0 0 100 100"><use href="#yuki"/></svg></div>
+              <div class="pic ph"><img class="px" src="me.png" alt="daia" onerror="miss(this)"></div>
               <div>
                 <h2>about me</h2>
                 <p>hiii!! i'm <b>daiaana</b>, this is daia world ✿ i study interactive media + business at nyu shanghai, plan to double major at social science tho</p>
@@ -395,39 +410,57 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
             </ul>
             <h2>updates</h2>
             <div class="updates">
+              <div><em>11/9/26</em> added my works + pics!! go check the gallery tab hehe</div>
               <div><em>11/6/26</em> i thought i died cause of caffeine lowkey </div>
               <div><em>next</em> add more works + a real guestbook ✉</div>
             </div>
           </div>
 
+          <!-- WORKS -->
           <div class="panel" data-panel="works">
             <h2>my works</h2>
             <div class="works">
+
               <article class="work">
                 <div class="bar"><span>cold_memory.exe</span><span class="btns"><i></i><i></i><i></i></span></div>
-                <div class="thumb t-cold"><span>COLD MEMORY</span></div>
+                <div class="thumb t-cold"><span>COLD MEMORY<small>memOS2004</small></span></div>
                 <div class="info"><span class="tag">horror game · three.js</span><h3>Cold Memory</h3>
-                  <p>a first-person horror game that runs right in your browser.</p>
-                  <a class="go soon" href="#">coming soon ☆</a></div>
+                  <p>you log into memOS2004 and you can't leave until you remember everything. play w headphones pls</p>
+                  <a class="go" href="https://hiikayu.github.io/projects/memory/" target="_blank" rel="noopener">play ↗</a></div>
               </article>
+
               <article class="work">
                 <div class="bar"><span>taiga.js</span><span class="btns"><i></i><i></i><i></i></span></div>
-                <div class="thumb t-taiga">
-                  <svg viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g fill="#0d2b2b">
-                    <path d="M0 60L12 20 24 60z"/><path d="M18 60L34 8 50 60z"/><path d="M44 60L56 26 68 60z"/><path d="M62 60L80 4 98 60z"/><path d="M92 60L104 22 116 60z"/><path d="M110 60L128 10 146 60z"/><path d="M140 60L152 28 164 60z"/><path d="M158 60L176 6 194 60z"/><path d="M188 60L200 24 212 60z"/><path d="M206 60L224 12 242 60z"/><path d="M236 60L248 26 260 60z"/><path d="M254 60L272 8 290 60z"/><path d="M284 60L294 30 304 60z"/>
-                  </g></svg>
-                </div>
+                <div class="thumb ph zoom" data-full="taiga.jpg" data-cap="child of taiga ✿ hand-drawn + p5.js"><img src="taiga.jpg" alt="child of taiga illustration" onerror="miss(this)"></div>
                 <div class="info"><span class="tag">animation · p5.js interaction</span><h3>Child of Taiga</h3>
-                  <p>an interactive p5.js animation set in the taiga.</p>
+                  <p>a little interactive animation i drew + coded, set in the taiga. click around!</p>
                   <a class="go" href="https://hiikayu.github.io/CClab-26s/taiga/" target="_blank" rel="noopener">play ↗</a></div>
               </article>
+
               <article class="work">
-                <div class="bar"><span>last_train.html</span><span class="btns"><i></i><i></i><i></i></span></div>
-                <div class="thumb t-train"><div class="wnd"></div></div>
-                <div class="info"><span class="tag">dating sim · html/css/js</span><h3>Last Train</h3>
-                  <p>a short dating sim about a stranger on the last train of the night.</p>
-                  <a class="go soon" href="#">in progress ☆</a></div>
+                <div class="bar"><span>unnecessary_invention.cad</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb ph zoom" data-full="glove.jpg" data-cap="innovation lab ✿ design challenge 1"><img src="glove-cover.jpg" alt="design portfolio cover for the nail artist glove" onerror="miss(this)"></div>
+                <div class="info"><span class="tag">innovation lab · product design · cad</span><h3>The Unnecessary Glove</h3>
+                  <p>a glove for nail artists made as unnecessary as possible lol. hardest part was the cad</p>
+                  <span class="go" data-open="glove.jpg" data-cap="innovation lab ✿ design challenge 1">see portfolio ✿</span></div>
               </article>
+
+              <article class="work">
+                <div class="bar"><span>maikon_brand.pdf</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb ph zoom" data-full="maikon.jpg" data-cap="maikon media center ✿ brand identity"><img src="maikon.jpg" alt="maikon media center branding" style="object-position:top" onerror="miss(this)"></div>
+                <div class="info"><span class="tag">branding · logo · merch</span><h3>Maikon Media Center</h3>
+                  <p>full brand identity: logo, palette, fonts, mascot and a hoodie bc why not</p>
+                  <span class="go" data-open="maikon.jpg" data-cap="maikon media center ✿ brand identity">see it ✿</span></div>
+              </article>
+
+              <article class="work">
+                <div class="bar"><span>ssu_about_us.png</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb ph zoom" data-full="ssu.jpg" data-cap="ssu ✿ about us part 2"><img src="ssu.jpg" alt="ssu about us post" onerror="miss(this)"></div>
+                <div class="info"><span class="tag">co-founder · social media design</span><h3>SSU</h3>
+                  <p>co-founded ssu and i make our posts look cute ♡</p>
+                  <span class="go" data-open="ssu.jpg" data-cap="ssu ✿ about us part 2">see it ✿</span></div>
+              </article>
+
               <article class="work">
                 <div class="bar"><span>vac.png</span><span class="btns"><i></i><i></i><i></i></span></div>
                 <div class="thumb t-art">
@@ -435,32 +468,67 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
                 </div>
                 <div class="info"><span class="tag">community · president</span><h3>Visual Arts Club</h3>
                   <p>leading nyu shanghai's visual arts club — workshops, shows and art people.</p>
-                  <a class="go soon" href="#">more soon ☆</a></div>
+                  <span class="go" data-tabgo="gallery">pics in gallery ✿</span></div>
               </article>
+
             </div>
           </div>
 
+          <!-- GALLERY -->
+          <div class="panel" data-panel="gallery">
+            <h2>gallery</h2>
+            <p>pics from sets, events and designs i made. tap to zoom ✿</p>
+
+            <h4>🎬 on set</h4>
+            <div class="gallery">
+              <figure class="pola zoom" style="--r:-2deg" data-full="film-set.jpg" data-cap="checking the shot on set"><div class="ph"><img src="film-set.jpg" alt="crew checking the camera on set" onerror="miss(this)"></div><figcaption>checking the shot 👀</figcaption></figure>
+              <figure class="pola zoom" style="--r:2deg" data-full="film-set-2.jpg" data-cap="on set ✿ yakutia"><div class="ph"><img src="film-set-2.jpg" alt="filming a scene by candlelight" onerror="miss(this)"></div><figcaption>candlelight scene ✿</figcaption></figure>
+              <figure class="pola zoom" style="--r:-1deg" data-full="film-set-3.jpg" data-cap="filming day"><div class="ph"><img src="film-set-3.jpg" alt="filming in a classroom" onerror="miss(this)"></div><figcaption>filming day hehe</figcaption></figure>
+              <figure class="pola zoom" style="--r:3deg" data-full="premiere.jpg" data-cap="premiere of «с любовью, совесть» !!"><div class="ph"><img src="premiere.jpg" alt="film premiere" onerror="miss(this)"></div><figcaption>premiere day!! 🥹</figcaption></figure>
+              <figure class="pola zoom" style="--r:-2deg" data-full="premiere-2.jpg" data-cap="the whole crew at the premiere"><div class="ph"><img src="premiere-2.jpg" alt="crew sitting together at the premiere" onerror="miss(this)"></div><figcaption>the whole crew ♡</figcaption></figure>
+            </div>
+
+            <h4>✿ events</h4>
+            <div class="gallery">
+              <figure class="pola zoom" style="--r:1deg" data-full="event.jpg" data-cap="event day ✿"><div class="ph"><img src="event.jpg" alt="community event" onerror="miss(this)"></div><figcaption>event day ✿</figcaption></figure>
+              <figure class="pola zoom" style="--r:-3deg" data-full="workshop.jpg" data-cap="workshop mode"><div class="ph"><img src="workshop.jpg" alt="workshop discussion" onerror="miss(this)"></div><figcaption>workshop mode 🧠</figcaption></figure>
+            </div>
+
+            <h4>✎ designs</h4>
+            <div class="gallery">
+              <figure class="pola zoom" style="--r:-2deg" data-full="hi-there.jpg" data-cap="hi there, i'm daia!"><div class="ph"><img src="hi-there.jpg" alt="intro page design" onerror="miss(this)"></div><figcaption>my intro page</figcaption></figure>
+              <figure class="pola zoom" style="--r:2deg" data-full="garage-sale.jpg" data-cap="garage sale poster // by dom 1"><div class="ph"><img src="garage-sale.jpg" alt="garage sale poster" onerror="miss(this)"></div><figcaption>garage sale poster</figcaption></figure>
+              <figure class="pola zoom" style="--r:-1deg" data-full="resonance.jpg" data-cap="resonance ✿ math but make it pretty"><div class="ph"><img src="resonance.jpg" alt="presentation slide" onerror="miss(this)"></div><figcaption>math but make it pretty</figcaption></figure>
+              <figure class="pola zoom" style="--r:3deg" data-full="maikon.jpg" data-cap="maikon media center ✿ brand identity"><div class="ph"><img src="maikon.jpg" alt="maikon branding" onerror="miss(this)"></div><figcaption>maikon branding</figcaption></figure>
+              <figure class="pola zoom" style="--r:-3deg" data-full="ssu.jpg" data-cap="ssu ✿ about us part 2"><div class="ph"><img src="ssu.jpg" alt="ssu post" onerror="miss(this)"></div><figcaption>ssu post ♡</figcaption></figure>
+              <figure class="pola zoom" style="--r:1deg" data-full="glove.jpg" data-cap="innovation lab ✿ design challenge 1"><div class="ph"><img src="glove.jpg" alt="design portfolio" onerror="miss(this)"></div><figcaption>innovation lab portfolio</figcaption></figure>
+            </div>
+          </div>
+
+          <!-- PROFILE -->
           <div class="panel" data-panel="profile">
             <h2>profile</h2>
             <table class="stats">
-              <tr><td>name</td><td>Daiaana</td></tr>
-              <tr><td>from</td><td>Yakutsk, Russia ❄</td></tr>
+              <tr><td>name</td><td>Daiaana (aka daia / hiikayu)</td></tr>
+              <tr><td>from</td><td>Yakutsk, Yakutia ❄</td></tr>
               <tr><td>lives in</td><td>Shanghai ✿</td></tr>
-              <tr><td>studies</td><td>Interactive Media + Business @ NYU Shanghai</td></tr>
+              <tr><td>studies</td><td>Interactive Media + Business @ NYU Shanghai (+ social science soon hopefully)</td></tr>
               <tr><td>class of</td><td>2029</td></tr>
-              <tr><td>club</td><td>President, Visual Arts Club</td></tr>
-              <tr><td>makes</td><td>games, websites, p5.js sketches, tiktoks</td></tr>
-              <tr><td>mascot</td><td>yuki the snow bunny (feed her below!)</td></tr>
+              <tr><td>clubs</td><td>president of Visual Arts Club · co-founder of SSU</td></tr>
+              <tr><td>makes</td><td>games, websites, films, posters, brand stuff, tiktoks</td></tr>
+              <tr><td>fuel</td><td>coffee. too much coffee</td></tr>
             </table>
           </div>
 
+          <!-- LINKS -->
           <div class="panel" data-panel="links">
             <h2>say hi</h2>
-            <p>wanna collab, swap buttons or just say hi? find me here ✉</p>
+            <p>wanna collab or just say hi? find me here ✉</p>
             <div class="linkbtns">
               <!-- EDIT ME: your real email + tiktok -->
               <a href="mailto:hello@daiaworld.world" style="--a:var(--pink)">email ✉</a>
               <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener" style="--a:var(--blue)">tiktok ♪</a>
+              <a href="https://www.linkedin.com/in/daiaana-krivoshapkina/" target="_blank" rel="noopener" style="--a:var(--mint)">linkedin ✿</a>
               <a href="https://github.com/hiikayu" target="_blank" rel="noopener" style="--a:var(--lemon)">github ☆</a>
             </div>
             <div class="note">✿ guestbook is under construction ✿<br>until then, leave me a message by email (◕‿◕)♡</div>
@@ -473,6 +541,7 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
       <nav class="tabs" aria-label="pages">
         <button class="tab on" data-tab="home">home</button>
         <button class="tab" data-tab="works">works</button>
+        <button class="tab" data-tab="gallery">gallery</button>
         <button class="tab" data-tab="profile">profile</button>
         <button class="tab" data-tab="links">links</button>
       </nav>
@@ -489,29 +558,29 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
         <div class="bar"><span>✎ to do</span><span class="btns"><i></i><i></i><i></i></span></div>
         <div class="pad" id="todo">
           <label><input type="checkbox"><span>finish daia world</span></label>
-          <label><input type="checkbox"><span>connect daiaworld.world</span></label>
-          <label><input type="checkbox"><span>add a cold memory demo</span></label>
+          <label><input type="checkbox"><span>upload all my pics lol</span></label>
+          <label><input type="checkbox"><span>post on tiktok fr</span></label>
           <label><input type="checkbox"><span>make a guestbook</span></label>
-          <label><input type="checkbox"><span>sleep more (lol)</span></label>
+          <label><input type="checkbox"><span>less coffee (never)</span></label>
         </div>
       </div>
 
       <div class="win">
-        <div class="bar"><span>✿ yuki's room</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="bar"><span>✿ daia's room</span><span class="btns"><i></i><i></i><i></i></span></div>
         <div class="pad pet">
-          <div class="room">
-            <div class="win2"></div><div class="shelf">🍓🧁⭐</div>
+          <div class="room" id="room">
+            <div class="win2"></div><div class="shelf">🍓☕📷</div><div class="plush">🧸</div>
             <div class="say" id="say"></div>
-            <svg id="petsvg" viewBox="0 0 100 100"><use href="#yuki"/></svg>
+            <img id="chibi" class="px" src="me.png" alt="daia in her room" onerror="document.getElementById('room').classList.add('missing');this.remove()">
           </div>
           <div class="pstats">
-            <span>name: yuki</span>
+            <span>name: daia</span>
             <span>mood</span><div class="meter"><i id="m-mood"></i></div>
-            <span>belly</span><div class="meter"><i id="m-belly"></i></div>
+            <span>caffeine</span><div class="meter c"><i id="m-caf"></i></div>
             <span>coins: <b id="coins">5</b></span>
-            <button data-act="feed">feed 🍓 (2c)</button>
-            <button data-act="pet">pet ♡</button>
-            <button data-act="play">play ☆ (+1c)</button>
+            <button data-act="coffee">coffee ☕ (2c)</button>
+            <button data-act="pat">headpat ♡</button>
+            <button data-act="art">make art ✎ (+1c)</button>
           </div>
         </div>
       </div>
@@ -519,7 +588,7 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
 
     <!-- footer banner -->
     <div class="foot">
-      <div class="loveyou"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#yuki"/></svg><span>daia ♡'s you !</span></div>
+      <div class="loveyou"><div class="ph"><img class="px" src="me.png" alt="" onerror="miss(this)"></div><span>daia ♡'s you !</span></div>
       <div class="counter"><span>visitors</span><b id="count">000001</b></div>
     </div>
   </div>
@@ -527,15 +596,35 @@ footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--mu
   <footer>© 2026 daia world ✿ handmade with html, css &amp; love in shanghai</footer>
 </div>
 
+<!-- zoom popup -->
+<dialog id="lb">
+  <div class="lbody"><img id="lb-img" alt=""></div>
+  <div class="lcap"><span id="lb-cap"></span><button id="lb-x">close ✕</button></div>
+</dialog>
+
 <script>
 /* ---------- tabs ---------- */
-const names = {home:'♡ home.html', works:'☆ works.html', profile:'✿ profile.html', links:'✉ links.html'};
-document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
-  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === t.dataset.tab));
-  document.getElementById('where').textContent = names[t.dataset.tab];
+const names = {home:'♡ home.html', works:'☆ works.html', gallery:'✿ gallery.html', profile:'✿ profile.html', links:'✉ links.html'};
+function openTab(id){
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x.dataset.tab === id));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === id));
+  document.getElementById('where').textContent = names[id];
   document.querySelector('.content').scrollTop = 0;
-}));
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => openTab(t.dataset.tab)));
+document.querySelectorAll('[data-tabgo]').forEach(b => b.addEventListener('click', () => openTab(b.dataset.tabgo)));
+
+/* ---------- zoom popup ---------- */
+const lb = document.getElementById('lb');
+function zoom(src, cap){
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-cap').textContent = cap || '';
+  lb.showModal();
+}
+document.querySelectorAll('.zoom').forEach(z => z.addEventListener('click', () => { if(!z.querySelector('.missing') && !z.classList.contains('missing')) zoom(z.dataset.full, z.dataset.cap); }));
+document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => zoom(b.dataset.open, b.dataset.cap)));
+document.getElementById('lb-x').onclick = () => lb.close();
+lb.addEventListener('click', e => { if(e.target === lb) lb.close(); });
 
 /* ---------- storage helpers ---------- */
 const load = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } };
@@ -560,61 +649,100 @@ const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } cat
 })();
 
 /* ---------- to do ---------- */
-const boxes = document.querySelectorAll('#todo input'), todo = load('dw-todo', []);
-boxes.forEach((b, i) => { b.checked = !!todo[i]; b.addEventListener('change', () => save('dw-todo', [...boxes].map(x => x.checked))); });
+const boxes = document.querySelectorAll('#todo input'), todo = load('dw-todo2', []);
+boxes.forEach((b, i) => { b.checked = !!todo[i]; b.addEventListener('change', () => save('dw-todo2', [...boxes].map(x => x.checked))); });
 
 /* ---------- visitor counter (this browser) ---------- */
 const visits = load('dw-visits', 0) + 1; save('dw-visits', visits);
 document.getElementById('count').textContent = String(visits).padStart(6, '0');
 
-/* ---------- yuki the pet ---------- */
-let pet = load('dw-pet', {mood:70, belly:60, coins:5});
-const say = document.getElementById('say'), petsvg = document.getElementById('petsvg');
-function drawPet(){
-  document.getElementById('m-mood').style.width = pet.mood + '%';
-  document.getElementById('m-belly').style.width = pet.belly + '%';
-  document.getElementById('coins').textContent = pet.coins;
-  save('dw-pet', pet);
+/* ---------- daia's room ---------- */
+let me = load('dw-daia', {mood:70, caf:40, coins:5});
+const say = document.getElementById('say'), chibi = document.getElementById('chibi');
+const pick = a => a[Math.floor(Math.random()*a.length)];
+function draw(){
+  document.getElementById('m-mood').style.width = me.mood + '%';
+  document.getElementById('m-caf').style.width = me.caf + '%';
+  document.getElementById('coins').textContent = me.coins;
+  save('dw-daia', me);
 }
 let sayT;
-function talk(t){ say.textContent = 'yuki: ' + t; say.classList.add('on'); clearTimeout(sayT); sayT = setTimeout(() => say.classList.remove('on'), 2200); }
-function hop(){ petsvg.classList.remove('hop'); void petsvg.offsetWidth; petsvg.classList.add('hop'); }
+function talk(t){ say.textContent = t; say.classList.add('on'); clearTimeout(sayT); sayT = setTimeout(() => say.classList.remove('on'), 2600); }
+function hop(){ if(!chibi) return; chibi.classList.remove('hop'); void chibi.offsetWidth; chibi.classList.add('hop'); }
 document.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
   const a = b.dataset.act;
-  if(a === 'feed'){
-    if(pet.coins < 2) return talk('no coins… play with me? ☆');
-    pet.coins -= 2; pet.belly = Math.min(100, pet.belly + 25); pet.mood = Math.min(100, pet.mood + 5); talk('yummy strawberry!! 🍓');
+  if(a === 'coffee'){
+    if(me.coins < 2) return talk('broke lol. gotta make art first');
+    me.coins -= 2; me.caf = Math.min(100, me.caf + 25); me.mood = Math.min(100, me.mood + 6);
+    talk(me.caf >= 100 ? 'ok i can see sounds now 😵' : pick(['one more won\'t kill me… right?','ok NOW i can work','coffee ♡ my bestie']));
   }
-  if(a === 'pet'){ pet.mood = Math.min(100, pet.mood + 12); talk(['hehe ♡','so cozy~','more pets pls (˶ᵔ ᵕ ᵔ˶)'][Math.floor(Math.random()*3)]); }
-  if(a === 'play'){ pet.coins += 1; pet.mood = Math.min(100, pet.mood + 8); pet.belly = Math.max(0, pet.belly - 6); talk(['wheee ☆','again again!','i found a coin!'][Math.floor(Math.random()*3)]); }
-  hop(); drawPet();
+  if(a === 'pat'){ me.mood = Math.min(100, me.mood + 12); talk(pick(['hehe :3','ok i\'m blushing stop','pls more ♡'])); }
+  if(a === 'art'){ me.coins += 1; me.mood = Math.min(100, me.mood + 6); me.caf = Math.max(0, me.caf - 8); talk(pick(['made smth random again','ok this is lowkey fire','posting this on tiktok rn'])); }
+  hop(); draw();
 }));
-drawPet();
-setTimeout(() => talk('welcome to daia world ✿'), 900);
+draw();
+setTimeout(() => talk('hiii welcome to daia world ✿'), 900);
 
-/* ---------- 8-bit music (original little loop) ---------- */
-const mel = [659,784,880,784,659,523,587,659, 784,880,1047,880,784,659,587,523];
-const bass = [131,131,175,175,196,196,165,165];
-let ac, loop = null, step = 0;
+/* ---------- music: original dreamy music-box loop ---------- */
+const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+// melody (0 = rest), 8 steps per bar, 8 bars
+const MEL = [
+  72,0,76,0,79,77,76,0,   74,0,71,0,74,76,74,0,
+  72,0,76,0,81,79,76,0,   77,0,74,0,71,72,74,0,
+  76,0,79,0,84,83,79,0,   74,0,76,77,74,0,71,0,
+  72,0,74,76,72,0,69,0,   71,0,74,0,72,0,0,0
+];
+// soft chords, one per bar (Fmaj7 Em7 Am7 Dm7 / C Em Am7 G)
+const CH = [[53,57,60,64],[52,55,59,62],[57,60,64,67],[50,53,57,60],[48,52,55,59],[52,55,59,62],[45,52,55,60],[43,50,55,59]];
+const STEP = 60 / 72 / 2; // eighth notes at 72 bpm
+let ac, master, delay, loop = null, step = 0;
 const bars = document.querySelectorAll('#eq i'), prog = document.getElementById('prog'), playBtn = document.getElementById('play');
-function note(f, type, t, len, vol){
-  const o = ac.createOscillator(), g = ac.createGain();
-  o.type = type; o.frequency.value = f;
-  g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + len);
-  o.connect(g).connect(ac.destination); o.start(t); o.stop(t + len + .02);
+
+function setup(){
+  ac = new (window.AudioContext || window.webkitAudioContext)();
+  master = ac.createGain(); master.gain.value = .8; master.connect(ac.destination);
+  delay = ac.createDelay(); delay.delayTime.value = STEP * 3;
+  const fb = ac.createGain(); fb.gain.value = .38;
+  const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1700;
+  delay.connect(lp); lp.connect(fb); fb.connect(delay); lp.connect(master);
 }
-function tickMusic(){
-  const t = ac.currentTime;
-  note(mel[step % 16], 'square', t, .2, .045);
-  if(step % 2 === 0) note(bass[(step/2) % 8], 'triangle', t, .4, .09);
-  bars.forEach(b => b.style.height = (3 + Math.random()*13) + 'px');
-  prog.style.width = ((step % 64) / 63 * 100) + '%';
+function bell(m, t){
+  [[1, .07, 'sine'], [2, .018, 'sine'], [.5, .02, 'triangle']].forEach(([mul, vol, type]) => {
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.value = mtof(m) * mul;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .01);
+    g.gain.exponentialRampToValueAtTime(.0001, t + 1.6);
+    o.connect(g); g.connect(master); g.connect(delay);
+    o.start(t); o.stop(t + 1.7);
+  });
+}
+function pad(chord, t){
+  chord.forEach(m => {
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = 'sine'; o.frequency.value = mtof(m);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.022, t + .6);
+    g.gain.linearRampToValueAtTime(0, t + STEP * 8 + .4);
+    o.connect(g); g.connect(master);
+    o.start(t); o.stop(t + STEP * 8 + .5);
+  });
+}
+function tick(){
+  const t = ac.currentTime + .05, s = step % MEL.length;
+  if(s % 8 === 0) pad(CH[s / 8], t);
+  if(MEL[s]) bell(MEL[s], t);
+  bars.forEach(b => b.style.height = (MEL[s] ? 4 + Math.random()*12 : 3) + 'px');
+  prog.style.width = (s / (MEL.length - 1) * 100) + '%';
   step++;
 }
 playBtn.addEventListener('click', () => {
-  if(!ac) ac = new (window.AudioContext || window.webkitAudioContext)();
-  if(loop){ clearInterval(loop); loop = null; playBtn.textContent = '▶'; bars.forEach(b => b.style.height = '3px'); return; }
-  ac.resume(); tickMusic(); loop = setInterval(tickMusic, 220); playBtn.textContent = '❚❚';
+  if(!ac) setup();
+  if(loop){
+    clearInterval(loop); loop = null; playBtn.textContent = '▶';
+    master.gain.setTargetAtTime(0, ac.currentTime, .15);
+    bars.forEach(b => b.style.height = '3px'); return;
+  }
+  ac.resume(); master.gain.cancelScheduledValues(ac.currentTime); master.gain.setValueAtTime(.8, ac.currentTime);
+  tick(); loop = setInterval(tick, STEP * 1000); playBtn.textContent = '❚❚';
 });
 
 /* ---------- sparkle trail ---------- */
