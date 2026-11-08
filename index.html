@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daia World</title>
+<meta name="description" content="daia world ✿ the little corner of the internet of Daiaana — games, p5.js sketches & visual things">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+One&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ffc4dd; --pink2:#ff8fbf; --hot:#ff4f9a;
+  --blue:#cde9ff; --blue2:#8cc8ff; --deep:#4f8fe0;
+  --cream:#fffaf6; --mint:#c9f5e5; --lemon:#fff2a8;
+  --ink:#5b4a6e; --muted:#9a8aa8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;line-height:1.65;color:var(--ink);
+  background-color:#fff;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,196,221,.4) 0 14px,transparent 14px 28px),
+    repeating-linear-gradient(90deg,rgba(255,196,221,.4) 0 14px,transparent 14px 28px);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:var(--deep)}
+a:hover{color:var(--hot)}
+::selection{background:var(--pink)}
+.pix{font-family:'DotGothic16',monospace}
+
+/* ---------- windows ---------- */
+.site{max-width:1100px;margin:26px auto 40px;padding:0 16px;position:relative}
+.frame{position:relative;background:rgba(255,255,255,.82);border:2px solid var(--blue2);border-radius:22px;padding:14px;
+  box-shadow:0 0 0 5px #fff,0 0 0 7px var(--pink2),10px 12px 0 7px rgba(140,200,255,.35)}
+.win{background:var(--cream);border:2px solid var(--pink2);border-radius:14px;overflow:hidden;box-shadow:3px 3px 0 var(--blue)}
+.win.blue{border-color:var(--blue2);box-shadow:3px 3px 0 var(--pink)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 10px;font-family:'DotGothic16';font-size:12px;color:var(--hot);
+  background:repeating-linear-gradient(90deg,#ffd6e8 0 8px,#ffe9f3 8px 16px);border-bottom:2px solid var(--pink2)}
+.win.blue .bar{color:var(--deep);background:repeating-linear-gradient(90deg,#d6ecff 0 8px,#ebf6ff 8px 16px);border-color:var(--blue2)}
+.btns{display:flex;gap:4px}
+.btns i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink);background:var(--mint)}
+.btns i:nth-child(2){background:var(--lemon)}.btns i:nth-child(3){background:var(--pink)}
+.pad{padding:10px 12px}
+.dots{background-color:var(--cream);background-image:radial-gradient(var(--blue) 1.6px,transparent 1.7px);background-size:16px 16px}
+
+/* ---------- top bar ---------- */
+.titlebar{display:flex;justify-content:space-between;align-items:center;font-family:'DotGothic16';font-size:13px;padding:2px 6px 10px}
+.titlebar .btns i{width:12px;height:12px}
+
+/* ---------- banner ---------- */
+.banner{position:relative;height:210px;border-radius:14px;overflow:hidden;border:2px solid var(--pink2);
+  background:
+    radial-gradient(ellipse 70px 34px at 12% 30%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 50px 26px at 18% 22%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 90px 40px at 62% 82%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 60px 28px at 70% 74%,#fff 60%,transparent 62%),
+    linear-gradient(115deg,#ffd0e7 0%,#e3d6ff 40%,#cfe9ff 70%,#fff3b8 100%)}
+.banner h1{position:absolute;left:28px;top:40px;font-family:'Mochiy Pop One',sans-serif;font-weight:400;font-size:clamp(46px,8vw,92px);line-height:1;color:#fff;letter-spacing:.02em;
+  text-shadow:3px 0 0 var(--hot),-3px 0 0 var(--hot),0 3px 0 var(--hot),0 -3px 0 var(--hot),3px 3px 0 var(--hot),-3px -3px 0 var(--hot),3px -3px 0 var(--hot),-3px 3px 0 var(--hot),8px 8px 0 var(--blue2)}
+.banner .sub{position:absolute;left:34px;bottom:22px;font-family:'DotGothic16';font-size:14px;color:var(--hot);background:#fff;border:1.5px dashed var(--pink2);border-radius:99px;padding:2px 14px}
+.tw{position:absolute;color:#fff;font-size:22px;text-shadow:0 0 6px var(--pink2);animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(.5) rotate(45deg);opacity:.5}}
+.ticket{position:absolute;right:18px;top:18px;bottom:18px;width:210px;background:rgba(255,255,255,.75);border:2px dashed var(--blue2);border-radius:10px;
+  font-family:'DotGothic16';color:var(--deep);padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:2px;text-align:center}
+.ticket b{font-size:22px;font-weight:400;color:var(--hot);letter-spacing:.2em}
+.ticket small{font-size:10px;color:var(--muted)}
+
+/* ---------- blinkies ---------- */
+.blinkies{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.blinkie{display:inline-flex;align-items:center;justify-content:center;width:96px;height:26px;border:1.5px solid var(--ink);border-radius:3px;
+  font-family:'DotGothic16';font-size:11px;color:#fff;text-shadow:1px 1px 0 var(--ink);background:var(--a);animation:blink 1s steps(1) infinite}
+.blinkie:nth-child(2n){animation-delay:.5s}
+@keyframes blink{50%{background:var(--b)}}
+
+/* ---------- layout ---------- */
+.grid{display:grid;grid-template-columns:236px 1fr 46px;gap:14px;align-items:start}
+.side{display:flex;flex-direction:column;gap:14px}
+
+.avatar{width:96px;height:96px;margin:4px auto 6px;border-radius:50%;border:2px solid var(--pink2);background:radial-gradient(circle at 50% 60%,#fff,var(--blue));display:grid;place-items:center;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--blue2)}
+.avatar svg{width:78px;height:78px;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.name{text-align:center;font-family:'Mochiy Pop One';font-size:18px;color:var(--hot)}
+.mood{text-align:center;font-size:12px;color:var(--muted)}
+.mood b{color:var(--ink);font-weight:700}
+
+.player{display:flex;flex-direction:column;gap:6px}
+.track{font-family:'DotGothic16';font-size:12px;white-space:nowrap;overflow:hidden}
+.track span{display:inline-block;animation:slide 9s linear infinite}
+@keyframes slide{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.ctrl{display:flex;align-items:center;gap:8px}
+.pbtn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);background:var(--pink);color:var(--ink);font-size:12px;cursor:pointer;box-shadow:2px 2px 0 var(--blue2)}
+.pbtn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--blue2)}
+.prog{flex:1;height:8px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--pink2) 0 4px,var(--pink) 4px 8px)}
+.eq{display:flex;gap:2px;height:16px;align-items:flex-end}
+.eq i{width:3px;background:var(--blue2);height:3px;transition:height .1s}
+
+.addme{display:grid;place-items:center;gap:8px}
+.btn88{width:88px;height:31px;border:1.5px solid var(--ink);display:grid;place-items:center;font-family:'DotGothic16';font-size:11px;color:#fff;text-shadow:1px 1px 0 var(--hot);
+  background:linear-gradient(90deg,var(--pink2),var(--blue2));text-decoration:none}
+.addme textarea{width:100%;height:46px;font-family:'DotGothic16';font-size:10px;border:1.5px solid var(--blue2);border-radius:6px;padding:4px;resize:none;color:var(--ink);background:#fff}
+
+/* main window */
+.main{position:relative;min-height:520px}
+.main .content{height:520px;overflow-y:auto;padding:14px 18px;border:2px dotted var(--pink2);margin:10px;border-radius:12px;background:#fff;scrollbar-color:var(--pink2) var(--cream)}
+.panel{display:none;animation:pop .35s ease}
+.panel.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+.content h2{font-family:'Mochiy Pop One';font-weight:400;font-size:20px;color:var(--hot);margin:4px 0 10px}
+.content h2::after{content:" ♡";color:var(--blue2)}
+.content p{margin-bottom:10px}
+.hearts{list-style:none;margin:6px 0 14px}
+.hearts li{padding-left:22px;position:relative;margin:3px 0}
+.hearts li::before{content:"♡";position:absolute;left:4px;color:var(--hot)}
+.hearts b{color:var(--deep);font-weight:700}
+.intro{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start}
+.intro .pic{height:120px;border-radius:10px;border:2px solid var(--blue2);background:linear-gradient(#cfe9ff,#fff);display:grid;place-items:center;position:relative;overflow:hidden}
+.intro .pic::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 2px);background-size:18px 18px;animation:snow 6s linear infinite}
+.intro .pic svg{width:90px;height:90px;position:relative}
+.updates{border:1.5px solid var(--blue2);border-radius:8px;background:var(--cream);font-family:'DotGothic16';font-size:12px}
+.updates div{padding:6px 10px;border-top:1px dashed var(--blue2)}
+.updates div:first-child{border:none}
+.updates em{font-style:normal;color:var(--hot)}
+
+/* works */
+.works{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.work{border:2px solid var(--blue2);border-radius:12px;background:var(--cream);overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:3px 3px 0 var(--pink)}
+.work:hover{transform:translateY(-3px) rotate(-.6deg);box-shadow:6px 6px 0 var(--pink)}
+.work .bar{font-size:11px}
+.thumb{height:130px;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:2px solid var(--blue2)}
+.work .info{padding:8px 10px 10px}
+.work h3{font-family:'Mochiy Pop One';font-weight:400;font-size:16px;color:var(--ink)}
+.work .tag{font-family:'DotGothic16';font-size:11px;color:var(--muted)}
+.work p{font-size:12px;margin:4px 0 8px}
+.go{display:inline-block;font-family:'DotGothic16';font-size:12px;text-decoration:none;color:var(--ink);background:var(--pink);border:1.5px solid var(--ink);border-radius:99px;padding:1px 12px;box-shadow:2px 2px 0 var(--blue2)}
+.go:hover{background:var(--lemon);color:var(--ink)}
+.go.soon{background:#eee;color:var(--muted);pointer-events:none;box-shadow:none}
+
+.t-cold{background:radial-gradient(ellipse at 50% 130%,#2c4185,#0e1530 70%)}
+.t-cold::before,.intro .pic::before{content:"";position:absolute;inset:0}
+.t-cold::before{opacity:.8;background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(#fff 1.6px,transparent 2.2px);background-size:30px 30px,53px 53px;background-position:0 0,15px 20px;animation:snow2 9s linear infinite}
+@keyframes snow2{to{background-position:0 300px,15px 338px}}
+@keyframes snow{to{background-position:0 180px}}
+.t-cold span{position:relative;font-family:'DotGothic16';color:#e3ecff;letter-spacing:.3em;font-size:13px;text-shadow:-2px 0 #ff4f9aaa,2px 0 #8cc8ffaa;animation:flick 5s steps(1) infinite}
+@keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.2}95%{opacity:.9}96%{opacity:.1}}
+
+.t-taiga{background:linear-gradient(#10263d,#1d4f5c 62%,#eef8ff 62%)}
+.t-taiga::before{content:"";position:absolute;left:-20%;right:-20%;top:0;height:60%;filter:blur(10px);
+  background:linear-gradient(100deg,transparent 20%,#7dffc8b0 38%,#c49cffb0 55%,transparent 75%);animation:aur 5s ease-in-out infinite alternate}
+@keyframes aur{to{transform:translateX(15%) skewX(-12deg)}}
+.t-taiga svg{position:absolute;left:0;right:0;bottom:30%;width:100%;height:60px}
+
+.t-train{background:linear-gradient(#2a1b4d,#55307e)}
+.wnd{position:absolute;inset:24px 22px 30px;border-radius:12px;border:3px solid #1a0f33;background:linear-gradient(#3a2068,#1a0f33);overflow:hidden}
+.wnd::before,.wnd::after{content:"";position:absolute;left:0;right:0}
+.wnd::before{top:58%;height:6px;filter:blur(1px);background:repeating-linear-gradient(90deg,transparent 0 40px,#ffd36b 40px 46px,transparent 46px 90px,#ff8fc8 90px 93px,transparent 93px 140px);background-size:140px 100%;animation:pass 1.2s linear infinite}
+.wnd::after{top:30%;height:3px;opacity:.55;background:repeating-linear-gradient(90deg,transparent 0 30px,#9cc3ff 30px 32px,transparent 32px 70px);background-size:70px 100%;animation:pass2 4s linear infinite}
+@keyframes pass{to{background-position:-140px 0}}
+@keyframes pass2{to{background-position:-70px 0}}
+
+.t-art{background:radial-gradient(circle at 26% 40%,var(--pink2) 0 20%,transparent 21%),radial-gradient(circle at 70% 60%,var(--blue2) 0 26%,transparent 27%),radial-gradient(circle at 57% 24%,var(--lemon) 0 12%,transparent 13%),#fff6ec}
+.t-art svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* about table */
+.stats{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:13px}
+.stats td{padding:5px 10px;background:var(--cream);border-top:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink)}
+.stats td:first-child{font-family:'DotGothic16';color:var(--hot);width:110px;border-left:1.5px solid var(--pink);border-radius:8px 0 0 8px}
+.stats td:last-child{border-right:1.5px solid var(--pink);border-radius:0 8px 8px 0}
+
+.linkbtns{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.linkbtns a{font-family:'Mochiy Pop One';font-size:14px;text-decoration:none;color:var(--ink);padding:8px 18px;border:2px solid var(--ink);border-radius:99px;background:var(--a,var(--pink));box-shadow:3px 3px 0 var(--blue2);transition:transform .15s}
+.linkbtns a:hover{transform:translate(-2px,-2px) rotate(-2deg)}
+.note{border:2px dashed var(--blue2);border-radius:12px;padding:12px;background:var(--cream);font-family:'DotGothic16';font-size:12px}
+
+/* vertical tabs */
+.tabs{display:flex;flex-direction:column;gap:8px;padding-top:40px}
+.tab{writing-mode:vertical-rl;font-family:'DotGothic16';font-size:13px;letter-spacing:.12em;padding:14px 6px;border:2px solid var(--blue2);border-left:none;
+  border-radius:0 12px 12px 0;background:#fff;color:var(--ink);cursor:pointer;margin-left:-14px;transition:padding .2s,background .2s}
+.tab:hover{background:var(--blue)}
+.tab.on{background:var(--pink);border-color:var(--pink2);color:var(--hot);padding-left:12px}
+
+/* bottom widgets */
+.widgets{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:14px;margin-top:14px}
+.cal table{width:100%;border-collapse:collapse;text-align:center;font-family:'DotGothic16';font-size:12px}
+.cal th{background:var(--lemon);border:1px solid var(--pink);font-weight:400;padding:2px}
+.cal th:first-child,.cal td.sun{color:var(--hot)} .cal th:last-child,.cal td.sat{color:var(--deep)}
+.cal td{border:1px solid var(--pink);padding:3px 0;background:#fff}
+.cal td.out{color:#d8cfe0;background:var(--cream)}
+.cal td.today{background:var(--hot);color:#fff;border-radius:4px}
+.cal .mon{text-align:center;font-family:'DotGothic16';color:var(--deep);margin-bottom:6px}
+
+.todo label{display:flex;gap:8px;align-items:flex-start;padding:4px 0;border-bottom:1px dashed var(--pink);cursor:pointer}
+.todo input{appearance:none;-webkit-appearance:none;width:15px;height:15px;flex:none;margin-top:3px;border:1.5px solid var(--ink);border-radius:4px;background:#fff;display:grid;place-items:center}
+.todo input:checked{background:var(--pink2)}
+.todo input:checked::after{content:"✓";color:#fff;font-size:11px;line-height:1}
+.todo input:checked+span{text-decoration:line-through;color:var(--muted)}
+
+.pet{display:grid;grid-template-columns:1fr 92px;gap:10px}
+.room{position:relative;height:150px;border-radius:10px;border:1.5px solid var(--blue2);overflow:hidden;
+  background:linear-gradient(#ffe9f3 0 62%,#cfe9ff 62%);}
+.room::before{content:"";position:absolute;left:18%;right:18%;bottom:8px;height:34px;border-radius:50%;background:repeating-radial-gradient(#fff 0 4px,var(--mint) 4px 8px);border:1.5px solid var(--blue2)}
+.room .win2{position:absolute;left:12px;top:12px;width:44px;height:36px;border:2px solid var(--pink2);background:linear-gradient(#bfe2ff,#fff);border-radius:4px}
+.room .shelf{position:absolute;right:12px;top:22px;font-size:14px;letter-spacing:2px}
+#petsvg{position:absolute;left:50%;bottom:16px;width:72px;height:72px;margin-left:-36px;transition:transform .3s}
+#petsvg.hop{animation:hop .5s ease 2}
+@keyframes hop{50%{transform:translateY(-22px)}}
+.say{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:#fff;border:1.5px solid var(--ink);border-radius:10px;padding:1px 8px;font-family:'DotGothic16';font-size:11px;white-space:nowrap;opacity:0;transition:opacity .3s}
+.say.on{opacity:1}
+.pstats{font-family:'DotGothic16';font-size:11px;display:flex;flex-direction:column;gap:3px}
+.pstats .meter{height:7px;border:1px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
+.pstats .meter i{display:block;height:100%;background:var(--pink2);transition:width .4s}
+.pstats button{font-family:'DotGothic16';font-size:11px;border:1.5px solid var(--ink);border-radius:6px;background:var(--blue);padding:2px;cursor:pointer;color:var(--ink)}
+.pstats button:hover{background:var(--lemon)}
+
+/* footer banner */
+.foot{margin-top:14px;display:flex;gap:14px;align-items:stretch}
+.loveyou{flex:1;height:64px;border:2px solid var(--pink2);border-radius:12px;position:relative;overflow:hidden;
+  background:repeating-linear-gradient(90deg,#ffe2ef 0 12px,#e2f1ff 12px 24px)}
+.loveyou span{position:absolute;right:20px;top:50%;transform:translateY(-50%) skewX(-8deg);font-family:'Mochiy Pop One';font-size:28px;color:#fff;
+  text-shadow:2px 0 var(--pink2),-2px 0 var(--pink2),0 2px var(--pink2),0 -2px var(--pink2),4px 4px 0 var(--blue2)}
+.loveyou svg{position:absolute;left:14px;bottom:-6px;width:70px;height:70px}
+.counter{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:6px 16px;border:2px solid var(--blue2);border-radius:12px;background:#fff;font-family:'DotGothic16';font-size:11px}
+.counter b{font-weight:400;font-size:18px;letter-spacing:3px;background:#222;color:#7dffc8;padding:0 8px;border-radius:4px}
+footer{text-align:center;font-family:'DotGothic16';font-size:11px;color:var(--muted);margin-top:12px}
+
+/* floating decor */
+.keychain{position:absolute;left:-34px;top:300px;width:70px;transform-origin:35px 0;animation:swing 3.2s ease-in-out infinite;z-index:5;pointer-events:none}
+@keyframes swing{50%{transform:rotate(9deg)}}
+.deco{position:absolute;z-index:5;pointer-events:none;animation:floaty 4s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-8px) rotate(4deg)}}
+
+.spark{position:fixed;pointer-events:none;z-index:300;font-size:14px;animation:fall .9s ease-out forwards}
+@keyframes fall{to{transform:translateY(24px) rotate(90deg) scale(.3);opacity:0}}
+
+/* ---------- small screens ---------- */
+@media (max-width:860px){
+  .grid{grid-template-columns:1fr}
+  .tabs{order:-1;flex-direction:row;flex-wrap:wrap;padding:0;gap:6px}
+  .tab{writing-mode:horizontal-tb;margin:0;border:2px solid var(--blue2);border-radius:99px;padding:4px 14px}
+  .tab.on{padding:4px 14px}
+  .side{display:grid;grid-template-columns:1fr 1fr}
+  .side .profile{grid-column:1/-1}
+  .widgets{grid-template-columns:1fr}
+  .ticket{display:none}
+  .keychain,.deco{display:none}
+  .main .content{height:auto;max-height:none}
+}
+@media (max-width:560px){
+  .site{padding:0 10px}
+  .frame{padding:10px}
+  .side{grid-template-columns:1fr}
+  .works{grid-template-columns:1fr}
+  .intro{grid-template-columns:1fr}
+  .intro .pic{width:120px}
+  .banner{height:170px}
+  .banner h1{left:18px;top:34px}
+  .banner .sub{left:18px;font-size:12px}
+  .counter{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- mascot: "yuki", a little snow bunny (original) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="yuki" viewBox="0 0 100 100">
+    <g stroke="#5b4a6e" stroke-width="2.5" stroke-linejoin="round">
+      <ellipse cx="36" cy="26" rx="9" ry="20" fill="#fff" transform="rotate(-10 36 26)"/>
+      <ellipse cx="64" cy="26" rx="9" ry="20" fill="#fff" transform="rotate(10 64 26)"/>
+    </g>
+    <ellipse cx="36" cy="27" rx="3.5" ry="12" fill="#ffc4dd" transform="rotate(-10 36 27)"/>
+    <ellipse cx="64" cy="27" rx="3.5" ry="12" fill="#ffc4dd" transform="rotate(10 64 27)"/>
+    <ellipse cx="50" cy="63" rx="34" ry="29" fill="#fff" stroke="#5b4a6e" stroke-width="2.5"/>
+    <path d="M20 76q30 16 60 0v7q-30 16-60 0z" fill="#8cc8ff" stroke="#5b4a6e" stroke-width="2"/>
+    <path d="M70 80l8 14 6-4-6-12z" fill="#8cc8ff" stroke="#5b4a6e" stroke-width="2"/>
+    <circle cx="38" cy="60" r="4" fill="#5b4a6e"/><circle cx="62" cy="60" r="4" fill="#5b4a6e"/>
+    <circle cx="39.5" cy="58.5" r="1.3" fill="#fff"/><circle cx="63.5" cy="58.5" r="1.3" fill="#fff"/>
+    <ellipse cx="29" cy="68" rx="6" ry="3.5" fill="#ffc4dd"/><ellipse cx="71" cy="68" rx="6" ry="3.5" fill="#ffc4dd"/>
+    <path d="M45 67q5 5 10 0" fill="none" stroke="#5b4a6e" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M50 36v10M45 41h10M46.5 37.5l7 7M53.5 37.5l-7 7" stroke="#8cc8ff" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<div class="site">
+
+  <!-- dangling keychain -->
+  <svg class="keychain" viewBox="0 0 70 190" aria-hidden="true">
+    <path d="M35 0v40" stroke="#c9b8d8" stroke-width="3" stroke-dasharray="4 3"/>
+    <circle cx="35" cy="46" r="7" fill="none" stroke="#c9b8d8" stroke-width="3"/>
+    <path d="M35 53v20" stroke="#c9b8d8" stroke-width="2"/>
+    <path d="M35 112c-22-14-28-28-16-36 7-5 14 0 16 6 2-6 9-11 16-6 12 8 6 22-16 36z" fill="#ff8fbf" stroke="#5b4a6e" stroke-width="2.5"/>
+    <ellipse cx="25" cy="86" rx="4" ry="2.5" fill="#fff" opacity=".8"/>
+    <path d="M35 112v14" stroke="#c9b8d8" stroke-width="2"/>
+    <path d="M35 128l6 12 13 2-9.5 9 2.5 13-12-6.5-12 6.5 2.5-13-9.5-9 13-2z" fill="#fff2a8" stroke="#5b4a6e" stroke-width="2.5" stroke-linejoin="round"/>
+  </svg>
+
+  <!-- floating strawberry -->
+  <svg class="deco" style="right:-30px;top:120px;width:60px" viewBox="0 0 60 66" aria-hidden="true">
+    <path d="M30 64C10 52 4 30 14 22c6-5 12-3 16 0 4-3 10-5 16 0 10 8 4 30-16 42z" fill="#ff6fa8" stroke="#5b4a6e" stroke-width="2.5"/>
+    <path d="M18 18l12 6 12-6-6-4-6-10-6 10z" fill="#9be7b8" stroke="#5b4a6e" stroke-width="2.5" stroke-linejoin="round"/>
+    <g fill="#fff2a8"><circle cx="22" cy="34" r="1.8"/><circle cx="34" cy="32" r="1.8"/><circle cx="28" cy="44" r="1.8"/><circle cx="40" cy="42" r="1.8"/><circle cx="20" cy="46" r="1.8"/><circle cx="32" cy="54" r="1.8"/></g>
+  </svg>
+  <!-- floating cloud -->
+  <svg class="deco" style="right:-40px;bottom:120px;width:90px;animation-delay:-2s" viewBox="0 0 90 54" aria-hidden="true">
+    <path d="M18 48c-10 0-16-6-16-13s6-12 13-12c1-10 9-17 19-17 8 0 15 5 18 12 3-2 6-3 9-3 9 0 16 7 16 16 7 1 11 6 11 9 0 5-5 8-11 8z" fill="#fff" stroke="#8cc8ff" stroke-width="2.5"/>
+    <circle cx="36" cy="32" r="2.5" fill="#5b4a6e"/><circle cx="52" cy="32" r="2.5" fill="#5b4a6e"/>
+    <path d="M41 37q3 3 6 0" stroke="#5b4a6e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="30" cy="37" rx="4" ry="2" fill="#ffc4dd"/><ellipse cx="58" cy="37" rx="4" ry="2" fill="#ffc4dd"/>
+  </svg>
+
+  <div class="frame">
+    <div class="titlebar"><span>daiaworld.html</span><span class="btns"><i></i><i></i><i></i></span></div>
+
+    <!-- banner -->
+    <div class="banner">
+      <span class="tw" style="left:44%;top:18px">✦</span>
+      <span class="tw" style="left:52%;top:120px;animation-delay:-.8s;font-size:16px">✧</span>
+      <span class="tw" style="left:8%;top:150px;animation-delay:-1.6s;font-size:14px">✦</span>
+      <h1>Daia World</h1>
+      <span class="sub">だいあ わーるど へ ようこそ ☆ welcome!</span>
+      <div class="ticket">
+        <small>✿ 入場券 ✿</small>
+        <b>ADMIT 1</b>
+        <span>visitors ★ free</span>
+        <span>smiles ★ ¥0</span>
+        <span>hugs ★ always</span>
+        <small>est. 2026 · shanghai</small>
+      </div>
+    </div>
+
+    <div class="blinkies">
+      <span class="blinkie" style="--a:#ff8fbf;--b:#ffb3d3">i ♡ p5.js</span>
+      <span class="blinkie" style="--a:#8cc8ff;--b:#b5dcff">❄ yakutsk ❄</span>
+      <span class="blinkie" style="--a:#c49cff;--b:#dcc6ff">html kid ✿</span>
+      <span class="blinkie" style="--a:#7fd6b0;--b:#a8ecce">game maker</span>
+      <span class="blinkie" style="--a:#ffb36b;--b:#ffd09e">made on ipad</span>
+      <span class="blinkie" style="--a:#ff6f9f;--b:#8cc8ff">pink 4ever ♡</span>
+    </div>
+
+    <div class="grid">
+      <!-- sidebar -->
+      <aside class="side">
+        <div class="win profile">
+          <div class="bar"><span>✿ the daiaspace</span><span class="btns"><i></i><i></i><i></i></span></div>
+          <div class="pad dots">
+            <div class="avatar"><svg viewBox="0 0 100 100"><use href="#yuki"/></svg></div>
+            <div class="name">Daiaana</div>
+            <div class="mood">current mood: <b>building worlds ♡</b></div>
+          </div>
+        </div>
+
+        <div class="win blue">
+          <div class="bar"><span>♪ now playing</span><span class="btns"><i></i><i></i><i></i></span></div>
+          <div class="pad player">
+            <div class="track"><span>daia world theme ☆ 8-bit version ☆</span></div>
+            <div class="ctrl">
+              <button class="pbtn" id="play" aria-label="play music">▶</button>
+              <div class="prog"><i id="prog"></i></div>
+              <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="win">
+          <div class="bar"><span>&gt; add me!</span><span class="btns"><i></i><i></i><i></i></span></div>
+          <div class="pad addme">
+            <a class="btn88" href="https://daiaworld.world">DAIA WORLD ✿</a>
+            <textarea readonly aria-label="link code">&lt;a href="https://daiaworld.world"&gt;daia world ✿&lt;/a&gt;</textarea>
+          </div>
+        </div>
+      </aside>
+
+      <!-- main window -->
+      <section class="win blue main">
+        <div class="bar"><span id="where">♡ home.html</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="content">
+
+          <div class="panel on" data-panel="home">
+            <div class="intro">
+              <div class="pic"><svg viewBox="0 0 100 100"><use href="#yuki"/></svg></div>
+              <div>
+                <h2>about me</h2>
+                <p>hiii!! i'm <b>daiaana</b>, the webmaster of daia world ✿ i study interactive media + business at nyu shanghai, and i'm from yakutsk — one of the coldest cities on earth ❄</p>
+                <p>i make games, websites and little interactive worlds. this site is my corner of the internet, so make yourself at home (｡•ᴗ•｡)♡</p>
+              </div>
+            </div>
+            <ul class="hearts">
+              <li><b>i make:</b> games, websites, p5.js sketches</li>
+              <li><b>currently building:</b> cold memory, a browser horror game</li>
+              <li><b>tools:</b> html, css, javascript, three.js, p5.js</li>
+              <li><b>from:</b> yakutsk ❄ → shanghai ✿</li>
+              <li><b>also:</b> president of the visual arts club + i post on tiktok!</li>
+            </ul>
+            <h2>updates</h2>
+            <div class="updates">
+              <div><em>11/8/26</em> daia world is born!! bought the domain for $3 lol</div>
+              <div><em>next</em> add more works + a real guestbook ✉</div>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="works">
+            <h2>my works</h2>
+            <div class="works">
+              <article class="work">
+                <div class="bar"><span>cold_memory.exe</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb t-cold"><span>COLD MEMORY</span></div>
+                <div class="info"><span class="tag">horror game · three.js</span><h3>Cold Memory</h3>
+                  <p>a first-person horror game that runs right in your browser.</p>
+                  <a class="go soon" href="#">coming soon ☆</a></div>
+              </article>
+              <article class="work">
+                <div class="bar"><span>taiga.js</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb t-taiga">
+                  <svg viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g fill="#0d2b2b">
+                    <path d="M0 60L12 20 24 60z"/><path d="M18 60L34 8 50 60z"/><path d="M44 60L56 26 68 60z"/><path d="M62 60L80 4 98 60z"/><path d="M92 60L104 22 116 60z"/><path d="M110 60L128 10 146 60z"/><path d="M140 60L152 28 164 60z"/><path d="M158 60L176 6 194 60z"/><path d="M188 60L200 24 212 60z"/><path d="M206 60L224 12 242 60z"/><path d="M236 60L248 26 260 60z"/><path d="M254 60L272 8 290 60z"/><path d="M284 60L294 30 304 60z"/>
+                  </g></svg>
+                </div>
+                <div class="info"><span class="tag">animation · p5.js interaction</span><h3>Child of Taiga</h3>
+                  <p>an interactive p5.js animation set in the taiga.</p>
+                  <a class="go" href="https://hiikayu.github.io/CClab-26s/taiga/" target="_blank" rel="noopener">play ↗</a></div>
+              </article>
+              <article class="work">
+                <div class="bar"><span>last_train.html</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb t-train"><div class="wnd"></div></div>
+                <div class="info"><span class="tag">dating sim · html/css/js</span><h3>Last Train</h3>
+                  <p>a short dating sim about a stranger on the last train of the night.</p>
+                  <a class="go soon" href="#">in progress ☆</a></div>
+              </article>
+              <article class="work">
+                <div class="bar"><span>vac.png</span><span class="btns"><i></i><i></i><i></i></span></div>
+                <div class="thumb t-art">
+                  <svg viewBox="0 0 260 130" fill="none" stroke="#5b4a6e" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 100c30-40 50 20 80-10s40-60 70-20 40 30 70-10"/><path d="M205 22l6 12 13 2-10 9 3 13-12-7-12 7 3-13-10-9 13-2z" fill="#fff"/></svg>
+                </div>
+                <div class="info"><span class="tag">community · president</span><h3>Visual Arts Club</h3>
+                  <p>leading nyu shanghai's visual arts club — workshops, shows and art people.</p>
+                  <a class="go soon" href="#">more soon ☆</a></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="profile">
+            <h2>profile</h2>
+            <table class="stats">
+              <tr><td>name</td><td>Daiaana</td></tr>
+              <tr><td>from</td><td>Yakutsk, Russia ❄</td></tr>
+              <tr><td>lives in</td><td>Shanghai ✿</td></tr>
+              <tr><td>studies</td><td>Interactive Media + Business @ NYU Shanghai</td></tr>
+              <tr><td>class of</td><td>2029</td></tr>
+              <tr><td>club</td><td>President, Visual Arts Club</td></tr>
+              <tr><td>makes</td><td>games, websites, p5.js sketches, tiktoks</td></tr>
+              <tr><td>mascot</td><td>yuki the snow bunny (feed her below!)</td></tr>
+            </table>
+          </div>
+
+          <div class="panel" data-panel="links">
+            <h2>say hi</h2>
+            <p>wanna collab, swap buttons or just say hi? find me here ✉</p>
+            <div class="linkbtns">
+              <!-- EDIT ME: your real email + tiktok -->
+              <a href="mailto:hello@daiaworld.world" style="--a:var(--pink)">email ✉</a>
+              <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener" style="--a:var(--blue)">tiktok ♪</a>
+              <a href="https://github.com/hiikayu" target="_blank" rel="noopener" style="--a:var(--lemon)">github ☆</a>
+            </div>
+            <div class="note">✿ guestbook is under construction ✿<br>until then, leave me a message by email (◕‿◕)♡</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- tabs -->
+      <nav class="tabs" aria-label="pages">
+        <button class="tab on" data-tab="home">home</button>
+        <button class="tab" data-tab="works">works</button>
+        <button class="tab" data-tab="profile">profile</button>
+        <button class="tab" data-tab="links">links</button>
+      </nav>
+    </div>
+
+    <!-- widgets -->
+    <div class="widgets">
+      <div class="win cal">
+        <div class="bar"><span>♡ calendar</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="pad"><div class="mon" id="mon"></div><table id="cal"></table></div>
+      </div>
+
+      <div class="win blue todo">
+        <div class="bar"><span>✎ to do</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="pad" id="todo">
+          <label><input type="checkbox"><span>finish daia world</span></label>
+          <label><input type="checkbox"><span>connect daiaworld.world</span></label>
+          <label><input type="checkbox"><span>add a cold memory demo</span></label>
+          <label><input type="checkbox"><span>make a guestbook</span></label>
+          <label><input type="checkbox"><span>sleep more (lol)</span></label>
+        </div>
+      </div>
+
+      <div class="win">
+        <div class="bar"><span>✿ yuki's room</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="pad pet">
+          <div class="room">
+            <div class="win2"></div><div class="shelf">🍓🧁⭐</div>
+            <div class="say" id="say"></div>
+            <svg id="petsvg" viewBox="0 0 100 100"><use href="#yuki"/></svg>
+          </div>
+          <div class="pstats">
+            <span>name: yuki</span>
+            <span>mood</span><div class="meter"><i id="m-mood"></i></div>
+            <span>belly</span><div class="meter"><i id="m-belly"></i></div>
+            <span>coins: <b id="coins">5</b></span>
+            <button data-act="feed">feed 🍓 (2c)</button>
+            <button data-act="pet">pet ♡</button>
+            <button data-act="play">play ☆ (+1c)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer banner -->
+    <div class="foot">
+      <div class="loveyou"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#yuki"/></svg><span>daia ♡'s you !</span></div>
+      <div class="counter"><span>visitors</span><b id="count">000001</b></div>
+    </div>
+  </div>
+
+  <footer>© 2026 daia world ✿ handmade with html, css &amp; love in shanghai</footer>
+</div>
+
+<script>
+/* ---------- tabs ---------- */
+const names = {home:'♡ home.html', works:'☆ works.html', profile:'✿ profile.html', links:'✉ links.html'};
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === t.dataset.tab));
+  document.getElementById('where').textContent = names[t.dataset.tab];
+  document.querySelector('.content').scrollTop = 0;
+}));
+
+/* ---------- storage helpers ---------- */
+const load = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } };
+const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
+
+/* ---------- calendar (shanghai time) ---------- */
+(function(){
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'Asia/Shanghai'}));
+  const y = now.getFullYear(), m = now.getMonth(), d = now.getDate();
+  document.getElementById('mon').textContent = `${y}年 ${m+1}月 ☆ ` + now.toLocaleString('en', {month:'long'}).toLowerCase();
+  const first = new Date(y, m, 1).getDay(), days = new Date(y, m+1, 0).getDate(), prev = new Date(y, m, 0).getDate();
+  let html = '<tr>' + ['日','月','火','水','木','金','土'].map(x => `<th>${x}</th>`).join('') + '</tr><tr>';
+  let cell = 0;
+  for(let i = first - 1; i >= 0; i--){ html += `<td class="out">${prev - i}</td>`; cell++; }
+  for(let i = 1; i <= days; i++){
+    const wd = cell % 7, cls = [i === d ? 'today' : '', wd === 0 ? 'sun' : '', wd === 6 ? 'sat' : ''].join(' ');
+    html += `<td class="${cls}">${i}</td>`; cell++;
+    if(cell % 7 === 0 && i < days) html += '</tr><tr>';
+  }
+  let n = 1; while(cell % 7){ html += `<td class="out">${n++}</td>`; cell++; }
+  document.getElementById('cal').innerHTML = html + '</tr>';
+})();
+
+/* ---------- to do ---------- */
+const boxes = document.querySelectorAll('#todo input'), todo = load('dw-todo', []);
+boxes.forEach((b, i) => { b.checked = !!todo[i]; b.addEventListener('change', () => save('dw-todo', [...boxes].map(x => x.checked))); });
+
+/* ---------- visitor counter (this browser) ---------- */
+const visits = load('dw-visits', 0) + 1; save('dw-visits', visits);
+document.getElementById('count').textContent = String(visits).padStart(6, '0');
+
+/* ---------- yuki the pet ---------- */
+let pet = load('dw-pet', {mood:70, belly:60, coins:5});
+const say = document.getElementById('say'), petsvg = document.getElementById('petsvg');
+function drawPet(){
+  document.getElementById('m-mood').style.width = pet.mood + '%';
+  document.getElementById('m-belly').style.width = pet.belly + '%';
+  document.getElementById('coins').textContent = pet.coins;
+  save('dw-pet', pet);
+}
+let sayT;
+function talk(t){ say.textContent = 'yuki: ' + t; say.classList.add('on'); clearTimeout(sayT); sayT = setTimeout(() => say.classList.remove('on'), 2200); }
+function hop(){ petsvg.classList.remove('hop'); void petsvg.offsetWidth; petsvg.classList.add('hop'); }
+document.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+  const a = b.dataset.act;
+  if(a === 'feed'){
+    if(pet.coins < 2) return talk('no coins… play with me? ☆');
+    pet.coins -= 2; pet.belly = Math.min(100, pet.belly + 25); pet.mood = Math.min(100, pet.mood + 5); talk('yummy strawberry!! 🍓');
+  }
+  if(a === 'pet'){ pet.mood = Math.min(100, pet.mood + 12); talk(['hehe ♡','so cozy~','more pets pls (˶ᵔ ᵕ ᵔ˶)'][Math.floor(Math.random()*3)]); }
+  if(a === 'play'){ pet.coins += 1; pet.mood = Math.min(100, pet.mood + 8); pet.belly = Math.max(0, pet.belly - 6); talk(['wheee ☆','again again!','i found a coin!'][Math.floor(Math.random()*3)]); }
+  hop(); drawPet();
+}));
+drawPet();
+setTimeout(() => talk('welcome to daia world ✿'), 900);
+
+/* ---------- 8-bit music (original little loop) ---------- */
+const mel = [659,784,880,784,659,523,587,659, 784,880,1047,880,784,659,587,523];
+const bass = [131,131,175,175,196,196,165,165];
+let ac, loop = null, step = 0;
+const bars = document.querySelectorAll('#eq i'), prog = document.getElementById('prog'), playBtn = document.getElementById('play');
+function note(f, type, t, len, vol){
+  const o = ac.createOscillator(), g = ac.createGain();
+  o.type = type; o.frequency.value = f;
+  g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + len);
+  o.connect(g).connect(ac.destination); o.start(t); o.stop(t + len + .02);
+}
+function tickMusic(){
+  const t = ac.currentTime;
+  note(mel[step % 16], 'square', t, .2, .045);
+  if(step % 2 === 0) note(bass[(step/2) % 8], 'triangle', t, .4, .09);
+  bars.forEach(b => b.style.height = (3 + Math.random()*13) + 'px');
+  prog.style.width = ((step % 64) / 63 * 100) + '%';
+  step++;
+}
+playBtn.addEventListener('click', () => {
+  if(!ac) ac = new (window.AudioContext || window.webkitAudioContext)();
+  if(loop){ clearInterval(loop); loop = null; playBtn.textContent = '▶'; bars.forEach(b => b.style.height = '3px'); return; }
+  ac.resume(); tickMusic(); loop = setInterval(tickMusic, 220); playBtn.textContent = '❚❚';
+});
+
+/* ---------- sparkle trail ---------- */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  let last = 0, i = 0;
+  const trail = e => {
+    const now = performance.now(); if(now - last < 50) return; last = now;
+    const s = document.createElement('span');
+    s.className = 'spark'; s.textContent = ['♡','✦','☆'][i % 3];
+    s.style.color = ['#ff4f9a','#8cc8ff','#c49cff'][i++ % 3];
+    s.style.left = e.clientX + 8 + 'px'; s.style.top = e.clientY + 8 + 'px';
+    document.body.appendChild(s); setTimeout(() => s.remove(), 900);
+  };
+  addEventListener('pointermove', e => { if(e.pointerType === 'mouse') trail(e); });
+  addEventListener('pointerdown', trail);
+}
+</script>
+</body>
+</html>
