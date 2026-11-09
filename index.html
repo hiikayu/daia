@@ -4,153 +4,159 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>daia world</title>
-<meta name="description" content="daia world ✿ the little corner of the internet of hiikayu — games, drawings, films and random stuff">
+<meta name="description" content="daia world ✿ the little corner of the internet of hiikayu — do fun stuff and explore my fav things">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=DotGothic16&family=Fuzzy+Bubbles:wght@400;700&family=Gaegu:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Fuzzy+Bubbles:wght@400;700&family=Gaegu:wght@400;700&family=Great+Vibes&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
 <script>
 /* if a picture isn't uploaded yet, show a placeholder with its file name */
 function miss(img){ const box = img.parentNode; box.classList.add('missing'); box.dataset.file = img.getAttribute('src'); img.remove(); }
 </script>
 <style>
+/* palette: 海雾奶盖 + soft pink / misty blue / ivory */
 :root{
-  --paper:#fffdf9; --cream:#fff8f3; --kraft:#ecd5ba;
-  --ink:#6e4e42; --ink2:#9a7b6c; --line:#f6e6ea;
-  --pink:#ffd3e4; --pink2:#ff9cc4; --hot:#f2679e;
-  --blue:#d6ecff; --blue2:#8cc8ff; --deep:#4f8fe0;
-  --mint:#cfeedd; --mint2:#94d1b0; --butter:#fff1a8; --lav:#e6dbff;
+  --ivory:#F9F4E1; --ivory2:#F8F4EC; --paper:#FFFDF7;
+  --pink:#F7D8D5; --mauve:#E6B8BE; --rose:#C98D98; --rose2:#A96F7C;
+  --mist:#D0E5E2; --mist2:#A9C9C5; --blue:#C9D9EA; --blue2:#9DB6D0; --blueink:#6F8FAE;
+  --clover:#D3E5CF; --clover2:#9EBF98; --butter:#F2E6C0;
+  --ink:#6B4F4A; --ink2:#9A827B; --taupe:#A58A88; --dark:#3A2F2E;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden}
 body{
   font-family:'Gaegu',cursive;font-size:18px;line-height:1.45;color:var(--ink);
-  background-color:#fff;
-  background-image:radial-gradient(var(--pink) 4.5px,transparent 5.2px),radial-gradient(var(--pink) 4.5px,transparent 5.2px);
-  background-size:36px 36px;background-position:0 0,18px 18px;
+  background-color:var(--ivory2);
+  background-image:radial-gradient(var(--pink) 4.5px,transparent 5.2px),radial-gradient(var(--mist) 4.5px,transparent 5.2px);
+  background-size:38px 38px;background-position:0 0,19px 19px;
   overflow-x:hidden;
 }
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:400;opacity:.22;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .42 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-a{color:var(--hot)}
-a:hover{color:var(--deep)}
+a{color:var(--rose2)}
+a:hover{color:var(--blueink)}
 ::selection{background:var(--pink)}
 img{max-width:100%}
 .px{image-rendering:pixelated;image-rendering:crisp-edges}
 
-/* ---------- stickers ---------- */
-.die{filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(1px 3px 2px rgba(110,78,66,.28))}
+/* ---------- stickers (soft, die-cut) ---------- */
+.die{filter:drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(1px 3px 2px rgba(107,79,74,.25))}
 .stk{position:absolute;z-index:6;pointer-events:none;white-space:nowrap;transform:rotate(var(--r,0deg))}
-.t-swag{font-family:'Cherry Bomb One';font-size:24px;color:#ff9cc4;background:#2a1d22 radial-gradient(#fff 1.3px,transparent 1.6px) 0 0/8px 8px;padding:0 10px 2px;letter-spacing:.04em}
-.t-ipink{font-family:Georgia,'Times New Roman',serif;font-weight:900;color:#2a1d22;font-size:24px;line-height:.9;text-align:center}
-.t-ipink svg{display:inline-block;width:30px;height:27px;vertical-align:-4px}
-.t-kawaii{font-family:'Cherry Bomb One';font-size:32px;color:var(--hot);letter-spacing:-.02em}
-.t-sleep{font-family:'Cherry Bomb One';font-size:28px;color:#ff7fb0;-webkit-text-stroke:1.5px #c2185b}
-.t-love{font-family:'DotGothic16';font-size:22px;line-height:.95;color:#2a1d22;text-align:center}
-.t-angel{font-family:'Cherry Bomb One';font-size:20px;line-height:.95;color:#fff;-webkit-text-stroke:1.5px #2a1d22;text-align:center}
-.t-heart3{font-family:Georgia,serif;font-weight:900;font-size:30px;color:#2a1d22}
-.t-no1{font-family:'Cherry Bomb One';font-size:34px;color:#ffc2da;-webkit-text-stroke:2px #e0659a}
-.t-uwu{font-family:'Cherry Bomb One';font-size:22px;color:#fff;-webkit-text-stroke:1.2px #4f8fe0}
-.bub{font-family:'Gaegu';font-weight:700;font-size:16px;color:#fff;padding:3px 14px;border-radius:999px;border:2px solid #fff;outline:1.5px solid #e88fb3;
-  background:linear-gradient(#ffd3e4,#ff9cc4);box-shadow:inset 0 5px 8px rgba(255,255,255,.55);text-shadow:0 1px 0 #e27ca6}
-.bub.blue{background:linear-gradient(#e2f2ff,#8cc8ff);outline-color:#6aa9e6;text-shadow:0 1px 0 #5f97cf}
-.bub.white{background:#fff;color:var(--ink);outline-color:var(--ink);text-shadow:none}
-.bub::after{content:"";position:absolute;left:18px;bottom:-9px;border:6px solid transparent;border-top-color:#ff9cc4}
-.bub.blue::after{border-top-color:#8cc8ff}.bub.white::after{border-top-color:var(--ink)}
+.stk svg{display:block}
+.s-oval{position:relative;display:inline-block;padding:12px 30px;border-radius:50%;font-family:'Hachi Maru Pop';font-size:15px;color:#fff;
+  background:radial-gradient(ellipse at 45% 30%,#FBEDEF 0,#EBBEC6 45%,#D99DA9 100%);text-shadow:0 1px 0 #B97884,0 0 4px #B97884}
+.s-oval i{font-style:normal;font-size:20px;margin-left:4px}
+.s-stripe{position:relative;display:inline-block;padding:10px 20px 12px;border:2.5px solid var(--ink);border-radius:50% / 46%;font-family:'Hachi Maru Pop';font-size:14px;line-height:1.5;color:var(--ink);text-align:center;
+  background:repeating-linear-gradient(0deg,var(--pink) 0 6px,#fff 6px 12px)}
+.s-stripe::after{content:"";position:absolute;left:14px;bottom:-12px;width:16px;height:16px;background:#fff;border-left:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:skewY(-30deg) rotate(-20deg)}
+.s-cream{position:relative;display:inline-block;padding:12px 22px;border:2.5px solid var(--taupe);border-radius:50%;background:var(--butter);font-family:'Hachi Maru Pop';font-size:15px;line-height:1.35;color:#8a6a55;text-align:center}
+.s-chat{display:inline-block;padding:6px 16px;border-radius:18px;background:linear-gradient(#E3EDF7,#C9D9EA);color:#4d5f74;font-family:Arial,Helvetica,sans-serif;font-size:15px;box-shadow:inset 0 2px 3px rgba(255,255,255,.8);position:relative}
+.s-chat::after{content:"";position:absolute;left:-5px;bottom:2px;width:14px;height:12px;background:#C9D9EA;border-radius:0 0 0 12px;transform:skewX(-20deg)}
+.s-y2k{font-family:'Arial Black',Impact,'Helvetica Neue',sans-serif;font-weight:900;font-size:34px;letter-spacing:-.03em;color:var(--mauve);line-height:1}
+.s-777{font-family:Georgia,'Times New Roman',serif;font-weight:900;font-size:40px;color:var(--dark);line-height:1;position:relative}
+.s-ring{width:96px;height:96px;border-radius:50%;border:5px solid var(--rose);box-shadow:inset 0 0 0 1px #fff,0 0 0 1px #fff}
+.s-ex{font-family:'Arial Black',Impact,sans-serif;font-size:42px;color:var(--dark);line-height:1}
+.s-tag{display:inline-block;font-family:'DotGothic16';font-size:14px;padding:0 6px;background:var(--mist);color:var(--ink)}
+.s-tag.p{background:var(--pink)}
 
 /* washi tape */
-.tape{position:absolute;width:78px;height:22px;opacity:.88;z-index:8;pointer-events:none;transform:rotate(var(--r,-6deg));
+.tape{position:absolute;width:78px;height:22px;opacity:.9;z-index:8;pointer-events:none;transform:rotate(var(--r,-6deg));
   clip-path:polygon(0 12%,4% 0,96% 0,100% 16%,97% 32%,100% 50%,96% 68%,100% 86%,96% 100%,4% 100%,0 86%,3% 66%,0 48%,4% 30%);
-  background:var(--t,repeating-linear-gradient(90deg,#ffc4dc 0 7px,#ffe4ef 7px 14px))}
-.tape.mint{--t:repeating-linear-gradient(135deg,#c4ead4 0 6px,#e6f6ec 6px 12px)}
-.tape.dot{--t:radial-gradient(#fff 2px,transparent 2.6px) 0 0/10px 10px,#ffe58f}
-.tape.gingham{--t:repeating-linear-gradient(90deg,rgba(255,156,196,.5) 0 6px,transparent 6px 12px),repeating-linear-gradient(0deg,rgba(255,156,196,.5) 0 6px,#fff 6px 12px)}
-.tape.sky{--t:repeating-linear-gradient(90deg,#c6e2fb 0 9px,#e8f3fd 9px 18px)}
+  background:var(--t,repeating-linear-gradient(90deg,#F2CACB 0 7px,#FAE6E5 7px 14px))}
+.tape.mist{--t:repeating-linear-gradient(135deg,#C2DCD8 0 6px,#E5F1EF 6px 12px)}
+.tape.dot{--t:radial-gradient(#fff 2px,transparent 2.6px) 0 0/10px 10px,var(--butter)}
+.tape.gingham{--t:repeating-linear-gradient(90deg,rgba(230,184,190,.6) 0 6px,transparent 6px 12px),repeating-linear-gradient(0deg,rgba(230,184,190,.6) 0 6px,#fff 6px 12px)}
+.tape.blue{--t:repeating-linear-gradient(90deg,rgba(157,182,208,.55) 0 6px,transparent 6px 12px),repeating-linear-gradient(0deg,rgba(157,182,208,.55) 0 6px,#fff 6px 12px)}
 
-/* picture placeholders */
+/* placeholders */
 .ph{position:relative}
-.ph.missing{display:grid;place-items:center;min-height:110px;background:repeating-linear-gradient(45deg,#fff 0 8px,#fff0f6 8px 16px)}
-.ph.missing::after{content:"upload: " attr(data-file);font-size:14px;color:var(--hot);background:#fff;border:1.5px dashed var(--pink2);border-radius:99px;padding:0 10px;text-align:center}
+.ph.missing{display:grid;place-items:center;min-height:110px;background:repeating-linear-gradient(45deg,#fff 0 8px,#fbeeee 8px 16px)}
+.ph.missing::after{content:"upload: " attr(data-file);font-size:14px;color:var(--rose2);background:#fff;border:1.5px dashed var(--mauve);border-radius:99px;padding:0 10px;text-align:center}
 
 /* ---------- frame + windows ---------- */
 .site{max-width:1100px;margin:40px auto 40px;padding:0 16px;position:relative}
 .frame{position:relative;background:var(--paper);border-radius:22px;padding:16px;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:22px 22px;
-  box-shadow:0 0 0 6px #fff,0 0 0 8px var(--pink2),10px 12px 0 8px rgba(140,200,255,.35)}
-.frame::before,.win::before,.wobble::before{content:"";position:absolute;inset:1px;border:2px solid var(--bc,var(--blue2));border-radius:inherit;filter:url(#rough);pointer-events:none;z-index:5}
-.win{position:relative;background:var(--paper);border-radius:14px;box-shadow:3px 3px 0 var(--sc,var(--blue));--bc:var(--pink2)}
+  background-image:linear-gradient(#F3E9E3 1px,transparent 1px),linear-gradient(90deg,#F3E9E3 1px,transparent 1px);background-size:22px 22px;
+  box-shadow:0 0 0 6px #fff,0 0 0 8px var(--mauve),10px 12px 0 8px rgba(208,229,226,.8)}
+.frame::before,.win::before,.wobble::before{content:"";position:absolute;inset:1px;border:2px solid var(--bc,var(--ink));border-radius:inherit;filter:url(#rough);pointer-events:none;z-index:5;opacity:.8}
+.win{position:relative;background:var(--paper);border-radius:14px;box-shadow:3px 3px 0 var(--sc,var(--mist));--bc:var(--rose)}
 .win.blue{--bc:var(--blue2);--sc:var(--pink)}
+.win.mist{--bc:var(--mist2);--sc:var(--pink)}
 .win > .body{border-radius:0 0 14px 14px;overflow:hidden}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 12px;font-family:'DotGothic16';font-size:13px;color:var(--hot);
-  border-radius:14px 14px 0 0;border-bottom:2px dashed var(--pink2);
-  background:repeating-linear-gradient(90deg,#ffd6e8 0 9px,#ffeef5 9px 18px)}
-.win.blue .bar{color:var(--deep);border-color:var(--blue2);background:repeating-linear-gradient(90deg,#d6ecff 0 9px,#eef7ff 9px 18px)}
-.win.mint .bar{color:#3f8c66;background:repeating-linear-gradient(90deg,#d6f1e2 0 9px,#eefaf3 9px 18px);border-color:var(--mint2)}
-.win.mint{--bc:var(--mint2)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 12px;font-family:'DotGothic16';font-size:13px;color:var(--rose2);
+  border-radius:14px 14px 0 0;border-bottom:2px dashed var(--mauve);background:repeating-linear-gradient(90deg,var(--pink) 0 9px,#FCEFEE 9px 18px)}
+.win.blue .bar{color:var(--blueink);border-color:var(--blue2);background:repeating-linear-gradient(90deg,var(--blue) 0 9px,#EEF3F9 9px 18px)}
+.win.mist .bar{color:#5d8a85;border-color:var(--mist2);background:repeating-linear-gradient(90deg,var(--mist) 0 9px,#EEF6F5 9px 18px)}
 .btns{display:flex;gap:4px}
-.btns i{width:10px;height:10px;border-radius:50%;border:1.3px solid var(--ink);background:var(--mint)}
+.btns i{width:10px;height:10px;border-radius:50%;border:1.3px solid var(--ink);background:var(--mist)}
 .btns i:nth-child(2){background:var(--butter)}.btns i:nth-child(3){background:var(--pink)}
 .pad{padding:10px 12px}
 .titlebar{display:flex;justify-content:space-between;align-items:center;font-family:'DotGothic16';font-size:13px;padding:0 6px 10px;color:var(--ink2)}
 
 /* ---------- banner ---------- */
-.banner{position:relative;height:260px;border-radius:16px;--bc:var(--pink2)}
+.banner{position:relative;height:270px;border-radius:16px;--bc:var(--rose)}
 .banner .inner{position:absolute;inset:0;border-radius:16px;overflow:hidden;
   background:
-    radial-gradient(ellipse 70px 34px at 10% 26%,#fff 60%,transparent 62%),
-    radial-gradient(ellipse 50px 26px at 16% 18%,#fff 60%,transparent 62%),
-    radial-gradient(ellipse 90px 40px at 64% 86%,#fff 60%,transparent 62%),
-    radial-gradient(ellipse 60px 28px at 72% 78%,#fff 60%,transparent 62%),
-    radial-gradient(rgba(255,255,255,.75) 2px,transparent 2.4px) 0 0/18px 18px,
-    linear-gradient(115deg,#ffd6ea 0%,#efe2ff 40%,#d9edff 70%,#fff4c4 100%)}
-.title{position:absolute;left:30px;top:6px;line-height:1}
-.title h1{font-family:'Great Vibes','Brush Script MT',cursive;font-weight:400;font-size:clamp(78px,12.6vw,150px);letter-spacing:.01em;white-space:nowrap;
-  color:transparent;background:radial-gradient(#d9629e 1.25px,transparent 1.6px) 0 0/4px 4px,linear-gradient(rgba(255,160,205,.35),rgba(255,160,205,.35));
+    radial-gradient(ellipse 70px 34px at 9% 22%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 50px 26px at 15% 15%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 90px 40px at 62% 88%,#fff 60%,transparent 62%),
+    radial-gradient(ellipse 60px 28px at 70% 80%,#fff 60%,transparent 62%),
+    radial-gradient(rgba(255,255,255,.8) 2px,transparent 2.4px) 0 0/18px 18px,
+    linear-gradient(115deg,var(--pink) 0%,var(--ivory) 45%,var(--mist) 80%,var(--blue) 100%)}
+.title{position:absolute;left:36px;top:46px;line-height:1}
+.title h1{font-family:'Great Vibes','Brush Script MT',cursive;font-weight:400;font-size:clamp(72px,11.4vw,134px);line-height:1.15;letter-spacing:.01em;white-space:nowrap;padding:0 .12em;
+  color:transparent;background:radial-gradient(#B97884 1.25px,transparent 1.6px) 0 0/4px 4px,linear-gradient(rgba(230,184,190,.45),rgba(230,184,190,.45));
   -webkit-background-clip:text;background-clip:text;
-  filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 4px 6px rgba(217,98,158,.3))}
-.title .st{position:absolute;color:#e27fb3;font-size:22px;filter:drop-shadow(0 0 2px #fff)}
-.title .q{position:absolute;font-family:Georgia,serif;font-style:italic;font-size:13px;color:#d9629e;white-space:nowrap;text-shadow:0 0 4px #fff}
-.strip{position:absolute;left:44px;bottom:24px;background:#fff;padding:2px 18px;font-size:19px;font-weight:700;color:var(--ink);transform:rotate(-1.5deg);
-  box-shadow:1px 2px 0 rgba(110,78,66,.15);
+  filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 4px 6px rgba(185,120,132,.25))}
+.title .st{position:absolute;color:var(--rose);font-size:22px;filter:drop-shadow(0 0 2px #fff)}
+.title .q{position:absolute;font-family:Georgia,serif;font-style:italic;font-size:13px;color:var(--rose2);white-space:nowrap;text-shadow:0 0 4px #fff}
+.strip{position:absolute;left:44px;bottom:22px;background:#fff;padding:2px 18px;font-size:19px;font-weight:700;color:var(--ink);transform:rotate(-1.5deg);
+  box-shadow:1px 2px 0 rgba(107,79,74,.15);
   clip-path:polygon(0 8%,3% 0,30% 6%,60% 0,100% 4%,98% 50%,100% 100%,62% 94%,30% 100%,2% 95%,0 55%)}
-.banner .me{position:absolute;right:250px;bottom:-2px;width:132px;z-index:4}
-.tw{position:absolute;color:#fff;font-size:22px;text-shadow:0 0 6px var(--pink2)}
-.ticket{position:absolute;right:20px;top:24px;bottom:26px;width:206px;background:var(--kraft);color:var(--ink);border-radius:8px;transform:rotate(2deg);
+.banner .me{position:absolute;right:250px;bottom:-2px;width:128px;z-index:4}
+.tw{position:absolute;color:#fff;font-size:22px;text-shadow:0 0 6px var(--mauve)}
+.ticket{position:absolute;right:20px;top:24px;bottom:26px;width:206px;background:#EBD8C3;color:var(--ink);border-radius:8px;transform:rotate(2deg);
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:17px;
-  background-image:radial-gradient(rgba(110,78,66,.08) 1px,transparent 1.2px);background-size:6px 6px;
+  background-image:radial-gradient(rgba(107,79,74,.08) 1px,transparent 1.2px);background-size:6px 6px;
   -webkit-mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
           mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
-.ticket b{font-family:'Great Vibes',cursive;font-weight:400;font-size:34px;color:#c9578b;line-height:1;margin:2px 0 2px}
+.ticket b{font-family:'Great Vibes',cursive;font-weight:400;font-size:34px;color:var(--rose2);line-height:1;margin:2px 0}
 .ticket small{font-size:14px;color:#8d6c5d}
-.ticket .rule{width:72%;border-top:2px dashed rgba(110,78,66,.4);margin:6px 0}
+.ticket .rule{width:72%;border-top:2px dashed rgba(107,79,74,.35);margin:6px 0}
+
+/* dotted ornament divider */
+.dots-div{display:block;width:100%;height:44px;margin:10px 0 0;border-radius:10px;background:var(--pink)}
+.marquee{overflow:hidden;white-space:nowrap;background:var(--mist);border-radius:99px;margin:8px 0 0;font-family:'DotGothic16';font-size:13px;color:#5d8a85;border:1.5px dashed var(--mist2)}
+.marquee div{display:inline-block;padding:3px 0;animation:mq 40s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
 
 /* blinkies (static) */
-.blinkies{position:relative;display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 6px;justify-content:center}
+.blinkies{position:relative;display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 6px;justify-content:center}
 .blinkie{display:inline-flex;align-items:center;justify-content:center;width:100px;height:26px;border:1.5px solid var(--ink);border-radius:4px;
-  font-family:'DotGothic16';font-size:12px;color:#fff;text-shadow:1px 1px 0 var(--ink),-1px 0 0 rgba(110,78,66,.5);transform:rotate(var(--r,0deg));
-  background:repeating-linear-gradient(90deg,var(--a) 0 6px,var(--b) 6px 12px);box-shadow:1px 2px 0 rgba(110,78,66,.2)}
+  font-family:'DotGothic16';font-size:12px;color:#fff;text-shadow:1px 1px 0 rgba(107,79,74,.75);transform:rotate(var(--r,0deg));
+  background:repeating-linear-gradient(90deg,var(--a) 0 6px,var(--b) 6px 12px);box-shadow:1px 2px 0 rgba(107,79,74,.18)}
 
 /* ---------- layout ---------- */
 .grid{display:grid;grid-template-columns:240px minmax(0,1fr) 46px;gap:16px;align-items:start;margin-top:8px}
 .side,.center{display:flex;flex-direction:column;gap:16px;min-width:0}
 
 .avatar{width:122px;height:122px;margin:8px auto 8px;border-radius:50%;padding:4px;background:#fff;position:relative;
-  box-shadow:0 0 0 2px var(--pink2),0 0 0 6px #fff,0 0 0 8px var(--blue2)}
+  box-shadow:0 0 0 2px var(--mauve),0 0 0 6px #fff,0 0 0 8px var(--mist2)}
 .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
-.avatar::after{content:"";position:absolute;inset:-13px;border-radius:50%;border:2px dashed var(--pink2)}
-.name{text-align:center;font-family:'Great Vibes',cursive;font-size:36px;line-height:1;color:var(--hot);margin-top:8px}
+.avatar::after{content:"";position:absolute;inset:-13px;border-radius:50%;border:2px dashed var(--mauve)}
+.name{text-align:center;font-family:'Great Vibes',cursive;font-size:36px;line-height:1.1;color:var(--rose2);margin-top:8px}
 .handle{text-align:center;font-family:'DotGothic16';font-size:12px;color:var(--ink2)}
 .mood{text-align:center;font-size:16px;color:var(--ink2);margin-top:2px}
 .mood b{color:var(--ink)}
-.prof{background:radial-gradient(#ffd3e4 1.6px,transparent 2px) 0 0/14px 14px,#fffafc}
+.prof{background:radial-gradient(var(--pink) 1.6px,transparent 2px) 0 0/14px 14px,#FFFBF8}
 
 /* ---------- iPod ---------- */
 .ipodwrap{position:relative;padding:4px 6px 0}
-.ipod{position:relative;container-type:inline-size;max-width:230px;margin:0 auto;filter:drop-shadow(2px 4px 4px rgba(110,78,66,.25))}
+.ipod{position:relative;container-type:inline-size;max-width:230px;margin:0 auto;filter:drop-shadow(2px 4px 4px rgba(107,79,74,.22))}
 .ipod > img{display:block;width:100%;border-radius:12%/6%}
 .scr{position:absolute;left:5.56%;top:17.5%;width:88.7%;height:65.4%;overflow:hidden;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;user-select:none;-webkit-user-select:none;
-  background:radial-gradient(#fff 3.2cqw,transparent 3.6cqw) 0 0/11cqw 11cqw,linear-gradient(#ffd6e8,#ffeaf3)}
+  background:radial-gradient(#fff 3.2cqw,transparent 3.6cqw) 0 0/11cqw 11cqw,linear-gradient(var(--pink),var(--ivory))}
 .sb{height:6.5cqw;background:linear-gradient(#3b3b3b,#111);display:flex;justify-content:space-between;align-items:center;padding:0 2cqw;font-size:3.6cqw}
-.clockbox{background:linear-gradient(rgba(70,70,70,.72),rgba(30,30,30,.72));border-bottom:1px solid rgba(255,255,255,.25);text-align:center;padding:1.5cqw 0 2cqw}
+.clockbox{background:linear-gradient(rgba(70,70,70,.68),rgba(30,30,30,.68));border-bottom:1px solid rgba(255,255,255,.25);text-align:center;padding:1.5cqw 0 2cqw}
 .clockbox .t{font-size:17cqw;font-weight:200;line-height:1;letter-spacing:-.02em}
 .clockbox .d{font-size:4.4cqw;margin-top:.5cqw}
 .lockart{position:absolute;left:0;right:0;top:36%;bottom:22%;display:grid;place-items:center}
@@ -164,74 +170,116 @@ img{max-width:100%}
 .camico{width:9cqw;height:7cqw;border:1.2cqw solid #fff;border-radius:1.5cqw;position:relative;opacity:.9}
 .camico::after{content:"";position:absolute;left:50%;top:50%;width:2.6cqw;height:2.6cqw;margin:-1.3cqw;border-radius:50%;border:.9cqw solid #fff}
 .nowplaying{position:absolute;inset:6.5cqw 0 0;display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:4cqw 4cqw 5cqw;color:var(--ink);
-  background:radial-gradient(#fff 3.2cqw,transparent 3.6cqw) 0 0/11cqw 11cqw,linear-gradient(#ffe0ee,#e3f1ff)}
+  background:radial-gradient(#fff 3.2cqw,transparent 3.6cqw) 0 0/11cqw 11cqw,linear-gradient(var(--pink),var(--mist))}
 .scr.open .nowplaying{display:flex}
 .scr.open .clockbox,.scr.open .lockart,.scr.open .slidebar{visibility:hidden}
-.np-art{width:62%;aspect-ratio:1;border-radius:3cqw;background:#fff;box-shadow:0 2cqw 4cqw rgba(110,78,66,.25);display:grid;place-items:center;overflow:hidden;position:relative}
+.np-art{width:62%;aspect-ratio:1;border-radius:3cqw;background:#fff;box-shadow:0 2cqw 4cqw rgba(107,79,74,.22);display:grid;place-items:center;overflow:hidden}
 .np-art svg{width:100%;height:100%}
 .np-t{font-family:'Gaegu',cursive;font-weight:700;font-size:7cqw;line-height:1.05;text-align:center}
-.np-a{font-family:'DotGothic16';font-size:4.4cqw;color:var(--hot)}
-.prog{width:100%;height:2.6cqw;border-radius:99px;background:#fff;overflow:hidden;box-shadow:inset 0 0 0 .4cqw rgba(110,78,66,.35)}
-.prog i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,#ff9cc4 0 1.5cqw,#ffd3e4 1.5cqw 3cqw);transition:width .3s linear}
+.np-a{font-family:'DotGothic16';font-size:4.4cqw;color:var(--rose2)}
+.prog{width:100%;height:2.6cqw;border-radius:99px;background:#fff;overflow:hidden;box-shadow:inset 0 0 0 .4cqw rgba(107,79,74,.3)}
+.prog i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--mauve) 0 1.5cqw,var(--pink) 1.5cqw 3cqw);transition:width .3s linear}
 .ctl{display:flex;gap:6cqw;align-items:center}
 .ctl button{border:none;background:none;cursor:pointer;color:var(--ink);font-size:6cqw;font-weight:700}
-.ctl .pp{width:15cqw;height:15cqw;border-radius:50%;background:#ff9cc4;color:#fff;display:grid;place-items:center;box-shadow:0 1cqw 0 #e27ca6}
+.ctl .pp{width:15cqw;height:15cqw;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center;box-shadow:0 1cqw 0 var(--rose2)}
 .ctl .pp .ic{width:0;height:0;border-left:4cqw solid #fff;border-top:2.6cqw solid transparent;border-bottom:2.6cqw solid transparent;margin-left:1cqw}
 .ctl .pp.on .ic{width:4cqw;height:5cqw;border:none;margin:0;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65%)}
 .eq{display:flex;gap:1cqw;height:6cqw;align-items:flex-end}
-.eq i{width:1.6cqw;border-radius:1cqw;background:var(--blue2);height:1cqw;transition:height .25s}
-.earph{position:absolute;right:-26px;bottom:-30px;width:150px;transform:rotate(-14deg);pointer-events:none;z-index:2;opacity:.95;filter:drop-shadow(1px 2px 1px rgba(110,78,66,.25))}
-.ipodcap{text-align:center;font-size:15px;color:var(--ink2);padding:6px 0 10px;position:relative;z-index:3}
+.eq i{width:1.6cqw;border-radius:1cqw;background:var(--blue2);height:15%;transition:height .25s}
+.earph{position:absolute;right:-26px;bottom:-30px;width:150px;transform:rotate(-14deg);pointer-events:none;z-index:2;opacity:.95;filter:drop-shadow(1px 2px 1px rgba(107,79,74,.22))}
+.ipodcap{text-align:center;font-size:15px;color:var(--ink2);padding:6px 0 10px;position:relative;z-index:3;line-height:1.25}
 
 /* xp settings */
 .xp .pad{font-size:16px}
 .xp .tabsrow{display:flex;gap:3px;margin-bottom:-2px;position:relative;z-index:1}
-.xp .tabsrow span{border:1.5px solid #f0bcd0;border-bottom:none;background:#fff;padding:0 9px;border-radius:6px 6px 0 0;font-size:15px}
-.xp .tabsrow span+span{background:#fdeef4;color:var(--ink2)}
-.xp fieldset{border:1.5px solid #f0bcd0;padding:4px 10px 8px;background:#fff;border-radius:0 6px 6px 6px}
-.xp legend{color:var(--hot);padding:0 4px;font-size:15px;font-weight:700}
+.xp .tabsrow span{border:1.5px solid var(--mauve);border-bottom:none;background:#fff;padding:0 9px;border-radius:6px 6px 0 0;font-size:15px}
+.xp .tabsrow span+span{background:#FCF1F0;color:var(--ink2)}
+.xp fieldset{border:1.5px solid var(--mauve);padding:4px 10px 8px;background:#fff;border-radius:0 6px 6px 6px}
+.xp legend{color:var(--rose2);padding:0 4px;font-size:15px;font-weight:700}
 .xp label{display:flex;gap:7px;align-items:center;cursor:pointer;line-height:1.7}
-.xp input{accent-color:#f2679e;width:15px;height:15px}
+.xp input{accent-color:var(--rose);width:15px;height:15px}
 .xp .row{display:flex;justify-content:flex-end;gap:6px;margin-top:8px}
-.xp button{font-family:'Gaegu';font-size:16px;font-weight:700;padding:0 14px;border:1.5px solid var(--ink);border-radius:6px;background:linear-gradient(#fff,#ffe4ef);color:var(--ink);cursor:pointer}
-.xp .msg{min-height:22px;color:var(--hot);font-size:15px;margin-top:4px}
+.xp button{font-family:'Gaegu';font-size:16px;font-weight:700;padding:0 14px;border:1.5px solid var(--ink);border-radius:6px;background:linear-gradient(#fff,var(--pink));color:var(--ink);cursor:pointer}
+.xp .msg{min-height:22px;color:var(--rose2);font-size:15px;margin-top:4px}
 
-.addme{display:grid;place-items:center;gap:8px}
-.btn88{width:88px;height:31px;border:1.5px solid var(--ink);display:grid;place-items:center;font-family:'Great Vibes',cursive;font-size:19px;color:#fff;text-shadow:1px 1px 0 var(--hot);text-decoration:none;
-  background:linear-gradient(90deg,var(--pink2),var(--blue2))}
-.addme textarea{width:100%;height:50px;font-family:'DotGothic16';font-size:10px;border:1.5px dashed var(--pink2);border-radius:6px;padding:4px;resize:none;color:var(--ink);background:#fff}
+/* fav things on the ruffle */
+.ruffle{position:relative;background:var(--pink);border-radius:14px;padding:0;overflow:hidden}
+.ruffle > img{display:block;width:100%;mix-blend-mode:multiply}
+.ruffle .txt{position:absolute;inset:11% 15% 9%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ruffle h3{font-family:'Great Vibes',cursive;font-weight:400;font-size:34px;line-height:1;color:var(--rose2)}
+.ruffle ul{list-style:none;margin-top:8px;font-size:17px;font-weight:700;line-height:1.55}
+.ruffle li span{display:block;font-weight:400;font-size:14px;color:var(--ink2);line-height:1.1;margin-bottom:3px}
+.ruffle .bow{position:absolute;left:50%;top:-4px;transform:translateX(-50%)}
+
+/* pixel note */
+.pxnote{position:relative;min-height:150px;background:radial-gradient(var(--pink) 3px,transparent 3.5px) 0 0/26px 26px,radial-gradient(var(--blue) 3px,transparent 3.5px) 13px 13px/26px 26px,#fff}
+.pxnote .s-tag{position:absolute}
+.pxnote .lv{position:absolute;right:10px;bottom:8px;width:84px;height:76px}
+.pxnote .lv span{position:absolute;inset:16px 0 0;text-align:center;font-family:'Great Vibes',cursive;font-size:30px;color:var(--ink);transform:rotate(-8deg)}
+
+/* 88x31 buttons + stamps */
+.btnwall{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+.b88{width:88px;height:31px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;gap:3px;font-family:'DotGothic16';font-size:10px;line-height:1.05;text-align:center;color:var(--ink);text-decoration:none;overflow:hidden;position:relative;image-rendering:pixelated}
+.b88 b{font-weight:400}
+.b88.a{background:linear-gradient(90deg,var(--pink),var(--mauve));color:#fff;text-shadow:1px 1px 0 var(--rose2)}
+.b88.b{background:repeating-linear-gradient(45deg,var(--mist) 0 4px,#fff 4px 8px)}
+.b88.c{background:#fff;border-style:dashed}
+.b88.d{background:var(--dark);color:var(--pink);font-size:11px}
+.b88.e{background:linear-gradient(var(--blue),#fff)}
+.b88.f{background:radial-gradient(#fff 1.5px,transparent 2px) 0 0/7px 7px,var(--mauve);color:var(--ink)}
+.b88.g{background:var(--butter);border-width:2px}
+.b88.h{background:linear-gradient(90deg,#fff 0 30%,var(--pink) 30%)}
+.addme textarea{width:100%;height:46px;font-family:'DotGothic16';font-size:10px;border:1.5px dashed var(--mauve);border-radius:6px;padding:4px;resize:none;color:var(--ink);background:#fff;margin-top:8px}
+.stamps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.stamp{width:98px;height:68px;padding:5px;transform:rotate(var(--r,0deg));filter:drop-shadow(1px 2px 1px rgba(107,79,74,.25));
+  background:radial-gradient(circle,transparent 2.6px,#fff 3px) -4.5px -4.5px/9px 9px}
+.stamp > div{width:100%;height:100%;background:var(--sbg,var(--pink));display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'DotGothic16';font-size:10.5px;line-height:1.15;text-align:center;color:var(--ink);position:relative;overflow:hidden}
+.stamp > div big{font-family:'Great Vibes',cursive;font-size:22px;line-height:.9;color:var(--rose2)}
+.stamp svg{display:block}
+.cornerbody{display:grid;grid-template-columns:200px 1fr;gap:10px 18px;align-items:start}
+.cornerbody .btnwall{grid-row:span 2;align-content:start}
+.cornerbody textarea{grid-column:1;margin:0}
+.cornerbody .uc{grid-column:1/-1;margin:2px 0}
+.cornerbody .stamps{grid-column:2;grid-row:1 / span 2}
+.cornerbody .webring{grid-column:1/-1}
+@media (max-width:700px){.cornerbody{grid-template-columns:1fr}.cornerbody > *{grid-column:1!important;grid-row:auto!important}}
+.webring{text-align:center;font-family:'DotGothic16';font-size:12px}
+.webring .r{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.webring a{text-decoration:none;border:1px solid var(--ink);padding:0 6px;background:#fff;color:var(--ink)}
+.webring a:hover{background:var(--pink)}
+.uc{height:16px;background:repeating-linear-gradient(-45deg,var(--butter) 0 8px,var(--ink) 8px 16px);border-radius:3px;margin:6px 0}
 
 /* main window */
 .main{--bc:var(--blue2);--sc:var(--pink)}
-.main .content{height:560px;overflow-y:auto;padding:14px 20px;margin:10px;border-radius:10px;background:#fff;scrollbar-color:var(--pink2) var(--cream);
-  background-image:linear-gradient(transparent 27px,#fbe6ee 27px);background-size:100% 28px;background-attachment:local}
+.main .content{height:560px;overflow-y:auto;padding:14px 20px;margin:10px;border-radius:10px;background:#fff;scrollbar-color:var(--mauve) var(--ivory);
+  background-image:linear-gradient(transparent 27px,#F6E7E6 27px);background-size:100% 28px;background-attachment:local}
 .panel{display:none}
 .panel.on{display:block;animation:pop .35s ease}
 @keyframes pop{from{opacity:0;transform:translateY(6px)}}
 .content h2{font-family:'Fuzzy Bubbles';font-weight:700;font-size:27px;color:var(--ink);margin:2px 0 8px;line-height:1.15}
-.content h2 .hl{background:linear-gradient(transparent 58%,#ffd3e4 58% 90%,transparent 90%);padding:0 4px}
-.content h2 .s{font-family:'Great Vibes',cursive;font-weight:400;color:var(--hot);font-size:30px;margin-left:6px}
+.content h2 .hl{background:linear-gradient(transparent 58%,var(--pink) 58% 90%,transparent 90%);padding:0 4px}
+.content h2 .s{font-family:'Great Vibes',cursive;font-weight:400;color:var(--rose);font-size:30px;margin-left:6px}
 .content h4{font-family:'Fuzzy Bubbles';font-weight:700;font-size:19px;color:var(--ink);margin:22px 0 12px}
-.content h4 span{background:linear-gradient(transparent 55%,var(--hlc,#cfeedd) 55% 92%,transparent 92%);padding:0 4px}
+.content h4 span{background:linear-gradient(transparent 55%,var(--hlc,var(--mist)) 55% 92%,transparent 92%);padding:0 4px}
 .content p{margin-bottom:8px}
 .hearts{list-style:none;margin:6px 0 14px}
 .hearts li{padding-left:24px;position:relative;margin:2px 0}
-.hearts li::before{content:"♡";position:absolute;left:4px;color:var(--hot)}
-.hearts b{color:var(--hot)}
+.hearts li::before{content:"♡";position:absolute;left:4px;color:var(--rose)}
+.hearts b{color:var(--rose2)}
 .intro{display:grid;grid-template-columns:132px 1fr;gap:18px;align-items:start}
-.intro .pic{position:relative;width:132px;background:#fff;padding:8px 8px 4px;box-shadow:2px 3px 0 var(--blue);transform:rotate(-3deg);margin-top:10px;outline:1px solid #f6dfe8}
-.intro .pic .in{height:134px;background:radial-gradient(#ffd3e4 2px,transparent 2.4px) 0 0/14px 14px,#fff6fa;display:grid;place-items:end center;overflow:hidden}
+.intro .pic{position:relative;width:132px;background:#fff;padding:8px 8px 4px;box-shadow:2px 3px 0 var(--mist);transform:rotate(-3deg);margin-top:10px;outline:1px solid #F3E2E0}
+.intro .pic .in{height:134px;background:radial-gradient(var(--pink) 2px,transparent 2.4px) 0 0/14px 14px,#FFF9F8;display:grid;place-items:end center;overflow:hidden}
 .intro .pic img{height:130px}
 .intro .pic p{text-align:center;font-size:15px;margin:2px 0 0}
-.updates{border-radius:8px;background:#fffaf2;font-size:17px;position:relative;border:1.5px dashed var(--blue2)}
-.updates div{padding:4px 12px;border-top:1.5px dashed rgba(140,200,255,.6)}
+.updates{border-radius:8px;background:#FFFBF4;font-size:17px;border:1.5px dashed var(--blue2)}
+.updates div{padding:4px 12px;border-top:1.5px dashed rgba(157,182,208,.6)}
 .updates div:first-child{border:none}
-.updates em{font-style:normal;color:var(--hot);font-weight:700}
+.updates em{font-style:normal;color:var(--rose2);font-weight:700}
 
 /* works */
 .works{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.work{position:relative;background:#fffaf6;border-radius:12px;box-shadow:3px 3px 0 var(--pink);--bc:var(--blue2)}
-.work .bar{font-size:12px;color:var(--deep);border-color:var(--blue2);background:repeating-linear-gradient(90deg,#d6ecff 0 9px,#eef7ff 9px 18px)}
+.work{position:relative;background:#FFFBF7;border-radius:12px;box-shadow:3px 3px 0 var(--pink);--bc:var(--blue2)}
+.work .bar{font-size:12px;color:var(--blueink);border-color:var(--blue2);background:repeating-linear-gradient(90deg,var(--blue) 0 9px,#EEF3F9 9px 18px)}
 .thumb{height:140px;position:relative;overflow:hidden;display:grid;place-items:center;background:#fff;border-bottom:2px dashed var(--blue2)}
 .thumb > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .zoom{cursor:zoom-in}
@@ -239,143 +287,137 @@ img{max-width:100%}
 .work h3{font-family:'Fuzzy Bubbles';font-weight:700;font-size:20px;color:var(--ink);line-height:1.2}
 .work .tag{font-family:'DotGothic16';font-size:12px;color:var(--ink2)}
 .work p{font-size:16px;margin:2px 0 8px;line-height:1.35}
-.go{display:inline-block;font-family:'Gaegu';font-size:17px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--pink);border:1.5px solid var(--ink);border-radius:99px;padding:0 14px;box-shadow:2px 2px 0 var(--blue2);cursor:pointer}
+.go{display:inline-block;font-family:'Gaegu';font-size:17px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--pink);border:1.5px solid var(--ink);border-radius:99px;padding:0 14px;box-shadow:2px 2px 0 var(--mist2);cursor:pointer}
 .go:hover{background:var(--butter);color:var(--ink)}
-
-.t-cold{background:radial-gradient(#d4e6ff 2.4px,transparent 2.8px) 0 0/16px 16px,#f1f7ff}
+.t-cold{background:radial-gradient(var(--blue) 2.4px,transparent 2.8px) 0 0/16px 16px,#F3F7FB}
 .t-cold::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1.6px,transparent 2.2px);background-size:26px 26px;animation:snow2 14s linear infinite}
 @keyframes snow2{to{background-position:0 260px}}
-.memos{position:relative;width:74%;background:#fff;border:2px solid #9cbcf0;border-radius:8px;box-shadow:3px 3px 0 var(--pink);overflow:hidden}
-.mbar{display:flex;justify-content:space-between;background:linear-gradient(#d6e6ff,#a9c6f2);color:#fff;font-family:'DotGothic16';font-size:11px;padding:0 8px;text-shadow:0 1px 0 #6f93d6}
-.mbody{padding:7px 6px 8px;text-align:center;font-family:'DotGothic16';color:#2c3e6b}
-.mbody b{display:block;font-weight:400;font-size:17px;letter-spacing:.22em;line-height:1.1;text-shadow:-1px 0 #ff9cc4,1px 0 #8cc8ff}
-.mbody i{display:block;font-style:normal;font-size:10px;color:#8aa0c8;margin-top:4px}
-.mbody .user{display:inline-flex;align-items:center;gap:5px;margin-top:5px;border:1px solid #cfe2ff;border-radius:4px;padding:0 6px;font-size:11px;background:#f6faff}
+.memos{position:relative;width:74%;background:#fff;border:2px solid var(--blue2);border-radius:8px;box-shadow:3px 3px 0 var(--pink);overflow:hidden}
+.mbar{display:flex;justify-content:space-between;background:linear-gradient(var(--blue),var(--blue2));color:#fff;font-family:'DotGothic16';font-size:11px;padding:0 8px;text-shadow:0 1px 0 var(--blueink)}
+.mbody{padding:7px 6px 8px;text-align:center;font-family:'DotGothic16';color:#3d4f68}
+.mbody b{display:block;font-weight:400;font-size:17px;letter-spacing:.22em;line-height:1.1;text-shadow:-1px 0 var(--mauve),1px 0 var(--blue2)}
+.mbody i{display:block;font-style:normal;font-size:10px;color:#8aa0b8;margin-top:4px}
+.mbody .user{display:inline-flex;align-items:center;gap:5px;margin-top:5px;border:1px solid var(--blue);border-radius:4px;padding:0 6px;font-size:11px;background:#F6F9FC}
 .mbody .user span{width:12px;height:12px;border-radius:3px;background:linear-gradient(var(--pink),var(--blue))}
-.t-art{background:radial-gradient(circle at 26% 40%,#ffb3d1 0 20%,transparent 21%),radial-gradient(circle at 70% 60%,#bfe0ff 0 26%,transparent 27%),radial-gradient(circle at 57% 24%,#ffe98f 0 12%,transparent 13%),#fff8ef}
+.t-art{background:radial-gradient(circle at 26% 40%,var(--mauve) 0 20%,transparent 21%),radial-gradient(circle at 70% 60%,var(--mist) 0 26%,transparent 27%),radial-gradient(circle at 57% 24%,var(--butter) 0 12%,transparent 13%),var(--ivory2)}
 .t-art svg{position:absolute;inset:0;width:100%;height:100%}
 
 /* gallery */
 .gallery{columns:3 150px;column-gap:18px}
-.pola{break-inside:avoid;display:block;width:100%;background:#fff;padding:8px 8px 4px;margin:10px 0 18px;box-shadow:3px 4px 0 var(--blue),0 0 0 1px #f6e2ea;
+.pola{break-inside:avoid;display:block;width:100%;background:#fff;padding:8px 8px 4px;margin:10px 0 18px;box-shadow:3px 4px 0 var(--mist),0 0 0 1px #F3E4E2;
   transform:rotate(var(--r,0deg));cursor:zoom-in;position:relative}
 .pola::before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:19px;margin-left:-29px;transform:rotate(-4deg);opacity:.9;
-  background:repeating-linear-gradient(90deg,#ffc4dc 0 7px,#ffe4ef 7px 14px);
+  background:repeating-linear-gradient(90deg,#F2CACB 0 7px,#FAE6E5 7px 14px);
   clip-path:polygon(0 12%,4% 0,96% 0,100% 16%,97% 40%,100% 70%,96% 100%,4% 100%,0 80%,3% 50%)}
-.pola:nth-child(3n)::before{background:repeating-linear-gradient(135deg,#c4ead4 0 6px,#e6f6ec 6px 12px)}
-.pola:nth-child(4n)::before{background:repeating-linear-gradient(90deg,#c6e2fb 0 9px,#e8f3fd 9px 18px)}
+.pola:nth-child(3n)::before{background:repeating-linear-gradient(135deg,#C2DCD8 0 6px,#E5F1EF 6px 12px)}
+.pola:nth-child(4n)::before{background:radial-gradient(#fff 2px,transparent 2.6px) 0 0/10px 10px,var(--butter)}
 .pola .ph img{display:block;width:100%}
 .pola figcaption{font-size:16px;line-height:1.25;color:var(--ink);padding-top:4px;text-align:center;font-weight:700}
 
 .stats{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:17px}
-.stats td{padding:2px 10px;background:#fffaf6;border-top:1.5px dashed var(--pink2);border-bottom:1.5px dashed var(--pink2)}
-.stats td:first-child{font-family:'DotGothic16';font-size:13px;color:var(--hot);width:110px}
-
+.stats td{padding:2px 10px;background:#FFFBF7;border-top:1.5px dashed var(--mauve);border-bottom:1.5px dashed var(--mauve)}
+.stats td:first-child{font-family:'DotGothic16';font-size:13px;color:var(--rose2);width:110px}
 .linkbtns{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}
 .linkbtns a{font-family:'Fuzzy Bubbles';font-weight:700;font-size:18px;text-decoration:none;color:var(--ink);padding:4px 18px;border:2px solid var(--ink);border-radius:99px;background:var(--a,var(--pink));box-shadow:3px 3px 0 var(--blue2);transform:rotate(var(--r,0deg))}
 .linkbtns a:hover{transform:translate(-1px,-2px) rotate(-2deg)}
-.note{position:relative;padding:12px 14px;background:#fff8d8;font-size:17px;transform:rotate(-1deg);box-shadow:2px 3px 0 rgba(110,78,66,.14)}
+.note{position:relative;padding:12px 14px;background:var(--butter);font-size:17px;transform:rotate(-1deg);box-shadow:2px 3px 0 rgba(107,79,74,.12)}
 
 /* tabs */
 .tabs{display:flex;flex-direction:column;gap:8px;padding-top:44px}
 .tab{writing-mode:vertical-rl;font-family:'DotGothic16';font-size:13px;letter-spacing:.12em;padding:14px 6px;border:2px solid var(--blue2);border-left:none;
   border-radius:0 12px 12px 0;background:var(--c,#fff);color:var(--ink);cursor:pointer;margin-left:-16px;transition:padding .2s}
-.tab:nth-child(1){--c:#ffe0ec}.tab:nth-child(2){--c:#dcf3e6}.tab:nth-child(3){--c:#fff3c4}.tab:nth-child(4){--c:#dfefff}.tab:nth-child(5){--c:#efe6ff}
-.tab.on{padding-left:14px;border-color:var(--pink2);color:var(--hot);box-shadow:2px 2px 0 var(--pink)}
-.tab:not(.on){opacity:.8}
+.tab:nth-child(1){--c:var(--pink)}.tab:nth-child(2){--c:var(--mist)}.tab:nth-child(3){--c:var(--butter)}.tab:nth-child(4){--c:var(--blue)}.tab:nth-child(5){--c:#EFDDE0}
+.tab.on{padding-left:14px;border-color:var(--rose);color:var(--rose2);box-shadow:2px 2px 0 var(--pink)}
+.tab:not(.on){opacity:.82}
 
-/* ---------- the desk (middle) ---------- */
-.desk{position:relative;padding:20px 4px 6px}
-.desk-h{font-family:'Great Vibes',cursive;font-size:40px;color:var(--hot);line-height:1;margin:0 0 6px 10px;filter:drop-shadow(0 2px 0 #fff)}
+/* ---------- the desk ---------- */
+.desk{position:relative;padding:22px 4px 6px}
+.desk-h{font-family:'Great Vibes',cursive;font-size:42px;color:var(--rose2);line-height:1.1;margin:0 0 6px 10px;filter:drop-shadow(0 2px 0 #fff)}
 .desk-h small{font-family:'Gaegu';font-size:16px;color:var(--ink2);margin-left:8px}
-.nb{position:relative;container-type:inline-size;transform:rotate(-.6deg);filter:drop-shadow(2px 5px 5px rgba(110,78,66,.22))}
+.nb{position:relative;container-type:inline-size;transform:rotate(-.6deg);filter:drop-shadow(2px 5px 5px rgba(107,79,74,.2))}
 .nb > img{display:block;width:100%;border-radius:6px}
-.page{position:absolute;top:3.2cqw;font-size:2.05cqw;line-height:2.68cqw;color:#5b4a6e;font-weight:700}
+.page{position:absolute;top:3.2cqw;font-size:2.4cqw;line-height:2.68cqw;color:#5d4a52;font-weight:700}
 .page.l{left:7.6%;width:36%}
 .page.r{left:55%;width:35%}
-.page h5{font-family:'Great Vibes',cursive;font-weight:400;font-size:3.6cqw;line-height:2.68cqw;color:var(--hot);height:2.68cqw}
-.page .pen{color:#4f8fe0}
-.page .hi{background:linear-gradient(transparent 50%,#fff1a8 50% 92%,transparent 92%)}
-.page ul{list-style:none}
-.page li::before{content:"♡ ";color:var(--hot)}
-.page .scribble{text-decoration:line-through wavy #ff9cc4}
-.nb .doodle{position:absolute;pointer-events:none}
+.page h5{font-family:'Great Vibes',cursive;font-weight:400;font-size:4.2cqw;line-height:2.68cqw;height:5.36cqw;padding-top:1.4cqw;color:var(--rose2)}
+.page .big{font-size:2.9cqw;line-height:5.36cqw}
+.page .hi{background:linear-gradient(transparent 50%,var(--butter) 50% 92%,transparent 92%)}
+.page .pen{color:var(--blueink)}
+.act{list-style:none}
+.act li{font-size:3.4cqw;line-height:5.36cqw;display:flex;align-items:center;gap:1.4cqw}
+.act li i{width:2.8cqw;height:2.8cqw;border:.35cqw solid var(--ink);border-radius:.6cqw;display:inline-block;background:#fff;transform:rotate(-4deg);flex:none}
+.act li:nth-child(1) i{background:var(--pink)}.act li:nth-child(2) i{background:var(--mist)}.act li:nth-child(3) i{background:var(--butter)}
+.nb .nbs{position:absolute;pointer-events:none;transform:rotate(var(--r,0deg))}
 .deskrow{display:grid;grid-template-columns:150px 1fr 1fr;gap:18px;align-items:start;margin-top:22px}
-
-/* id badge */
 .badge{position:relative;width:150px;transform:rotate(-4deg);transform-origin:50% 0;margin:-6px auto 0;animation:sway 5s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(-1deg)}}
 .badge > img{display:block;width:100%;mix-blend-mode:multiply}
 .pocket{position:absolute;left:9%;top:47%;width:82%;height:48%;display:flex;flex-direction:column;align-items:center;gap:3px;overflow:hidden}
 .pocket .hello{position:relative;width:100%}
-.pocket .hello img{display:block;width:100%}
-.pocket .hello b{position:absolute;left:0;right:0;top:43%;text-align:center;font-family:'Great Vibes',cursive;font-weight:400;font-size:24px;color:#3d5ea8;transform:rotate(-4deg)}
+.pocket .hello img{display:block;width:100%;filter:saturate(.55) hue-rotate(-8deg)}
+.pocket .hello b{position:absolute;left:0;right:0;top:43%;text-align:center;font-family:'Great Vibes',cursive;font-weight:400;font-size:24px;color:var(--blueink);transform:rotate(-4deg)}
 .pocket .who{display:flex;align-items:center;gap:4px;font-family:'DotGothic16';font-size:9.5px;line-height:1.25;color:var(--ink)}
 .pocket .who img{height:58px}
 .pocket::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.55) 0 18%,transparent 30% 60%,rgba(255,255,255,.35) 70%,transparent 80%);pointer-events:none}
-
-/* tin */
-.tinbox{position:relative;cursor:pointer}
-.tin{position:relative;width:100%;max-width:220px;margin:0 auto;transform:rotate(-4deg)}
-.tin > img{display:block;width:100%;border-radius:8px}
-.tin .in{position:absolute;left:14%;top:56%;width:72%;height:36%}
-.tin .in > *{position:absolute;transform:rotate(var(--r,0deg))}
-.tinbox.shake .tin{animation:shake .5s ease}
-@keyframes shake{0%,100%{transform:rotate(-4deg)}20%{transform:rotate(-9deg) translateX(-4px)}40%{transform:rotate(2deg) translateX(4px)}60%{transform:rotate(-7deg)}80%{transform:rotate(-2deg)}}
-.tinbox.shake .tin .in > *{animation:rattle .5s ease}
-@keyframes rattle{30%{translate:4px -6px}60%{translate:-5px 3px}}
+.basketbox{position:relative;cursor:pointer}
+.basket{position:relative;width:100%;max-width:230px;margin:0 auto}
+.basket > img{display:block;width:100%;filter:drop-shadow(2px 5px 4px rgba(107,79,74,.25))}
+.basket .in{position:absolute;inset:22% 22% 22% 20%}
+.basket .in > *{position:absolute;transform:rotate(var(--r,0deg));pointer-events:none}
+.basketbox.shake .basket{animation:shake .5s ease}
+@keyframes shake{0%,100%{transform:none}25%{transform:rotate(-4deg) translateX(-3px)}50%{transform:rotate(3deg) translateX(3px)}75%{transform:rotate(-2deg)}}
 .cap{text-align:center;font-size:16px;font-weight:700;margin-top:6px}
 .cap small{display:block;font-weight:400;font-size:14px;color:var(--ink2)}
-.tinmsg{position:absolute;left:50%;top:-6px;transform:translateX(-50%);opacity:0;transition:opacity .3s;z-index:9}
-.tinmsg.on{opacity:1}
-
-/* camera */
+.favpop{position:absolute;left:50%;top:-8px;transform:translateX(-50%) rotate(-3deg);opacity:0;transition:opacity .3s;z-index:9;pointer-events:none}
+.favpop.on{opacity:1}
 .cam{position:relative;cursor:pointer}
-.cam > img{display:block;width:100%;max-width:220px;margin:6px auto 0;transform:rotate(3deg);filter:drop-shadow(2px 5px 4px rgba(110,78,66,.3))}
+.cam > img{display:block;width:100%;max-width:220px;margin:6px auto 0;transform:rotate(3deg);filter:drop-shadow(2px 5px 4px rgba(107,79,74,.28))}
 .cam:active > img{transform:rotate(3deg) scale(.97)}
-.snap{position:absolute;right:-6px;top:-118px;width:122px;background:#fff;padding:6px 6px 3px;box-shadow:3px 4px 0 var(--blue);transform:rotate(8deg) translateY(30px);opacity:0;transition:opacity .35s,transform .45s cubic-bezier(.3,1.6,.5,1);z-index:9;outline:1px solid #f6e2ea;cursor:zoom-in;pointer-events:none}
+.snap{position:absolute;right:-6px;top:-118px;width:122px;background:#fff;padding:6px 6px 3px;box-shadow:3px 4px 0 var(--mist);transform:rotate(8deg) translateY(30px);opacity:0;pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.3,1.6,.5,1);z-index:9;outline:1px solid #F3E4E2;cursor:zoom-in}
 .snap.on{opacity:1;transform:rotate(8deg);pointer-events:auto}
 .snap img{display:block;width:100%;height:110px;object-fit:cover}
 .snap figcaption{font-size:14px;font-weight:700;text-align:center}
 .flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:350}
 .flash.on{animation:flash .45s ease}
 @keyframes flash{10%{opacity:.85}100%{opacity:0}}
+.deskstk{position:relative;height:150px;margin-top:10px}
 
 /* ---------- cork board ---------- */
-.board{margin-top:18px;--bc:#d9a576}
-.board .bar{color:#9b6a43;border-color:#d9a576;background:repeating-linear-gradient(90deg,#fbe9d4 0 9px,#fff5ea 9px 18px)}
-.cork{position:relative;height:420px;border-radius:0 0 14px 14px;overflow:hidden;background-color:#c99a69;
+.board{margin-top:18px;--bc:#C9A27E}
+.board .bar{color:#97704f;border-color:#D8B996;background:repeating-linear-gradient(90deg,#F3E4D2 0 9px,#FBF3EA 9px 18px)}
+.cork{position:relative;height:480px;border-radius:0 0 14px 14px;overflow:hidden;background-color:#CFA67D;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .26 0 0 0 0 .12 0 0 0 1.6 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='2' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 .95 0 0 0 0 .82 0 0 0 0 .62 0 0 0 1.5 -.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
-  box-shadow:inset 0 0 0 8px #b98b5e,inset 0 0 22px rgba(70,40,20,.35)}
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .17 0 0 0 1.5 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='2' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 .96 0 0 0 0 .86 0 0 0 0 .7 0 0 0 1.5 -.7'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  box-shadow:inset 0 0 0 8px #BE9670,inset 0 0 22px rgba(70,45,25,.3)}
 .cork .it{position:absolute;transform:rotate(var(--r,0deg))}
-.cork .stk{position:absolute}
-.cork .snapc{background:#fff;padding:6px 6px 3px;box-shadow:2px 4px 4px rgba(60,35,20,.35);cursor:zoom-in}
+.cork .snapc{background:#fff;padding:6px 6px 3px;box-shadow:2px 4px 4px rgba(60,40,25,.3);cursor:zoom-in}
 .cork .snapc img{display:block;object-fit:cover}
 .cork .snapc figcaption{font-size:15px;font-weight:700;text-align:center;color:var(--ink)}
-.cork .paper{background:#fffdf6;padding:8px 12px;font-size:17px;font-weight:700;line-height:1.25;color:var(--ink);box-shadow:2px 4px 4px rgba(60,35,20,.3);
-  background-image:linear-gradient(transparent 21px,#f1dfe8 21px);background-size:100% 22px}
-.cork .paper.pk{background-color:#ffe3ee}.cork .paper.yl{background-color:#fff4c2;background-image:none}
-.pin{position:absolute;left:50%;top:-8px;width:20px;height:24px;margin-left:-10px;z-index:3;filter:drop-shadow(1px 3px 1px rgba(40,20,10,.4))}
+.cork .paper{background:#FFFDF6;padding:8px 12px;font-size:17px;font-weight:700;line-height:1.25;color:var(--ink);box-shadow:2px 4px 4px rgba(60,40,25,.28);
+  background-image:linear-gradient(transparent 21px,#EEDFE0 21px);background-size:100% 22px}
+.cork .paper.pk{background-color:#FBE6E4}.cork .paper.yl{background-color:var(--butter);background-image:none}
+.pin{position:absolute;left:50%;top:-8px;width:20px;height:24px;margin-left:-10px;z-index:3;filter:drop-shadow(1px 3px 1px rgba(40,25,15,.35))}
 .bunting{position:absolute;left:-10px;right:-10px;top:6px;height:46px;z-index:1}
+.ringed{position:relative}
+.ringed .s-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);width:130%;height:auto;aspect-ratio:1.2;border-radius:50%}
 
 /* ---------- tray ---------- */
 .trayw{margin-top:18px}
-.trayw .pad{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:center;
-  background:repeating-linear-gradient(90deg,#ffeaf2 0 14px,#fffafc 14px 28px)}
+.trayw .pad{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:center;background:repeating-linear-gradient(90deg,#FCEDEC 0 14px,#FFFCF7 14px 28px)}
 .tray{position:relative;aspect-ratio:1/1;max-width:440px;margin:-40px auto -40px}
 .tray > img{width:100%;display:block;mix-blend-mode:multiply}
 .slot{position:absolute;display:grid;place-items:center;pointer-events:none}
 .slot img{width:100%;height:100%;object-fit:cover;border-radius:12px;opacity:0;transform:scale(.4) translateY(-30px);transition:opacity .3s,transform .45s cubic-bezier(.3,1.6,.5,1);
   -webkit-mask:radial-gradient(ellipse at center,#000 58%,transparent 76%);mask:radial-gradient(ellipse at center,#000 58%,transparent 76%)}
 .slot.on img{opacity:1;transform:none}
-.menu h3{font-family:'Great Vibes',cursive;font-weight:400;font-size:44px;line-height:1;color:var(--hot);margin-bottom:2px}
+.menu{position:relative}
+.menu h3{font-family:'Great Vibes',cursive;font-weight:400;font-size:44px;line-height:1.1;color:var(--rose2);margin-bottom:2px}
 .menu p{font-size:16px;color:var(--ink2);margin-bottom:10px}
 .foods{display:flex;flex-wrap:wrap;gap:12px 14px}
 .food{border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;font-family:'Gaegu';font-size:16px;font-weight:700;color:var(--ink)}
 .food img{width:62px;height:62px;border-radius:50%;object-fit:cover;transition:transform .2s}
-.food.on img{transform:rotate(-8deg) scale(1.06);box-shadow:0 0 0 3px var(--pink2)}
+.food.on img{transform:rotate(-8deg) scale(1.06);box-shadow:0 0 0 3px var(--mauve)}
 .food.on span{background:var(--pink);border-radius:99px;padding:0 6px}
 .trayctl{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 
@@ -383,27 +425,26 @@ img{max-width:100%}
 .widgets{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px;margin-top:18px}
 .cal table{width:100%;border-collapse:collapse;text-align:center;font-size:16px}
 .cal th{font-family:'DotGothic16';font-weight:400;font-size:13px;padding:1px;background:var(--butter);border:1px solid var(--pink)}
-.cal th:first-child,.cal td.sun{color:var(--hot)} .cal th:last-child,.cal td.sat{color:var(--deep)}
-.cal td{padding:1px 0;border:1px solid #fbe3ec;background:#fff}
-.cal td.out{color:#e0cfd6;background:#fffafc}
+.cal th:first-child,.cal td.sun{color:var(--rose2)} .cal th:last-child,.cal td.sat{color:var(--blueink)}
+.cal td{padding:1px 0;border:1px solid #F6E4E2;background:#fff}
+.cal td.out{color:#DCCDCB;background:#FFFCF8}
 .cal td.today{position:relative;color:var(--ink);font-weight:700}
-.cal td.today::before{content:"";position:absolute;inset:0 16%;border:2px solid var(--hot);border-radius:50%;transform:rotate(-8deg)}
-.cal .mon{text-align:center;font-family:'Great Vibes',cursive;font-size:28px;color:var(--hot);line-height:1;margin-bottom:6px}
-
-.todo label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;border-bottom:1.5px dashed var(--pink2);cursor:pointer;font-size:17px}
-.todo input{appearance:none;-webkit-appearance:none;width:16px;height:16px;flex:none;margin-top:5px;border:1.5px solid var(--ink);border-radius:4px;background:#fff;display:grid;place-items:center}
-.todo input:checked{background:var(--pink2)}
+.cal td.today::before{content:"";position:absolute;inset:0 16%;border:2px solid var(--rose);border-radius:50%;transform:rotate(-8deg)}
+.cal .mon{text-align:center;font-family:'Great Vibes',cursive;font-size:28px;color:var(--rose2);line-height:1.1;margin-bottom:6px}
+.todo label{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1.5px dashed var(--mauve);cursor:pointer;font-size:20px;font-weight:700}
+.todo input{appearance:none;-webkit-appearance:none;width:18px;height:18px;flex:none;border:1.5px solid var(--ink);border-radius:5px;background:#fff;display:grid;place-items:center}
+.todo input:checked{background:var(--mauve)}
 .todo input:checked::after{content:"✓";color:#fff;font-size:13px;line-height:1;font-weight:700}
-.todo input:checked+span{text-decoration:line-through wavy var(--hot);color:var(--ink2)}
-
+.todo input:checked+span{text-decoration:line-through wavy var(--rose);color:var(--ink2)}
+.todo .tip{font-size:15px;color:var(--ink2);margin-top:8px}
 .pet{display:grid;grid-template-columns:1fr 104px;gap:10px}
 .room{position:relative;height:178px;border-radius:10px;overflow:hidden;border:1.5px solid var(--blue2);
-  background:radial-gradient(#ffc4dc 1.8px,transparent 2.2px) 0 0/14px 14px,linear-gradient(#fff0f6 0 63%,#e9d6c6 63%)}
-.room::before{content:"";position:absolute;left:16%;right:16%;bottom:6px;height:34px;border-radius:50%;background:repeating-radial-gradient(#fff 0 4px,var(--pink) 4px 8px);border:1.5px solid var(--pink2)}
-.room .win2{position:absolute;left:12px;top:12px;width:48px;height:40px;border:2px solid var(--pink2);background:linear-gradient(#cfe7ff,#fff);border-radius:4px}
-.room .win2::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 46%,var(--pink2) 46% 54%,transparent 54%),linear-gradient(transparent 46%,var(--pink2) 46% 54%,transparent 54%)}
-.room .shelf{position:absolute;right:10px;top:14px;display:flex;gap:4px;align-items:flex-end;border-bottom:3px solid #c99a7e;padding:0 3px}
-.room .plush{position:absolute;right:8px;bottom:12px;font-size:14px;background:#fff;border:1.5px solid var(--pink2);border-radius:99px;padding:0 6px;font-family:sans-serif}
+  background:radial-gradient(var(--mauve) 1.8px,transparent 2.2px) 0 0/14px 14px,linear-gradient(#FCEFEE 0 63%,#E8D7C8 63%)}
+.room::before{content:"";position:absolute;left:16%;right:16%;bottom:6px;height:34px;border-radius:50%;background:repeating-radial-gradient(#fff 0 4px,var(--pink) 4px 8px);border:1.5px solid var(--mauve)}
+.room .win2{position:absolute;left:12px;top:12px;width:48px;height:40px;border:2px solid var(--mauve);background:linear-gradient(var(--blue),#fff);border-radius:4px}
+.room .win2::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 46%,var(--mauve) 46% 54%,transparent 54%),linear-gradient(transparent 46%,var(--mauve) 46% 54%,transparent 54%)}
+.room .shelf{position:absolute;right:10px;top:14px;display:flex;gap:4px;align-items:flex-end;border-bottom:3px solid #C9A27E;padding:0 3px}
+.room .plush{position:absolute;right:8px;bottom:12px;font-size:14px;background:#fff;border:1.5px solid var(--mauve);border-radius:99px;padding:0 6px;font-family:sans-serif}
 #chibi{position:absolute;left:50%;bottom:6px;height:122px;width:auto;translate:-50% 0}
 #chibi.hop{animation:hop .5s ease 2}
 @keyframes hop{50%{transform:translateY(-18px)}}
@@ -411,41 +452,38 @@ img{max-width:100%}
 .say.on{opacity:1}
 .pstats{font-size:15px;display:flex;flex-direction:column;gap:3px}
 .pstats .meter{height:8px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
-.pstats .meter i{display:block;height:100%;background:var(--pink2);transition:width .4s}
-.pstats .meter.c i{background:var(--blue2)}
+.pstats .meter i{display:block;height:100%;background:var(--mauve);transition:width .4s}
+.pstats .meter.c i{background:var(--mist2)}
 .pstats button{font-family:'Gaegu';font-size:15px;font-weight:700;border:1.5px solid var(--ink);border-radius:8px;background:var(--blue);padding:0 2px;cursor:pointer;color:var(--ink)}
 .pstats button:hover{background:var(--butter)}
 
 /* footer */
 .foot{margin-top:18px;display:flex;gap:16px;align-items:stretch}
-.loveyou{position:relative;flex:1;height:86px;border-radius:14px;background:repeating-linear-gradient(90deg,#ffe2ef 0 12px,#e2f1ff 12px 24px);--bc:var(--pink2)}
-.loveyou span{position:absolute;right:26px;top:50%;transform:translateY(-50%) rotate(-3deg);font-family:'Great Vibes',cursive;font-size:46px;color:var(--hot);
-  text-shadow:2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,3px 3px 0 #fff,4px 5px 0 var(--blue2)}
+.loveyou{position:relative;flex:1;height:86px;border-radius:14px;background:repeating-linear-gradient(90deg,#FBE8E6 0 12px,#E7F1F0 12px 24px);--bc:var(--rose)}
+.loveyou span{position:absolute;right:26px;top:50%;transform:translateY(-50%) rotate(-3deg);font-family:'Great Vibes',cursive;font-size:46px;line-height:1.2;color:var(--rose2);
+  text-shadow:2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,3px 3px 0 #fff,4px 5px 0 var(--mist2)}
 .loveyou .ph{position:absolute;left:18px;top:11px;width:62px;height:62px}
-.loveyou .ph img{width:62px;height:62px;border-radius:50%;object-fit:cover;border:3px solid #fff;outline:1.5px solid var(--pink2)}
+.loveyou .ph img{width:62px;height:62px;border-radius:50%;object-fit:cover;border:3px solid #fff;outline:1.5px solid var(--mauve)}
 .loveyou small{position:absolute;left:90px;bottom:10px;font-size:14px;color:var(--ink2)}
 .counter{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:6px 18px;border-radius:14px;background:#fff;font-family:'DotGothic16';font-size:12px}
-.counter b{font-weight:400;font-size:18px;letter-spacing:3px;background:#2a1d22;color:#7dffc8;padding:0 8px;border-radius:4px}
+.counter b{font-weight:400;font-size:18px;letter-spacing:3px;background:var(--dark);color:var(--pink);padding:0 8px;border-radius:4px}
 footer{text-align:center;font-family:'DotGothic16';font-size:12px;color:var(--ink2);margin-top:14px}
 
-/* lightbox */
-dialog{margin:auto;max-width:min(860px,calc(100% - 24px));max-height:calc(100% - 24px);border:2px solid var(--pink2);border-radius:16px;padding:0;background:var(--paper);box-shadow:6px 6px 0 var(--blue2);overflow:hidden}
-dialog::backdrop{background:rgba(110,78,66,.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+dialog{margin:auto;max-width:min(860px,calc(100% - 24px));max-height:calc(100% - 24px);border:2px solid var(--mauve);border-radius:16px;padding:0;background:var(--paper);box-shadow:6px 6px 0 var(--mist2);overflow:hidden}
+dialog::backdrop{background:rgba(107,79,74,.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 dialog .lbody{max-height:calc(100vh - 110px);overflow:auto;background:#fff}
 dialog img{display:block;width:100%}
 dialog .lcap{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:6px 12px;font-size:18px;font-weight:700;color:var(--ink)}
 dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px solid var(--ink);border-radius:99px;background:var(--pink);padding:0 14px;cursor:pointer;color:var(--ink)}
 
-/* keychain + edges */
-.keychain{position:absolute;left:-108px;top:300px;width:128px;transform-origin:50% 2%;animation:swing 4.5s ease-in-out infinite;z-index:9;pointer-events:none;filter:drop-shadow(2px 4px 3px rgba(110,78,66,.3))}
+.keychain{position:absolute;left:-108px;top:300px;width:128px;transform-origin:50% 2%;animation:swing 4.5s ease-in-out infinite;z-index:9;pointer-events:none;filter:drop-shadow(2px 4px 3px rgba(107,79,74,.28))}
 @keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
 .edge{position:absolute;z-index:6;pointer-events:none;transform:rotate(var(--r,0deg))}
-
 .spark{position:fixed;pointer-events:none;z-index:300;font-size:14px;animation:fall .9s ease-out forwards}
 @keyframes fall{to{transform:translateY(22px) rotate(90deg) scale(.3);opacity:0}}
 
 /* ---------- smaller screens ---------- */
-@media (max-width:1290px){ .edge{display:none} .keychain{left:-40px;width:96px;top:290px} }
+@media (max-width:1300px){ .edge{display:none} .keychain{left:-40px;width:96px;top:290px} }
 @media (max-width:960px){ .banner .me{right:240px;width:110px} .deskrow{grid-template-columns:130px 1fr 1fr} }
 @media (max-width:860px){
   .site{overflow-x:clip}
@@ -464,6 +502,8 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
   .tray{margin:-20px auto -30px}
   .cork{height:auto;display:flex;flex-wrap:wrap;gap:22px 18px;justify-content:center;align-items:center;padding:60px 14px 26px}
   .cork .it,.cork .stk{position:relative;left:auto!important;top:auto!important}
+  .deskstk{height:auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;padding:10px 0}
+  .deskstk .stk{position:relative;left:auto!important;top:auto!important}
 }
 @media (max-width:560px){
   .site{padding:0 10px;margin-top:24px}
@@ -472,9 +512,9 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
   .works{grid-template-columns:1fr}
   .gallery{columns:2 120px}
   .intro{grid-template-columns:1fr}
-  .banner{height:220px}
-  .title{left:14px;top:14px}
-  .title h1{font-size:70px}
+  .banner{height:230px}
+  .title{left:12px;top:30px}
+  .title h1{font-size:68px}
   .title .q{display:none}
   .strip{left:14px;font-size:15px}
   .banner .me{width:80px}
@@ -494,40 +534,93 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
       <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="3" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
-    <pattern id="dotpat" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#fff"/><circle cx="2.5" cy="2.5" r="1.3" fill="#ff8fbf"/></pattern>
-    <pattern id="checkpat" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#ffc4dd"/><rect width="5" height="5" fill="#ff8fbf"/><rect x="5" y="5" width="5" height="5" fill="#ff8fbf"/></pattern>
-    <radialGradient id="pinpk" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#ff9cc4"/><stop offset="1" stop-color="#d4558a"/></radialGradient>
-    <radialGradient id="pinbl" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#8cc8ff"/><stop offset="1" stop-color="#4f8fe0"/></radialGradient>
-    <radialGradient id="pinyl" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#ffe17a"/><stop offset="1" stop-color="#d1a637"/></radialGradient>
-    <radialGradient id="cdsheen" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fbe3ec"/><stop offset="1" stop-color="#f3cddd"/></radialGradient>
+    <!-- polka patterns -->
+    <pattern id="pk-on-dark" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#3A2F2E"/><circle cx="4.5" cy="4.5" r="2" fill="#F7D8D5"/></pattern>
+    <pattern id="br-on-ivory" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#F3E8D2"/><circle cx="4" cy="4" r="1.3" fill="#4a3b38"/></pattern>
+    <pattern id="br-on-pink" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#F7D8D5"/><circle cx="4" cy="4" r="1.2" fill="#7d6360"/></pattern>
+    <pattern id="wh-on-mauve" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E6B8BE"/><circle cx="4" cy="4" r="1.5" fill="#fff"/></pattern>
+    <pattern id="pk-on-white" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#fff"/><circle cx="3" cy="3" r="1.4" fill="#E6B8BE"/></pattern>
+    <pattern id="gingham-b" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"/><rect width="6" height="12" fill="#9DB6D0" opacity=".45"/><rect width="12" height="6" fill="#9DB6D0" opacity=".45"/></pattern>
+    <pattern id="plaid-p" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#FBEAEA"/><rect x="0" width="5" height="16" fill="#E6B8BE" opacity=".55"/><rect y="0" width="16" height="5" fill="#E6B8BE" opacity=".55"/><rect x="10" width="2" height="16" fill="#F2E6C0" opacity=".9"/><rect y="10" width="16" height="2" fill="#F2E6C0" opacity=".9"/></pattern>
+    <pattern id="stripe-p" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><rect width="10" height="5" fill="#F7D8D5"/></pattern>
+    <radialGradient id="pinpk" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#E6B8BE"/><stop offset="1" stop-color="#A96F7C"/></radialGradient>
+    <radialGradient id="pinbl" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#C9D9EA"/><stop offset="1" stop-color="#6F8FAE"/></radialGradient>
+    <radialGradient id="pinmt" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#D0E5E2"/><stop offset="1" stop-color="#7FA8A3"/></radialGradient>
+    <radialGradient id="cdsheen" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#F9E9E8"/><stop offset="1" stop-color="#EAD3D6"/></radialGradient>
   </defs>
   <symbol id="heart" viewBox="0 0 40 36"><path d="M20 34C6 25 1 17 3 10 5 3 13 1 20 8c7-7 15-5 17 2 2 7-3 15-17 24z"/></symbol>
-  <symbol id="star" viewBox="0 0 40 40"><path d="M20 3l4.6 11.4 12.4.9-9.5 7.9 3 12.1L20 28.6 9.5 35.3l3-12.1L3 15.3l12.4-.9z" stroke-linejoin="round"/></symbol>
-  <symbol id="pin-pk" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinpk)"/></symbol>
-  <symbol id="pin-bl" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinbl)"/></symbol>
-  <symbol id="pin-yl" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinyl)"/></symbol>
+  <symbol id="s8" viewBox="0 0 100 100"><path d="M50.0 1.0L60.3 25.1L84.6 15.4L74.9 39.7L99.0 50.0L74.9 60.3L84.6 84.6L60.3 74.9L50.0 99.0L39.7 74.9L15.4 84.6L25.1 60.3L1.0 50.0L25.1 39.7L15.4 15.4L39.7 25.1z"/></symbol>
+  <symbol id="s5" viewBox="0 0 100 100"><path d="M50.0 1.0L62.9 32.2L96.6 34.9L70.9 56.8L78.8 89.6L50.0 72.0L21.2 89.6L29.1 56.8L3.4 34.9L37.1 32.2z" stroke-linejoin="round"/></symbol>
+  <symbol id="s5i" viewBox="0 0 100 100"><path d="M50.0 24.0L57.1 40.3L74.7 42.0L61.4 53.7L65.3 71.0L50.0 62.0L34.7 71.0L38.6 53.7L25.3 42.0L42.9 40.3z"/></symbol>
+  <!-- polka star stickers -->
+  <symbol id="pstarA" viewBox="0 0 100 100"><use href="#s8" fill="url(#pk-on-dark)"/></symbol>
+  <symbol id="pstarB" viewBox="0 0 100 100"><use href="#s5" fill="url(#br-on-ivory)"/><use href="#s5i" fill="#3A2F2E"/></symbol>
+  <symbol id="pstarC" viewBox="0 0 100 100"><use href="#s8" fill="#A58A88" transform="rotate(22 50 50)"/><use href="#s5" fill="url(#br-on-pink)" transform="translate(9 9) scale(.82)"/><use href="#s5i" fill="#A58A88" transform="translate(9 9) scale(.82)"/></symbol>
+  <symbol id="pstarD" viewBox="0 0 100 100"><use href="#s5" fill="url(#pk-on-dark)"/><use href="#s5i" fill="#F7D8D5"/></symbol>
+  <symbol id="pstarE" viewBox="0 0 100 100"><use href="#s8" fill="url(#br-on-pink)"/></symbol>
+  <symbol id="pstarF" viewBox="0 0 100 100"><use href="#s8" fill="#3A2F2E" transform="rotate(22 50 50)"/><use href="#s5" fill="url(#br-on-ivory)" transform="translate(7 7) scale(.86)"/></symbol>
+  <!-- winged heart -->
+  <symbol id="wheart" viewBox="0 0 140 76">
+    <g fill="#fff" stroke="#3A2F2E" stroke-width="3.2" stroke-linejoin="round">
+      <path d="M48 36C38 18 16 12 4 22c8 1 10 4 7 9 9-1 12 3 8 8 9 0 12 4 8 9 9 2 18-2 23-9z"/>
+      <path d="M92 36c10-18 32-24 44-14-8 1-10 4-7 9-9-1-12 3-8 8-9 0-12 4-8 9-9 2-18-2-23-9z"/>
+    </g>
+    <g fill="none" stroke="#3A2F2E" stroke-width="2.6" stroke-linecap="round"><path d="M34 32c-4-5-10-4-10 1s7 5 7 0"/><path d="M106 32c4-5 10-4 10 1s-7 5-7 0"/></g>
+    <path d="M70 72C46 58 38 44 42 32c4-12 20-14 28-2 8-12 24-10 28 2 4 12-4 26-28 40z" fill="#E6B8BE" stroke="#3A2F2E" stroke-width="3.4" stroke-linejoin="round"/>
+  </symbol>
+  <!-- 愛 heart -->
+  <symbol id="aiheart" viewBox="0 0 100 92">
+    <path d="M50 88C16 66 4 46 8 28 12 10 34 4 50 22 66 4 88 10 92 28c4 18-8 38-42 60z" fill="#fff" stroke="#3A2F2E" stroke-width="4" stroke-linejoin="round"/>
+    <text x="50" y="58" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho','Noto Serif CJK JP','Songti SC',serif" font-size="38" fill="#3A2F2E">愛</text>
+  </symbol>
+  <!-- scalloped flowers -->
+  <symbol id="flowerB" viewBox="0 0 100 100"><g fill="url(#gingham-b)"><circle cx="50" cy="22" r="24"/><circle cx="77" cy="42" r="24"/><circle cx="67" cy="74" r="24"/><circle cx="33" cy="74" r="24"/><circle cx="23" cy="42" r="24"/><circle cx="50" cy="50" r="26"/></g></symbol>
+  <symbol id="flowerP" viewBox="0 0 100 100"><g fill="url(#plaid-p)"><circle cx="50" cy="22" r="24"/><circle cx="77" cy="42" r="24"/><circle cx="67" cy="74" r="24"/><circle cx="33" cy="74" r="24"/><circle cx="23" cy="42" r="24"/><circle cx="50" cy="50" r="26"/></g></symbol>
+  <!-- clover -->
+  <symbol id="clover" viewBox="0 0 100 110">
+    <g fill="#D3E5CF"><path d="M50 50C34 44 22 26 34 16c7-6 16-1 16 7 0-8 9-13 16-7 12 10 0 28-16 34z"/><path d="M50 50C34 44 22 26 34 16c7-6 16-1 16 7 0-8 9-13 16-7 12 10 0 28-16 34z" transform="rotate(90 50 50)"/><path d="M50 50C34 44 22 26 34 16c7-6 16-1 16 7 0-8 9-13 16-7 12 10 0 28-16 34z" transform="rotate(180 50 50)"/><path d="M50 50C34 44 22 26 34 16c7-6 16-1 16 7 0-8 9-13 16-7 12 10 0 28-16 34z" transform="rotate(270 50 50)"/></g>
+    <circle cx="50" cy="50" r="18" fill="#EAD7DA" opacity=".7"/>
+    <path d="M56 70q6 22 22 36" fill="none" stroke="#9EBF98" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <!-- umbrella -->
+  <symbol id="umbrella" viewBox="0 0 120 110">
+    <path d="M60 70v26q0 10-9 10t-9-8" fill="none" stroke="#E6B8BE" stroke-width="6" stroke-linecap="round"/>
+    <path d="M6 66Q14 10 60 8t54 58q-10-9-19 0-9-9-18 0-9-9-17 0-9-9-17 0-9-9-18 0-9-9-19 0z" fill="url(#pk-on-white)" stroke="#E6B8BE" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M60 8v4" stroke="#E6B8BE" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#C9D9EA"><path d="M14 80q3 6 0 9-3-3 0-9z"/><path d="M104 82q3 6 0 9-3-3 0-9z"/><path d="M96 20q3 6 0 9-3-3 0-9z"/></g>
+  </symbol>
   <symbol id="berry" viewBox="0 0 60 66">
-    <path d="M30 64C10 52 4 30 14 22c6-5 12-3 16 0 4-3 10-5 16 0 10 8 4 30-16 42z" fill="#ff7fae" stroke="#5b4a6e" stroke-width="2.5"/>
-    <path d="M18 18l12 6 12-6-6-4-6-10-6 10z" fill="#9be7b8" stroke="#5b4a6e" stroke-width="2.5" stroke-linejoin="round"/>
-    <g fill="#fff2a8"><circle cx="22" cy="34" r="1.8"/><circle cx="34" cy="32" r="1.8"/><circle cx="28" cy="44" r="1.8"/><circle cx="40" cy="42" r="1.8"/><circle cx="20" cy="46" r="1.8"/><circle cx="32" cy="54" r="1.8"/></g>
+    <path d="M30 64C10 52 4 30 14 22c6-5 12-3 16 0 4-3 10-5 16 0 10 8 4 30-16 42z" fill="#E9A3AE" stroke="#6B4F4A" stroke-width="2.5"/>
+    <path d="M18 18l12 6 12-6-6-4-6-10-6 10z" fill="#B9D6B3" stroke="#6B4F4A" stroke-width="2.5" stroke-linejoin="round"/>
+    <g fill="#F9F4E1"><circle cx="22" cy="34" r="1.8"/><circle cx="34" cy="32" r="1.8"/><circle cx="28" cy="44" r="1.8"/><circle cx="40" cy="42" r="1.8"/><circle cx="20" cy="46" r="1.8"/><circle cx="32" cy="54" r="1.8"/></g>
   </symbol>
   <symbol id="bow" viewBox="0 0 80 50">
-    <path d="M40 22C30 8 10 2 6 12s8 22 30 14M40 22c10-14 30-20 34-10s-8 22-30 14" fill="#ffd3e4" stroke="#5b4a6e" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M36 26l-12 22 9-3 4 5 4-22M44 26l12 22-9-3-4 5-4-22" fill="#ffb3d1" stroke="#5b4a6e" stroke-width="2.2" stroke-linejoin="round"/>
-    <ellipse cx="40" cy="24" rx="6.5" ry="7" fill="#ffb3d1" stroke="#5b4a6e" stroke-width="2.4"/>
+    <path d="M40 22C30 8 10 2 6 12s8 22 30 14M40 22c10-14 30-20 34-10s-8 22-30 14" fill="#F7D8D5" stroke="#6B4F4A" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M36 26l-12 22 9-3 4 5 4-22M44 26l12 22-9-3-4 5-4-22" fill="#E6B8BE" stroke="#6B4F4A" stroke-width="2.2" stroke-linejoin="round"/>
+    <ellipse cx="40" cy="24" rx="6.5" ry="7" fill="#E6B8BE" stroke="#6B4F4A" stroke-width="2.4"/>
   </symbol>
-  <symbol id="clover" viewBox="0 0 60 60">
-    <g fill="#b6eac7" stroke="#5b4a6e" stroke-width="2.2"><path d="M30 28c-10-2-16-12-10-18 4-4 9-2 10 2 1-4 6-6 10-2 6 6 0 16-10 18z"/><path d="M30 28c-10 2-16 12-10 18 4 4 9 2 10-2 1 4 6 6 10 2 6-6 0-16-10-18z" transform="rotate(90 30 28)"/></g>
-    <path d="M30 30q4 14 14 22" fill="none" stroke="#5b4a6e" stroke-width="2.4" stroke-linecap="round"/>
-  </symbol>
+  <symbol id="pin-pk" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinpk)"/></symbol>
+  <symbol id="pin-bl" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinbl)"/></symbol>
+  <symbol id="pin-mt" viewBox="0 0 20 24"><path d="M10 13v10" stroke="#9a9aa3" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="8" r="7.5" fill="url(#pinmt)"/></symbol>
   <symbol id="cd" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="96" fill="url(#cdsheen)" stroke="#d7c9cf" stroke-width="3"/>
-    <path d="M40 60l4 9 10 1-8 6 3 10-9-6-9 6 3-10-8-6 10-1z M150 140l3 6 7 1-5 4 2 7-7-4-6 4 2-7-5-4 7-1z" fill="none" stroke="#e27fb3" stroke-width="2"/>
-    <path d="M30 120q20-14 34 0t30 0" fill="none" stroke="#e27fb3" stroke-width="2"/>
-    <text x="100" y="58" text-anchor="middle" font-family="Great Vibes, cursive" font-size="30" fill="#d9629e">daia world</text>
-    <text x="100" y="162" text-anchor="middle" font-family="DotGothic16, monospace" font-size="13" fill="#d9629e">now playing ♪</text>
-    <circle cx="100" cy="100" r="30" fill="#fbeef2" stroke="#e8cfd8" stroke-width="2"/>
-    <circle cx="100" cy="100" r="13" fill="#fff" stroke="#d7c9cf" stroke-width="2"/>
+    <circle cx="100" cy="100" r="96" fill="url(#cdsheen)" stroke="#D7C9CB" stroke-width="3"/>
+    <path d="M40 60l4 9 10 1-8 6 3 10-9-6-9 6 3-10-8-6 10-1z M150 140l3 6 7 1-5 4 2 7-7-4-6 4 2-7-5-4 7-1z" fill="none" stroke="#C98D98" stroke-width="2"/>
+    <path d="M30 120q20-14 34 0t30 0" fill="none" stroke="#C98D98" stroke-width="2"/>
+    <text x="100" y="58" text-anchor="middle" font-family="Great Vibes, cursive" font-size="30" fill="#A96F7C">daia world</text>
+    <text x="100" y="162" text-anchor="middle" font-family="DotGothic16, monospace" font-size="13" fill="#A96F7C">now playing ♪</text>
+    <circle cx="100" cy="100" r="30" fill="#FBEFEE" stroke="#E8D3D6" stroke-width="2"/>
+    <circle cx="100" cy="100" r="13" fill="#fff" stroke="#D7C9CB" stroke-width="2"/>
+  </symbol>
+  <!-- dotted ornament tile -->
+  <symbol id="orn" viewBox="0 0 200 44">
+    <g fill="none" stroke="#7d6360" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="0 6.5">
+      <path d="M10 30c0-14 22-14 22 0s-14 8-14 0M32 30c10-16 32-18 44-6"/>
+      <path d="M76 24c6-12 22-12 24 0s-10 12-12 4"/>
+      <path d="M100 22c4-12 8-16 0-18M100 22c-4-12-8-16 0-18"/>
+      <path d="M124 24c-6-12-22-12-24 0s10 12 12 4M168 30c-10-16-32-18-44-6"/>
+      <path d="M190 30c0-14-22-14-22 0s14 8 14 0"/>
+    </g>
+    <g fill="#7d6360"><circle cx="100" cy="34" r="2"/><circle cx="94" cy="38" r="1.8"/><circle cx="106" cy="38" r="1.8"/></g>
   </symbol>
 </svg>
 
@@ -537,19 +630,21 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
 
   <img class="keychain" src="keychain.png" alt="" onerror="this.remove()">
 
-  <!-- edge stickers (big screens) -->
-  <span class="stk edge t-sleep die" style="--r:-12deg;left:-100px;top:560px">SL33P</span>
-  <span class="stk edge t-love die" style="--r:6deg;left:-96px;top:680px">4EV3R<br>LOV3</span>
-  <span class="stk edge bub" style="--r:-6deg;left:-128px;top:820px">sweet dreams ☆</span>
-  <svg class="edge die" style="--r:-6deg;left:-64px;top:120px" width="42" height="42" fill="#fff1a8" stroke="#5b4a6e" stroke-width="2.4"><use href="#star"/></svg>
-  <svg class="edge die" style="--r:10deg;left:-80px;top:980px" width="76" height="48"><use href="#bow"/></svg>
-  <svg class="edge die" style="--r:14deg;right:-62px;top:120px" width="54" height="60"><use href="#berry"/></svg>
-  <span class="stk edge t-angel die" style="--r:8deg;right:-90px;top:290px">ANGEL<br>GIRL</span>
-  <svg class="edge die" style="--r:-10deg;right:-66px;top:420px" width="54" height="49" fill="url(#checkpat)" stroke="#e0659a" stroke-width="2"><use href="#heart"/></svg>
-  <span class="stk edge bub blue" style="--r:5deg;right:-118px;top:560px">little star ★</span>
-  <span class="stk edge t-heart3 die" style="--r:-8deg;right:-74px;top:690px">&lt;333*</span>
-  <svg class="edge die" style="--r:8deg;right:-60px;top:820px" width="52" height="52"><use href="#clover"/></svg>
-  <span class="stk edge t-uwu die" style="--r:-6deg;right:-60px;top:960px">uwu</span>
+  <!-- stickers around the page (big screens) -->
+  <svg class="edge die" style="--r:-8deg;left:-74px;top:110px" width="58" height="58"><use href="#pstarA"/></svg>
+  <span class="stk edge s-oval die" style="--r:-8deg;left:-142px;top:560px">うふふ…<i>♡</i></span>
+  <svg class="edge die" style="--r:6deg;left:-104px;top:660px" width="96" height="52"><use href="#wheart"/></svg>
+  <span class="stk edge" style="--r:-6deg;left:-112px;top:770px"><span class="s-stripe die">ゆっくり<br>やすんでね</span></span>
+  <svg class="edge die" style="--r:10deg;left:-78px;top:920px" width="62" height="62"><use href="#pstarB"/></svg>
+  <span class="stk edge s-y2k" style="--r:-10deg;left:-110px;top:1040px">#2000s</span>
+  <svg class="edge die" style="--r:12deg;right:-66px;top:110px" width="54" height="60"><use href="#berry"/></svg>
+  <svg class="edge die" style="--r:-8deg;right:-78px;top:250px" width="66" height="61"><use href="#aiheart"/></svg>
+  <span class="stk edge" style="--r:6deg;right:-136px;top:360px"><span class="s-chat die">u r so cute. i mean it</span></span>
+  <svg class="edge die" style="--r:-14deg;right:-74px;top:450px" width="64" height="64"><use href="#pstarE"/></svg>
+  <span class="stk edge" style="--r:8deg;right:-92px;top:560px"><svg class="die" width="84" height="84" viewBox="0 0 100 100"><use href="#flowerB"/><text x="50" y="47" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="17" fill="#4d5f74">good</text><text x="50" y="66" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="20" fill="#4d5f74">LUCK</text></svg></span>
+  <span class="stk edge" style="--r:-6deg;right:-90px;top:700px"><svg class="die" width="90" height="82" viewBox="0 0 120 110"><use href="#umbrella"/><text x="60" y="44" text-anchor="middle" font-family="Hachi Maru Pop, cursive" font-size="13" fill="#6B4F4A">きょうも</text><text x="60" y="61" text-anchor="middle" font-family="Hachi Maru Pop, cursive" font-size="13" fill="#6B4F4A">あめだね</text></svg></span>
+  <svg class="edge die" style="--r:6deg;right:-70px;top:830px" width="60" height="60"><use href="#pstarD"/></svg>
+  <span class="stk edge s-777 die" style="--r:-6deg;right:-76px;top:950px">777</span>
 
   <div class="frame">
     <div class="titlebar"><span>daiaworld.html</span><span class="btns"><i></i><i></i><i></i></span></div>
@@ -558,21 +653,20 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
     <div class="banner wobble">
       <div class="inner"></div>
       <span class="tape" style="left:-14px;top:14px;--r:-28deg"></span>
-      <span class="tape mint" style="right:236px;top:-9px;--r:4deg"></span>
-      <span class="tw" style="left:47%;top:20px">✦</span>
-      <span class="tw" style="left:55%;top:150px;font-size:16px">✧</span>
-      <span class="tw" style="left:7%;top:190px;font-size:14px">✦</span>
+      <span class="tape mist" style="right:236px;top:-9px;--r:4deg"></span>
+      <span class="tw" style="left:48%;top:18px">✦</span>
+      <span class="tw" style="left:56%;top:170px;font-size:16px">✧</span>
       <div class="title">
         <h1>Daia World</h1>
-        <span class="st" style="left:43%;top:20%">★</span>
-        <span class="st" style="left:96%;top:44%;font-size:16px">★</span>
-        <span class="q" style="left:70%;top:6%">“make yourself at home, cutie”</span>
-        <span class="q" style="left:6%;top:86%">since 2026 ✿ shanghai</span>
+        <span class="st" style="left:44%;top:12%">★</span>
+        <span class="st" style="left:97%;top:40%;font-size:16px">★</span>
+        <span class="q" style="left:62%;top:-6%">“make yourself at home, cutie”</span>
       </div>
       <span class="strip">welcome to my little corner (｡•ᴗ•｡)</span>
       <img class="me px" src="me.png" alt="pixel chibi of daia" onerror="this.remove()">
-      <span class="stk inner-stk t-no1 die" style="--r:-10deg;left:40%;top:186px">No.1</span>
-      <span class="stk inner-stk bub white" style="--r:4deg;left:52%;top:178px">hiii (≧▽≦)</span>
+      <svg class="stk inner-stk die" style="--r:-12deg;left:12px;top:180px" width="50" height="50"><use href="#pstarE"/></svg>
+      <svg class="stk inner-stk die" style="--r:8deg;left:51%;top:150px" width="92" height="50"><use href="#wheart"/></svg>
+      <img class="stk inner-stk" src="blossoms.png" alt="" style="--r:10deg;right:226px;top:-20px;width:84px;filter:drop-shadow(1px 3px 2px rgba(107,79,74,.25))">
       <div class="ticket">
         <small>入場券 · admit one</small>
         <b>daia world</b>
@@ -584,18 +678,22 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
       </div>
     </div>
 
+    <!-- dotted ornament divider -->
+    <svg class="dots-div" viewBox="0 0 1000 44" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <use href="#orn" x="0" width="200" height="44"/><use href="#orn" x="200" width="200" height="44"/><use href="#orn" x="400" width="200" height="44"/><use href="#orn" x="600" width="200" height="44"/><use href="#orn" x="800" width="200" height="44"/>
+    </svg>
+    <div class="marquee" aria-hidden="true"><div>&nbsp;✿ welcome to daia world ✿ do fun stuff + explore my fav things ✿ slide my ipod to unlock ✿ fill my lunch tray ✿ take a pic w my digicam ✿ best viewed w love ✿ god bless yakutia ✿ welcome to daia world ✿ do fun stuff + explore my fav things ✿ slide my ipod to unlock ✿ fill my lunch tray ✿ take a pic w my digicam ✿ best viewed w love ✿ god bless yakutia</div></div>
+
     <!-- blinkies -->
     <div class="blinkies">
-      <span class="tape dot" style="left:-6px;top:-10px;--r:-8deg;width:60px"></span>
-      <span class="blinkie" style="--a:#ff9cc4;--b:#ffbcd8;--r:-1deg">web design</span>
-      <span class="blinkie" style="--a:#8cc8ff;--b:#b3dbff;--r:1deg">game lover</span>
-      <span class="blinkie" style="--a:#c9a8ff;--b:#ddc8ff;--r:-1.5deg">uwu</span>
-      <span class="blinkie" style="--a:#7fd6b0;--b:#a8ecce;--r:1deg">pixel art</span>
-      <span class="blinkie" style="--a:#ffb36b;--b:#ffd09e;--r:-1deg">film kid</span>
-      <span class="blinkie" style="--a:#ff9cc4;--b:#8cc8ff;--r:1.5deg">dog lover</span>
-      <span class="blinkie" style="--a:#e8c45a;--b:#f6dc8a;--r:-1deg">3am artist</span>
-      <span class="blinkie" style="--a:#8cc8ff;--b:#ff9cc4;--r:1deg">yakutia ✻</span>
-      <span class="tape gingham" style="right:-6px;top:22px;--r:6deg;width:60px"></span>
+      <span class="blinkie" style="--a:#E6B8BE;--b:#F0CFD2;--r:-1deg">web design</span>
+      <span class="blinkie" style="--a:#9DB6D0;--b:#BCCDE0;--r:1deg">game lover</span>
+      <span class="blinkie" style="--a:#C98D98;--b:#DDAAB3;--r:-1.5deg">uwu</span>
+      <span class="blinkie" style="--a:#A9C9C5;--b:#C2DCD8;--r:1deg">pixel art</span>
+      <span class="blinkie" style="--a:#C9B48A;--b:#DDCDA6;--r:-1deg">film kid</span>
+      <span class="blinkie" style="--a:#E6B8BE;--b:#9DB6D0;--r:1.5deg">dog lover</span>
+      <span class="blinkie" style="--a:#A58A88;--b:#BCA4A2;--r:-1deg">3am artist</span>
+      <span class="blinkie" style="--a:#9DB6D0;--b:#E6B8BE;--r:1deg">yakutia ✻</span>
     </div>
 
     <div class="grid">
@@ -625,9 +723,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
                   <div class="camico"></div>
                 </div>
                 <div class="nowplaying">
-                  <div class="np-art">
-                    <svg viewBox="0 0 200 200"><use href="#cd"/></svg>
-                  </div>
+                  <div class="np-art"><svg viewBox="0 0 200 200"><use href="#cd"/></svg></div>
                   <div><div class="np-t">drama</div><div class="np-a" style="text-align:center">SCENE · <span id="ptime">0:00</span></div></div>
                   <div class="prog"><i id="prog"></i></div>
                   <div class="ctl"><button id="lock" aria-label="lock ipod">⌂</button><button class="pp" id="play" aria-label="play or pause"><span class="ic"></span></button><div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div></div>
@@ -636,6 +732,23 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
             </div>
             <img class="earph" src="earphones.png" alt="">
             <div class="ipodcap">slide to unlock = music ♪<br><small style="font-size:12px">"drama" by scene · epidemic sound</small></div>
+          </div>
+        </div>
+
+        <div class="ruffle">
+          <img src="ruffle.jpg" alt="">
+          <svg class="bow die" width="70" height="44"><use href="#bow"/></svg>
+          <div class="txt">
+            <h3>my fav things</h3>
+            <ul>
+              <li><span>(always)</span>strawberries</li>
+              <li><span>(obviously)</span>pink everything</li>
+              <li><span>(my baby)</span>my dog</li>
+              <li><span>(3am)</span>pixel art</li>
+              <li><span>(cozy)</span>rainy days</li>
+              <li><span>(old soul)</span>wired earphones</li>
+              <li><span>(home)</span>yakutia snow</li>
+            </ul>
           </div>
         </div>
 
@@ -655,20 +768,25 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
           </div>
         </div>
 
-        <div class="win mint">
-          <div class="bar"><span>&gt; add me!</span><span class="btns"><i></i><i></i><i></i></span></div>
-          <div class="body pad addme">
-            <a class="btn88" href="https://daiaworld.world">daia world</a>
-            <textarea readonly aria-label="link code">&lt;a href="https://daiaworld.world"&gt;daia world ✿&lt;/a&gt;</textarea>
+        <div class="win mist">
+          <div class="bar"><span>pixel_love.txt</span><span class="btns"><i></i><i></i><i></i></span></div>
+          <div class="body pxnote">
+            <span class="s-tag p" style="left:16px;top:16px">cute</span>
+            <span class="s-tag" style="left:120px;top:30px">love</span>
+            <span class="s-tag" style="left:30px;top:74px">sweet</span>
+            <span class="s-tag p" style="left:70px;top:118px">home</span>
+            <svg class="lv" viewBox="0 0 40 36" fill="#F7D8D5"><use href="#heart"/></svg>
+            <span class="lv"><span>Love</span></span>
           </div>
         </div>
+
       </aside>
 
       <!-- center column -->
       <div class="center">
         <section class="win main">
           <span class="tape gingham" style="right:-18px;top:-8px;--r:24deg"></span>
-          <span class="stk inner-stk t-swag" style="--r:8deg;right:-24px;top:40px">SWAG</span>
+          <svg class="stk inner-stk die" style="--r:10deg;right:-30px;top:40px" width="60" height="60"><use href="#pstarF"/></svg>
           <div class="bar"><span id="where">♡ home.html</span><span class="btns"><i></i><i></i><i></i></span></div>
           <div class="body"><div class="content">
 
@@ -691,7 +809,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               </ul>
               <h2><span class="hl">updates</span></h2>
               <div class="updates">
-                <div><em>11/9/26</em> new look again lol!! my ipod works now, go slide to unlock (≧▽≦) it plays a real song now hehe</div>
+                <div><em>11/9/26</em> new colors + stickers + a basket!! go explore my fav things (≧▽≦)</div>
                 <div><em>11/6/26</em> i thought i died cause of caffeine lowkey </div>
                 <div><em>next</em> add more works + a real guestbook</div>
               </div>
@@ -703,10 +821,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               <div class="works">
                 <article class="work wobble">
                   <div class="bar"><span>cold_memory.exe</span><span class="btns"><i></i><i></i><i></i></span></div>
-                  <div class="thumb t-cold">
-                    <div class="memos"><div class="mbar"><span>memOS2004</span><span>×</span></div>
-                      <div class="mbody"><b>COLD<br>MEMORY</b><i>to begin, click your user name</i><span class="user"><span></span>you</span></div></div>
-                  </div>
+                  <div class="thumb t-cold"><div class="memos"><div class="mbar"><span>memOS2004</span><span>×</span></div><div class="mbody"><b>COLD<br>MEMORY</b><i>to begin, click your user name</i><span class="user"><span></span>you</span></div></div></div>
                   <div class="info"><span class="tag">horror game · three.js</span><h3>Cold Memory</h3>
                     <p>you log into memOS2004 and you can't leave until you remember everything. play w headphones pls</p>
                     <a class="go" href="https://hiikayu.github.io/projects/memory/" target="_blank" rel="noopener">play ↗</a></div>
@@ -723,7 +838,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
                   <div class="thumb ph zoom" data-full="comic-1.jpg" data-cap="valentine comic ✿ part 1"><img src="comic-1.jpg" alt="valentine comic" onerror="miss(this)"></div>
                   <div class="info"><span class="tag">digital art · comics</span><h3>Drawings &amp; Comics</h3>
                     <p>portraits, fanart and a little valentine comic in russian (´｡• ᵕ •｡`)</p>
-                    <span class="go" data-tabgo="gallery">see gallery ✿</span></div>
+                    <span class="go" data-tabgo="gallery" data-scroll="art">see my art ✿</span></div>
                 </article>
                 <article class="work wobble">
                   <div class="bar"><span>unnecessary_invention.cad</span><span class="btns"><i></i><i></i><i></i></span></div>
@@ -755,7 +870,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
                 </article>
                 <article class="work wobble">
                   <div class="bar"><span>vac.png</span><span class="btns"><i></i><i></i><i></i></span></div>
-                  <div class="thumb t-art"><svg viewBox="0 0 260 130" fill="none" stroke="#5b4a6e" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 100c30-40 50 20 80-10s40-60 70-20 40 30 70-10"/><path d="M205 22l6 12 13 2-10 9 3 13-12-7-12 7 3-13-10-9 13-2z" fill="#fff"/></svg></div>
+                  <div class="thumb t-art"><svg viewBox="0 0 260 130" fill="none" stroke="#6B4F4A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 100c30-40 50 20 80-10s40-60 70-20 40 30 70-10"/><path d="M205 22l6 12 13 2-10 9 3 13-12-7-12 7 3-13-10-9 13-2z" fill="#fff"/></svg></div>
                   <div class="info"><span class="tag">community · president</span><h3>Visual Arts Club</h3>
                     <p>leading nyu shanghai's visual arts club — workshops, shows and art people.</p>
                     <span class="go" data-tabgo="gallery">pics in gallery ✿</span></div>
@@ -763,24 +878,11 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               </div>
             </div>
 
-            <!-- GALLERY -->
+            <!-- GALLERY (my art at the bottom) -->
             <div class="panel" data-panel="gallery">
               <h2><span class="hl">gallery</span><span class="s">memories</span></h2>
-              <p>my drawings, irl pics and designs. tap to zoom (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
-              <h4><span>my drawings (˘▾˘)~</span></h4>
-              <div class="gallery">
-                <figure class="pola zoom" style="--r:-2deg" data-full="drawing-purple.jpg" data-cap="fluffy coat, purple mood"><div class="ph"><img src="drawing-purple.jpg" alt="drawing of a girl in a fur coat on purple" onerror="miss(this)"></div><figcaption>fluffy coat, purple mood</figcaption></figure>
-                <figure class="pola zoom" style="--r:2deg" data-full="drawing-fur.jpg" data-cap="black and white winter"><div class="ph"><img src="drawing-fur.jpg" alt="black and white drawing in a fur hood" onerror="miss(this)"></div><figcaption>b&amp;w winter</figcaption></figure>
-                <figure class="pola zoom" style="--r:-1deg" data-full="drawing-bang.jpg" data-cap="bang bang!"><div class="ph"><img src="drawing-bang.jpg" alt="black and white fanart" onerror="miss(this)"></div><figcaption>bang bang!</figcaption></figure>
-                <figure class="pola zoom" style="--r:3deg" data-full="drawing-chiaki.jpg" data-cap="pink fanart"><div class="ph"><img src="drawing-chiaki.jpg" alt="pink fanart" onerror="miss(this)"></div><figcaption>pink fanart ♡</figcaption></figure>
-                <figure class="pola zoom" style="--r:-3deg" data-full="drawing-blue.jpg" data-cap="blue sketch"><div class="ph"><img src="drawing-blue.jpg" alt="blue sketch fanart" onerror="miss(this)"></div><figcaption>blue sketch</figcaption></figure>
-              </div>
-              <h4 style="--hlc:#ffd3e4"><span>valentine comic (〃▽〃)</span></h4>
-              <div class="gallery">
-                <figure class="pola zoom" style="--r:1deg" data-full="comic-1.jpg" data-cap="valentine comic part 1"><div class="ph"><img src="comic-1.jpg" alt="valentine comic part 1" onerror="miss(this)"></div><figcaption>part 1</figcaption></figure>
-                <figure class="pola zoom" style="--r:-2deg" data-full="comic-2.jpg" data-cap="valentine comic part 2"><div class="ph"><img src="comic-2.jpg" alt="valentine comic part 2" onerror="miss(this)"></div><figcaption>part 2</figcaption></figure>
-              </div>
-              <h4 style="--hlc:#fff1a8"><span>me irl (*^▽^*)</span></h4>
+              <p>irl pics, designs and my art (scroll down for drawings!). tap to zoom (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+              <h4 style="--hlc:var(--butter)"><span>me irl (*^▽^*)</span></h4>
               <div class="gallery">
                 <figure class="pola zoom" style="--r:-2deg" data-full="beach.jpg" data-cap="sea + sunset"><div class="ph"><img src="beach.jpg" alt="daia at the sea at sunset" onerror="miss(this)"></div><figcaption>sea + sunset</figcaption></figure>
                 <figure class="pola zoom" style="--r:2deg" data-full="kimono.jpg" data-cap="kimono day!!"><div class="ph"><img src="kimono.jpg" alt="daia in a pink kimono" onerror="miss(this)"></div><figcaption>kimono day!!</figcaption></figure>
@@ -792,13 +894,13 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
                 <figure class="pola zoom" style="--r:2deg" data-full="workshop.jpg" data-cap="workshop mode"><div class="ph"><img src="workshop.jpg" alt="workshop discussion" onerror="miss(this)"></div><figcaption>workshop mode</figcaption></figure>
                 <figure class="pola zoom" style="--r:-1deg" data-full="event.jpg" data-cap="event day"><div class="ph"><img src="event.jpg" alt="community event" onerror="miss(this)"></div><figcaption>event day</figcaption></figure>
               </div>
-              <h4 style="--hlc:#d6ecff"><span>my dog (ᐡ•ﻌ•ᐡ)</span></h4>
+              <h4 style="--hlc:var(--blue)"><span>my dog (ᐡ•ﻌ•ᐡ)</span></h4>
               <div class="gallery">
                 <figure class="pola zoom" style="--r:2deg" data-full="dog-1.jpg" data-cap="the fluffiest"><div class="ph"><img src="dog-1.jpg" alt="white fluffy dog smiling" onerror="miss(this)"></div><figcaption>the fluffiest</figcaption></figure>
                 <figure class="pola zoom" style="--r:-2deg" data-full="dog-2.jpg" data-cap="car ride stare"><div class="ph"><img src="dog-2.jpg" alt="white dog resting its head" onerror="miss(this)"></div><figcaption>car ride stare</figcaption></figure>
                 <figure class="pola zoom" style="--r:1deg" data-full="dog-3.jpg" data-cap="sitting like a human"><div class="ph"><img src="dog-3.jpg" alt="white dog sitting on a sofa" onerror="miss(this)"></div><figcaption>sitting like a human</figcaption></figure>
               </div>
-              <h4 style="--hlc:#ffd3e4"><span>on set ( ´ ▽ ` )ﾉ</span></h4>
+              <h4 style="--hlc:var(--pink)"><span>on set ( ´ ▽ ` )ﾉ</span></h4>
               <div class="gallery">
                 <figure class="pola zoom" style="--r:-2deg" data-full="film-set.jpg" data-cap="checking the shot on set"><div class="ph"><img src="film-set.jpg" alt="crew checking the camera on set" onerror="miss(this)"></div><figcaption>checking the shot</figcaption></figure>
                 <figure class="pola zoom" style="--r:2deg" data-full="film-set-2.jpg" data-cap="candlelight scene"><div class="ph"><img src="film-set-2.jpg" alt="filming a scene by candlelight" onerror="miss(this)"></div><figcaption>candlelight scene</figcaption></figure>
@@ -820,6 +922,19 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
                 <figure class="pola zoom" style="--r:-1deg" data-full="resonance.jpg" data-cap="resonance ✿ math but make it pretty"><div class="ph"><img src="resonance.jpg" alt="presentation slide" onerror="miss(this)"></div><figcaption>math but make it pretty</figcaption></figure>
                 <figure class="pola zoom" style="--r:3deg" data-full="maikon.jpg" data-cap="maikon media center ✿ brand identity"><div class="ph"><img src="maikon.jpg" alt="maikon branding" onerror="miss(this)"></div><figcaption>maikon branding</figcaption></figure>
                 <figure class="pola zoom" style="--r:-2deg" data-full="glove.jpg" data-cap="innovation lab ✿ design challenge 1"><div class="ph"><img src="glove.jpg" alt="design portfolio" onerror="miss(this)"></div><figcaption>innovation lab portfolio</figcaption></figure>
+              </div>
+              <h4 id="art" style="--hlc:var(--mauve)"><span>my drawings (˘▾˘)~</span></h4>
+              <div class="gallery">
+                <figure class="pola zoom" style="--r:-2deg" data-full="drawing-purple.jpg" data-cap="fluffy coat, purple mood"><div class="ph"><img src="drawing-purple.jpg" alt="drawing of a girl in a fur coat on purple" onerror="miss(this)"></div><figcaption>fluffy coat, purple mood</figcaption></figure>
+                <figure class="pola zoom" style="--r:2deg" data-full="drawing-fur.jpg" data-cap="black and white winter"><div class="ph"><img src="drawing-fur.jpg" alt="black and white drawing in a fur hood" onerror="miss(this)"></div><figcaption>b&amp;w winter</figcaption></figure>
+                <figure class="pola zoom" style="--r:-1deg" data-full="drawing-bang.jpg" data-cap="bang bang!"><div class="ph"><img src="drawing-bang.jpg" alt="black and white fanart" onerror="miss(this)"></div><figcaption>bang bang!</figcaption></figure>
+                <figure class="pola zoom" style="--r:3deg" data-full="drawing-chiaki.jpg" data-cap="pink fanart"><div class="ph"><img src="drawing-chiaki.jpg" alt="pink fanart" onerror="miss(this)"></div><figcaption>pink fanart ♡</figcaption></figure>
+                <figure class="pola zoom" style="--r:-3deg" data-full="drawing-blue.jpg" data-cap="blue sketch"><div class="ph"><img src="drawing-blue.jpg" alt="blue sketch fanart" onerror="miss(this)"></div><figcaption>blue sketch</figcaption></figure>
+              </div>
+              <h4 style="--hlc:var(--pink)"><span>valentine comic (〃▽〃)</span></h4>
+              <div class="gallery">
+                <figure class="pola zoom" style="--r:1deg" data-full="comic-1.jpg" data-cap="valentine comic part 1"><div class="ph"><img src="comic-1.jpg" alt="valentine comic part 1" onerror="miss(this)"></div><figcaption>part 1</figcaption></figure>
+                <figure class="pola zoom" style="--r:-2deg" data-full="comic-2.jpg" data-cap="valentine comic part 2"><div class="ph"><img src="comic-2.jpg" alt="valentine comic part 2" onerror="miss(this)"></div><figcaption>part 2</figcaption></figure>
               </div>
             </div>
 
@@ -843,10 +958,10 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               <h2><span class="hl">say hi</span><span class="s">xoxo</span></h2>
               <p>wanna collab or just say hi? find me here (っ˘ω˘ς )</p>
               <div class="linkbtns">
-                <a href="mailto:daiakriv@gmail.com" style="--a:#ffd3e4;--r:-2deg">email</a>
-                <a href="https://www.tiktok.com/@.wwwiiu" target="_blank" rel="noopener" style="--a:#d6ecff;--r:2deg">tiktok ♪</a>
-                <a href="https://www.linkedin.com/in/daiaana-krivoshapkina/" target="_blank" rel="noopener" style="--a:#cfeedd;--r:-1deg">linkedin ✿</a>
-                <a href="https://github.com/hiikayu" target="_blank" rel="noopener" style="--a:#fff1a8;--r:3deg">github ☆</a>
+                <a href="mailto:daiakriv@gmail.com" style="--a:var(--pink);--r:-2deg">email</a>
+                <a href="https://www.tiktok.com/@.wwwiiu" target="_blank" rel="noopener" style="--a:var(--blue);--r:2deg">tiktok ♪</a>
+                <a href="https://www.linkedin.com/in/daiaana-krivoshapkina/" target="_blank" rel="noopener" style="--a:var(--mist);--r:-1deg">linkedin ✿</a>
+                <a href="https://github.com/hiikayu" target="_blank" rel="noopener" style="--a:var(--butter);--r:3deg">github ☆</a>
               </div>
               <div class="note"><span class="tape dot" style="left:40%;top:-10px;--r:3deg;width:70px"></span>guestbook is under construction ✿<br>until then, leave me a message at daiakriv@gmail.com (◕‿◕)♡</div>
             </div>
@@ -860,34 +975,27 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
           <figure class="nb">
             <img src="notebook.jpg" alt="open notebook">
             <span class="tape" style="left:3%;top:-1.6cqw;--r:-8deg;width:12cqw;height:3.4cqw"></span>
-            <span class="tape mint" style="right:3%;top:-1.4cqw;--r:7deg;width:12cqw;height:3.4cqw"></span>
+            <span class="tape mist" style="right:3%;top:-1.4cqw;--r:7deg;width:12cqw;height:3.4cqw"></span>
             <div class="page l">
-              <h5>dear diary ✿</h5>
-              <div>today i made a whole website</div>
-              <div>on my <span class="hi">ipad</span> at like 3am lol</div>
-              <div>it has a tray. and an ipod.</div>
-              <div>and my dog in it (ᐡ•ﻌ•ᐡ)</div>
-              <div class="pen">note to self: sleep</div>
-              <div class="pen"><span class="scribble">tomorrow</span> next week maybe</div>
-              <div>miss yakutia snow sometimes ✻</div>
-              <div>but shanghai is cute too ♡</div>
-              <div style="text-align:right">— daia</div>
+              <h5>dear visitor ✿</h5>
+              <div class="big">helloow, this is my website</div>
+              <div class="big">where y'all can do <span class="hi">fun stuff</span></div>
+              <div class="big">and explore my fav things !</div>
+              <div class="big pen" style="text-align:right">— daia (｡•ᴗ•｡)♡</div>
             </div>
             <div class="page r">
-              <h5>currently ☆</h5>
-              <ul>
-                <li><b>mood:</b> uwu</li>
-                <li><b>playing:</b> cold memory (bug hunting)</li>
-                <li><b>drawing:</b> comic part 3</li>
-                <li><b>learning:</b> three.js + business</li>
-                <li><b>planning:</b> a real guestbook</li>
-                <li><b>craving:</b> strawberries</li>
-                <li><b>dreaming:</b> about pink snow</li>
+              <h5>activities ☆</h5>
+              <ul class="act">
+                <li><i></i>get sleep</li>
+                <li><i></i>get food</li>
+                <li><i></i>get rich asap</li>
               </ul>
-              <div class="pen" style="margin-top:2.68cqw">ps. u got this (｡•ᴗ•｡)</div>
             </div>
-            <svg class="doodle" style="right:4%;bottom:5%;width:7cqw;height:7cqw" viewBox="0 0 40 36" fill="#ffb3d1" stroke="#e27fb3" stroke-width="2"><use href="#heart"/></svg>
-            <svg class="doodle" style="left:40%;bottom:4%;width:5cqw;height:5cqw" viewBox="0 0 40 40" fill="#fff1a8" stroke="#d1a637" stroke-width="2"><use href="#star"/></svg>
+            <svg class="nbs die" style="--r:-12deg;right:3%;bottom:6%;width:11cqw;height:11cqw"><use href="#pstarC"/></svg>
+            <svg class="nbs die" style="--r:6deg;left:9%;bottom:8%;width:14cqw;height:7.6cqw"><use href="#wheart"/></svg>
+            <span class="nbs" style="--r:-4deg;left:24%;bottom:7%"><span class="s-oval die" style="font-size:1.9cqw;padding:1.2cqw 3cqw">hehe…<i style="font-size:2.4cqw">♡</i></span></span>
+            <img class="nbs" src="blossoms.png" alt="" style="--r:-10deg;right:16%;bottom:4%;width:12cqw;filter:drop-shadow(1px 3px 2px rgba(107,79,74,.25))">
+            <svg class="nbs die" style="--r:8deg;right:27%;bottom:9%;width:7cqw;height:7cqw"><use href="#pstarD"/></svg>
           </figure>
 
           <div class="deskrow">
@@ -901,20 +1009,18 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               </div>
             </div>
 
-            <div class="tinbox" id="tin">
-              <span class="bub white tinmsg" id="tinmsg">hi</span>
-              <div class="tin">
-                <img src="tin.jpg" alt="little polka dot tin">
+            <div class="basketbox" id="basket">
+              <span class="s-cream favpop" id="favpop">hi</span>
+              <div class="basket">
+                <img src="basket.png" alt="little blue wire basket">
                 <div class="in">
-                  <svg style="left:4%;top:8%;--r:-14deg" width="36" height="32" fill="url(#checkpat)" stroke="#e0659a" stroke-width="2.4"><use href="#heart"/></svg>
-                  <svg style="left:34%;top:2%;--r:10deg" width="34" height="34" fill="#fff1a8" stroke="#5b4a6e" stroke-width="2.4"><use href="#star"/></svg>
-                  <svg style="left:66%;top:6%;--r:-6deg" width="36" height="40"><use href="#berry"/></svg>
-                  <svg style="left:10%;top:52%;--r:8deg" width="40" height="40"><use href="#clover"/></svg>
-                  <svg style="left:40%;top:50%;--r:-10deg" width="52" height="33"><use href="#bow"/></svg>
-                  <span class="t-uwu" style="left:72%;top:52%;--r:12deg;font-size:16px">uwu</span>
+                  <img src="blossoms.png" alt="" style="left:-6%;top:-4%;width:58%;--r:-14deg">
+                  <svg style="left:52%;top:4%;--r:10deg" width="40" height="44"><use href="#berry"/></svg>
+                  <svg class="die" style="left:8%;top:52%;--r:-8deg" width="44" height="44"><use href="#pstarE"/></svg>
+                  <svg style="left:50%;top:50%;--r:12deg" width="56" height="35"><use href="#bow"/></svg>
                 </div>
               </div>
-              <div class="cap">my sticker tin<small>shake it</small></div>
+              <div class="cap">my fav things basket<small>tap to pick one</small></div>
             </div>
 
             <div class="cam" id="cam">
@@ -922,6 +1028,49 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
               <img src="camera.png" alt="little digital camera">
               <div class="cap">digicam<small>click for a random pic</small></div>
             </div>
+          </div>
+
+          <!-- sticker pile to fill the desk -->
+          <div class="deskstk">
+            <span class="stk" style="--r:-6deg;left:2%;top:18px"><svg class="die" width="100" height="100" viewBox="0 0 100 100"><use href="#flowerP"/><text x="50" y="50" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="26" fill="#C98D98">i ♡</text><text x="50" y="70" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="16" fill="#C98D98">pixels</text></svg></span>
+            <span class="stk s-chat die" style="--r:4deg;left:21%;top:30px">brb drawing ✎</span>
+            <svg class="stk die" style="--r:10deg;left:23%;top:80px" width="56" height="56"><use href="#pstarA"/></svg>
+            <span class="stk" style="--r:-4deg;left:34%;top:70px"><span class="s-stripe die">きょうも<br>がんばったね</span></span>
+            <svg class="stk die" style="--r:-6deg;left:52%;top:14px" width="70" height="64"><use href="#aiheart"/></svg>
+            <span class="stk s-y2k" style="--r:-6deg;left:52%;top:96px">#2000s</span>
+            <span class="stk" style="--r:8deg;left:67%;top:20px"><svg class="die" width="88" height="96" viewBox="0 0 100 110"><use href="#clover"/><text x="50" y="44" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#5d6e58">lucky</text><text x="50" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#5d6e58">me today</text></svg></span>
+            <span class="stk s-ex die" style="--r:6deg;left:83%;top:28px">!?</span>
+            <svg class="stk die" style="--r:-12deg;left:84%;top:86px" width="54" height="54"><use href="#pstarB"/></svg>
+            <span class="stk" style="--r:-3deg;left:74%;top:118px"><span class="s-tag p die">cute</span> <span class="s-tag die">sweet</span></span>
+          </div>
+
+          <div class="win corner" style="margin-top:20px">
+            <div class="bar"><span>&gt; neocities corner ✿ buttons + stamps</span><span class="btns"><i></i><i></i><i></i></span></div>
+            <div class="body pad addme cornerbody">
+            <div class="btnwall">
+              <a class="b88 a" href="https://daiaworld.world">daia world ✿</a>
+              <span class="b88 b">made on<br>an ipad</span>
+              <span class="b88 d">♡ pink 4ever ♡</span>
+              <span class="b88 e">best viewed<br>w/ love</span>
+              <span class="b88 f">web design<br>enjoyer</span>
+              <span class="b88 g">✻ yakutia ✻</span>
+              <span class="b88 h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html kid</span>
+              <span class="b88 c">dog person<br>(ᐡ•ﻌ•ᐡ)</span>
+            </div>
+            <textarea readonly aria-label="link code">&lt;a href="https://daiaworld.world"&gt;daia world ✿&lt;/a&gt;</textarea>
+            <div class="uc"></div>
+            <div class="stamps">
+              <div class="stamp" style="--r:-3deg;--sbg:#F7D8D5"><div><svg width="30" height="33"><use href="#berry"/></svg>i ♡ strawberries</div></div>
+              <div class="stamp" style="--r:2deg;--sbg:#D0E5E2"><div><big>sleepy</big>girl club</div></div>
+              <div class="stamp" style="--r:3deg;--sbg:#F2E6C0"><div><svg width="30" height="30"><use href="#pstarB"/></svg>pixel art enjoyer</div></div>
+              <div class="stamp" style="--r:-2deg;--sbg:#C9D9EA"><div>from<br><big>yakutia</big></div></div>
+              <div class="stamp" style="--r:-1deg;--sbg:#EFDDE0"><div>web 1.0<br>forever ♡</div></div>
+              <div class="stamp" style="--r:2deg;--sbg:#F7D8D5"><div><svg width="44" height="24"><use href="#wheart"/></svg>angel mode</div></div>
+            </div>
+            <div class="webring">✿ daia's webring ✿
+              <div class="r"><a href="https://hiikayu.github.io/projects/memory/" target="_blank" rel="noopener">‹ memory</a><a href="https://github.com/hiikayu" target="_blank" rel="noopener">git</a><a href="https://hiikayu.github.io/CClab-26s/taiga/" target="_blank" rel="noopener">taiga ›</a></div>
+            </div>
+          </div>
           </div>
         </section>
       </div>
@@ -941,32 +1090,40 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
       <div class="bar"><span>my_board.jpg</span><span class="btns"><i></i><i></i><i></i></span></div>
       <div class="cork">
         <svg class="bunting" viewBox="0 0 1000 46" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 6Q500 40 1000 6" fill="none" stroke="#fffaf2" stroke-width="2"/>
-          <g stroke="#fffaf2" stroke-width="1.5">
-            <path d="M40 9l18 1-8 22z" fill="#ffd3e4"/><path d="M120 15l18 1-8 22z" fill="#d6ecff"/><path d="M200 20l18 1-8 22z" fill="#fff1a8"/><path d="M280 24l18 0-9 22z" fill="#cfeedd"/>
-            <path d="M360 26l18 0-9 22z" fill="#ffd3e4"/><path d="M440 27l18 0-9 22z" fill="#d6ecff"/><path d="M520 27l18 0-9 22z" fill="#fff1a8"/><path d="M600 26l18 0-9 22z" fill="#cfeedd"/>
-            <path d="M680 24l18 0-9 22z" fill="#ffd3e4"/><path d="M760 20l18-1-10 22z" fill="#d6ecff"/><path d="M840 15l18-1-10 22z" fill="#fff1a8"/><path d="M920 9l18-1-10 22z" fill="#cfeedd"/>
+          <path d="M0 6Q500 40 1000 6" fill="none" stroke="#FFFBF2" stroke-width="2"/>
+          <g stroke="#FFFBF2" stroke-width="1.5">
+            <path d="M40 9l18 1-8 22z" fill="#F7D8D5"/><path d="M120 15l18 1-8 22z" fill="#D0E5E2"/><path d="M200 20l18 1-8 22z" fill="#F9F4E1"/><path d="M280 24l18 0-9 22z" fill="#C9D9EA"/>
+            <path d="M360 26l18 0-9 22z" fill="#E6B8BE"/><path d="M440 27l18 0-9 22z" fill="#D0E5E2"/><path d="M520 27l18 0-9 22z" fill="#F9F4E1"/><path d="M600 26l18 0-9 22z" fill="#C9D9EA"/>
+            <path d="M680 24l18 0-9 22z" fill="#F7D8D5"/><path d="M760 20l18-1-10 22z" fill="#D0E5E2"/><path d="M840 15l18-1-10 22z" fill="#F9F4E1"/><path d="M920 9l18-1-10 22z" fill="#E6B8BE"/>
           </g>
         </svg>
         <figure class="it snapc zoom" style="--r:-5deg;left:3%;top:58px" data-full="photobooth.jpg" data-cap="photobooth w the girls"><svg class="pin"><use href="#pin-pk"/></svg><img src="photobooth.jpg" alt="photobooth strips" width="132" height="150" onerror="this.remove()"><figcaption>the girls ♡</figcaption></figure>
-        <div class="it paper pk" style="--r:4deg;left:19%;top:70px;width:150px"><svg class="pin"><use href="#pin-bl"/></svg>to do today:<br>~ draw<br>~ code<br>~ sleep (never)</div>
-        <figure class="it snapc zoom" style="--r:3deg;left:20%;top:220px" data-full="dog-3.jpg" data-cap="sitting like a human"><svg class="pin"><use href="#pin-yl"/></svg><img src="dog-3.jpg" alt="my dog" width="106" height="110" style="object-position:50% 20%" onerror="this.remove()"><figcaption>my baby</figcaption></figure>
+        <div class="it paper pk" style="--r:4deg;left:19%;top:70px;width:150px"><svg class="pin"><use href="#pin-bl"/></svg>reminder:<br>u r doing<br>great (｡•ᴗ•｡)</div>
+        <figure class="it snapc zoom" style="--r:3deg;left:20%;top:230px" data-full="dog-3.jpg" data-cap="sitting like a human"><svg class="pin"><use href="#pin-mt"/></svg><img src="dog-3.jpg" alt="my dog" width="106" height="110" style="object-position:50% 20%" onerror="this.remove()"><figcaption>my baby</figcaption></figure>
         <svg class="it die" style="--r:-10deg;left:35%;top:58px" width="140" height="140"><use href="#cd"/></svg>
-        <span class="stk t-swag" style="--r:-6deg;left:4%;top:300px">SWAG</span>
-        <span class="stk t-ipink die" style="--r:4deg;left:34%;top:236px">I <svg viewBox="0 0 40 36" fill="url(#dotpat)" stroke="#2a1d22" stroke-width="2.5"><use href="#heart"/></svg><br>pink</span>
         <figure class="it snapc zoom" style="--r:4deg;left:51%;top:52px" data-full="kimono.jpg" data-cap="kimono day!!"><svg class="pin"><use href="#pin-bl"/></svg><img src="kimono.jpg" alt="kimono day" width="112" height="140" style="object-position:50% 25%" onerror="this.remove()"><figcaption>kimono day</figcaption></figure>
-        <div class="it paper yl" style="--r:-4deg;left:42%;top:270px;width:160px"><svg class="pin"><use href="#pin-pk"/></svg>11/9 — website day!!<br>god bless yakutia ✻</div>
-        <span class="stk bub white" style="--r:-4deg;left:60%;top:248px">귀여워 귀여워…</span>
-        <span class="stk t-kawaii die" style="--r:-8deg;left:62%;top:330px">KAWAii</span>
-        <figure class="it snapc zoom" style="--r:-3deg;left:67%;top:68px" data-full="lotso.jpg" data-cap="matching hoods"><svg class="pin"><use href="#pin-yl"/></svg><img src="lotso.jpg" alt="matching hoods" width="150" height="110" onerror="this.remove()"><figcaption>matching hoods</figcaption></figure>
-        <div class="it paper" style="--r:3deg;left:80%;top:262px;width:130px;text-align:center"><svg class="pin"><use href="#pin-bl"/></svg>(｡•ᴗ•｡)<br>u got this</div>
-        <img class="it px die" src="me.png" alt="" style="--r:3deg;left:86%;top:60px;height:150px" onerror="this.remove()">
-        <span class="stk bub" style="--r:5deg;left:22%;top:372px">good luck in everything ☆</span>
-        <svg class="it die" style="--r:-14deg;left:46%;top:206px" width="70" height="44"><use href="#bow"/></svg>
-        <svg class="it die" style="--r:10deg;left:93%;top:350px" width="44" height="50"><use href="#berry"/></svg>
-        <svg class="it die" style="--r:-8deg;left:14%;top:330px" width="48" height="48"><use href="#clover"/></svg>
-        <svg class="it die" style="--r:12deg;left:31%;top:30px" width="34" height="34" fill="#fff1a8" stroke="#5b4a6e" stroke-width="2.4"><use href="#star"/></svg>
-        <span class="stk t-heart3 die" style="--r:-6deg;left:84%;top:370px">i&lt;3u</span>
+        <div class="it paper yl" style="--r:-4deg;left:44%;top:300px;width:160px"><svg class="pin"><use href="#pin-pk"/></svg>11/9 — website day!!<br>god bless yakutia ✻</div>
+        <figure class="it snapc zoom" style="--r:-3deg;left:67%;top:66px" data-full="lotso.jpg" data-cap="matching hoods"><svg class="pin"><use href="#pin-mt"/></svg><img src="lotso.jpg" alt="matching hoods" width="150" height="110" onerror="this.remove()"><figcaption>matching hoods</figcaption></figure>
+        <img class="it px die" src="me.png" alt="" style="--r:3deg;left:86%;top:58px;height:150px" onerror="this.remove()">
+
+        <!-- stickers -->
+        <span class="stk s-oval die" style="--r:-6deg;left:31%;top:214px">うふふ…<i>♡</i></span>
+        <svg class="stk die" style="--r:6deg;left:62%;top:236px" width="70" height="64"><use href="#aiheart"/></svg>
+        <svg class="stk die" style="--r:-8deg;left:76%;top:250px" width="112" height="61"><use href="#wheart"/></svg>
+        <span class="stk" style="--r:8deg;left:2%;top:290px"><svg class="die" width="96" height="96" viewBox="0 0 100 100"><use href="#flowerB"/><text x="50" y="47" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="17" fill="#4d5f74">good</text><text x="50" y="66" text-anchor="middle" font-family="Fuzzy Bubbles, Gaegu, cursive" font-weight="700" font-size="20" fill="#4d5f74">LUCK</text></svg></span>
+        <svg class="stk die" style="--r:12deg;left:15%;top:28px" width="44" height="44"><use href="#pstarB"/></svg>
+        <svg class="stk die" style="--r:-10deg;left:47%;top:212px" width="56" height="56"><use href="#pstarA"/></svg>
+        <svg class="stk die" style="--r:14deg;left:93%;top:250px" width="50" height="50"><use href="#pstarE"/></svg>
+        <svg class="stk die" style="--r:-6deg;left:31%;top:388px" width="50" height="50"><use href="#pstarD"/></svg>
+        <span class="stk" style="--r:-6deg;left:85%;top:330px"><svg class="die" width="104" height="95" viewBox="0 0 120 110"><use href="#umbrella"/><text x="60" y="44" text-anchor="middle" font-family="Hachi Maru Pop, cursive" font-size="13" fill="#6B4F4A">きょうも</text><text x="60" y="61" text-anchor="middle" font-family="Hachi Maru Pop, cursive" font-size="13" fill="#6B4F4A">あめだね</text></svg></span>
+        <span class="stk" style="--r:6deg;left:62%;top:340px"><svg class="die" width="86" height="94" viewBox="0 0 100 110"><use href="#clover"/><text x="50" y="44" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#5d6e58">lucky</text><text x="50" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#5d6e58">me today</text></svg></span>
+        <img class="stk" src="blossoms.png" alt="" style="--r:-12deg;left:58%;top:186px;width:72px;filter:drop-shadow(1px 3px 2px rgba(60,40,25,.3))">
+        <span class="stk s-y2k" style="--r:-4deg;left:37%;top:420px;color:#F7D8D5;text-shadow:0 2px 0 #A96F7C">#2000s</span>
+        <span class="stk" style="--r:-3deg;left:12%;top:396px"><span class="s-stripe die">ゆっくり<br>やすんでね</span></span>
+        <span class="stk" style="--r:4deg;left:72%;top:420px"><span class="s-chat die">be u. everyone else is taken lol</span></span>
+        <span class="stk s-777 die" style="--r:-8deg;left:12%;top:198px">777</span>
+        <svg class="stk" style="--r:-8deg;left:84.5%;top:48px" width="120" height="170" viewBox="0 0 120 170" aria-hidden="true"><ellipse cx="60" cy="85" rx="55" ry="80" fill="none" stroke="#A96F7C" stroke-width="4" stroke-dasharray="210 8 140 6"/></svg>
+        <span class="stk s-ex die" style="--r:8deg;left:56%;top:410px">!?</span>
       </div>
     </div>
 
@@ -983,6 +1140,7 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
           <div class="slot" data-food="rice" style="left:50.4%;top:50.5%;width:38.8%;height:28.6%"><img src="food-rice.jpg" alt="rice"></div>
         </div>
         <div class="menu">
+          <svg class="stk die" style="--r:12deg;right:0;top:-6px" width="50" height="50"><use href="#pstarC"/></svg>
           <h3>what's in my tray?</h3>
           <p>tap stuff to put it in the tray (liptint is a food group trust)</p>
           <div class="foods">
@@ -992,8 +1150,8 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
             <button class="food" data-food="chicken"><img class="die" src="food-chicken.jpg" alt=""><span>chicken</span></button>
             <button class="food" data-food="rice"><img class="die" src="food-rice.jpg" alt=""><span>rice</span></button>
           </div>
-          <div class="trayctl"><span class="go" id="fill">fill it ✿</span><span class="go" id="empty" style="background:#fff">empty</span><span class="go" data-open="tray-design.jpg" data-cap="what's in my tray! ✿" style="background:#cfeedd">og design</span></div>
-          <p id="traymsg" style="margin-top:8px;color:var(--hot);font-weight:700;min-height:22px"></p>
+          <div class="trayctl"><span class="go" id="fill">fill it ✿</span><span class="go" id="empty" style="background:#fff">empty</span><span class="go" data-open="tray-design.jpg" data-cap="what's in my tray! ✿" style="background:var(--mist)">og design</span></div>
+          <p id="traymsg" style="margin-top:8px;color:var(--rose2);font-weight:700;min-height:22px"></p>
         </div>
       </div>
     </div>
@@ -1005,24 +1163,23 @@ dialog button{font-family:'Gaegu';font-weight:700;font-size:16px;border:1.5px so
         <div class="body pad"><div class="mon" id="mon"></div><table id="cal"></table></div>
       </div>
       <div class="win blue todo">
-        <div class="bar"><span>✎ to do</span><span class="btns"><i></i><i></i><i></i></span></div>
+        <div class="bar"><span>✎ activities</span><span class="btns"><i></i><i></i><i></i></span></div>
         <div class="body pad" id="todo">
-          <label><input type="checkbox"><span>finish daia world</span></label>
-          <label><input type="checkbox"><span>upload all my pics lol</span></label>
-          <label><input type="checkbox"><span>post on tiktok fr</span></label>
-          <label><input type="checkbox"><span>draw part 3 of the comic</span></label>
-          <label><input type="checkbox"><span>sleep more (lol)</span></label>
+          <label><input type="checkbox"><span>get sleep</span></label>
+          <label><input type="checkbox"><span>get food</span></label>
+          <label><input type="checkbox"><span>get rich asap</span></label>
+          <div class="tip">that's it. that's the list (ᵕ—ᴗ—)</div>
         </div>
       </div>
-      <div class="win">
+      <div class="win mist">
         <div class="bar"><span>✿ daia's room</span><span class="btns"><i></i><i></i><i></i></span></div>
         <div class="body pad pet">
           <div class="room">
             <div class="win2"></div>
             <div class="shelf">
               <svg width="16" height="18"><use href="#berry"/></svg>
-              <svg width="16" height="15" fill="#ff9cc4"><use href="#heart"/></svg>
-              <svg width="16" height="16" fill="#fff1a8" stroke="#5b4a6e" stroke-width="2"><use href="#star"/></svg>
+              <svg width="16" height="15" fill="#E6B8BE"><use href="#heart"/></svg>
+              <svg width="16" height="16"><use href="#pstarB"/></svg>
             </div>
             <div class="plush">ʕ•ᴥ•ʔ</div>
             <div class="say" id="say"></div>
@@ -1065,14 +1222,15 @@ const pick = a => a[Math.floor(Math.random()*a.length)];
 
 /* tabs */
 const names = {home:'♡ home.html', works:'☆ works.html', gallery:'✿ gallery.html', profile:'✿ profile.html', links:'♡ links.html'};
-function openTab(id){
+function openTab(id, anchor){
   $$('.tab').forEach(x => x.classList.toggle('on', x.dataset.tab === id));
   $$('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === id));
   $('#where').textContent = names[id];
-  $('.content').scrollTop = 0;
+  const c = $('.content'); c.scrollTop = 0;
+  if(anchor){ const a = document.getElementById(anchor); if(a) setTimeout(() => { c.scrollTop = a.offsetTop - 10; if(getComputedStyle(c).height === 'auto' || c.scrollHeight <= c.clientHeight) a.scrollIntoView({behavior:'smooth'}); }, 50); }
 }
 $$('.tab').forEach(t => t.addEventListener('click', () => openTab(t.dataset.tab)));
-$$('[data-tabgo]').forEach(b => b.addEventListener('click', () => openTab(b.dataset.tabgo)));
+$$('[data-tabgo]').forEach(b => b.addEventListener('click', () => openTab(b.dataset.tabgo, b.dataset.scroll)));
 
 /* zoom */
 const lb = $('#lb');
@@ -1138,12 +1296,15 @@ function toggleMusic(){
 }
 playBtn.onclick = toggleMusic;
 
-/* sticker tin */
-const tin = $('#tin'), tinmsg = $('#tinmsg');
-tin.addEventListener('click', () => {
-  tin.classList.remove('shake'); void tin.offsetWidth; tin.classList.add('shake');
-  tinmsg.textContent = pick(['*rattle rattle*','my precious stickers (〃▽〃)','dont steal them!!','i have 200 more at home','uwu']);
-  tinmsg.classList.add('on'); clearTimeout(tin._t); tin._t = setTimeout(() => tinmsg.classList.remove('on'), 1800);
+/* fav things basket */
+const FAVS = ['strawberries (always)','pink everything','my dog (ᐡ•ﻌ•ᐡ)','pixel art','rainy days','wired earphones','yakutia snow ✻','drawing at 3am','cute stickers','cd players'];
+const basket = $('#basket'), favpop = $('#favpop');
+let lastFav = -1;
+basket.addEventListener('click', () => {
+  basket.classList.remove('shake'); void basket.offsetWidth; basket.classList.add('shake');
+  let i; do { i = Math.floor(Math.random()*FAVS.length); } while(i === lastFav); lastFav = i;
+  favpop.innerHTML = 'fav thing:<br>' + FAVS[i];
+  favpop.classList.add('on'); clearTimeout(basket._t); basket._t = setTimeout(() => favpop.classList.remove('on'), 2200);
 });
 
 /* camera */
@@ -1189,9 +1350,9 @@ drawTray();
   $('#cal').innerHTML = html + '</tr>';
 })();
 
-/* to do */
-const boxes = $$('#todo input'), todo = load('dw-todo3', []);
-boxes.forEach((b, i) => { b.checked = !!todo[i]; b.addEventListener('change', () => save('dw-todo3', [...boxes].map(x => x.checked))); });
+/* activities */
+const boxes = $$('#todo input'), todo = load('dw-act', []);
+boxes.forEach((b, i) => { b.checked = !!todo[i]; b.addEventListener('change', () => save('dw-act', [...boxes].map(x => x.checked))); });
 
 /* visitors (this browser) */
 const visits = load('dw-visits', 0) + 1; save('dw-visits', visits);
@@ -1225,7 +1386,7 @@ if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
     const now = performance.now(); if(now - last < 55) return; last = now;
     const s = document.createElement('span');
     s.className = 'spark'; s.textContent = ['♡','✦','☆','✿'][i % 4];
-    s.style.color = ['#ff6fa5','#8cc8ff','#c9a8ff','#94d1b0'][i++ % 4];
+    s.style.color = ['#C98D98','#9DB6D0','#E6B8BE','#A9C9C5'][i++ % 4];
     s.style.left = e.clientX + 8 + 'px'; s.style.top = e.clientY + 8 + 'px';
     document.body.appendChild(s); setTimeout(() => s.remove(), 900);
   };
